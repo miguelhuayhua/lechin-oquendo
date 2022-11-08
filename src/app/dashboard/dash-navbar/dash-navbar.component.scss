@@ -1,0 +1,27 @@
+.link-dashboard {}
+
+
+.custom-form {
+
+    display: flex;
+
+    input {
+        padding: 0;
+        margin: 0 !important;
+        border-radius: 0;
+        border: none;
+        background-color: azure;
+    }
+
+    button {
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: wheat;
+        color: black;
+    }
+}

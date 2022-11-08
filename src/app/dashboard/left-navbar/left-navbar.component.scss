@@ -1,0 +1,63 @@
+//navbar left body styles
+.navbar-left-style {
+    background-color: #F9FCFB;
+    border-radius: 20px;
+}
+
+
+//navbar left logo section
+.logo-section {
+    &::after {
+        content: " ";
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: rgb(255, 255, 255);
+        background: -moz-linear-gradient(97deg, rgba(255, 255, 255, 1) 1%, rgba(234, 213, 208, 1) 50%, rgba(255, 255, 255, 1) 100%);
+        background: -webkit-linear-gradient(97deg, rgba(255, 255, 255, 1) 1%, rgba(234, 213, 208, 1) 50%, rgba(255, 255, 255, 1) 100%);
+        background: linear-gradient(97deg, rgba(255, 255, 255, 1) 1%, rgba(234, 213, 208, 1) 50%, rgba(255, 255, 255, 1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff", GradientType=1);
+    }
+
+    margin: 10px 0;
+}
+
+.navbar-left-image {
+    width: 100px;
+    display: block;
+    margin: 0 auto !important;
+}
+
+//navbar left custom buttons
+
+.navbar-button {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.067);
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 10px 0;
+    background-color: transparent;
+
+    a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.1em;
+        font-weight: 500;
+    }
+
+    mat-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        margin: 0px 10px 0 20px;
+        font-size: 1.5em;
+        color: #507cce;
+        width: 35px;
+        height: 35px;
+
+    }
+}
