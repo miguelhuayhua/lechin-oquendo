@@ -1,27 +1,55 @@
-.link-dashboard {}
+//top info into navbar links
+.link-dashboard {
 
+    color: whitesmoke !important;
+    font-family: 'Roboto';
+    font-size: 1.2em;
+    a {
+        color: inherit;
+        &:hover{
+            color: rgb(55, 63, 88) ;
+        }
+    }
+}
 
+//custom form top navbar
 .custom-form {
 
     display: flex;
+    border-radius: 10px;
+    overflow: hidden;
 
     input {
-        padding: 0;
+        padding: 10px 10px;
         margin: 0 !important;
         border-radius: 0;
         border: none;
-        background-color: azure;
+
+        &:focus {
+            box-shadow: none !important;
+        }
     }
 
     button {
-        padding: 0;
+        padding: 0 10px;
         margin: 0;
         border-radius: 0;
         border: none;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: wheat;
         color: black;
     }
+}
+
+//button user to display user actions to his account
+.btn-user {
+    border: none;
+    display: flex;
+    align-items: center;
+    background-color: transparent !important;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.103);
+    padding: 5px;
+    border-radius: 10px;
+
 }

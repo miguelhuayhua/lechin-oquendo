@@ -12,6 +12,7 @@ import { LeftNavbarComponent } from './dashboard/left-navbar/left-navbar.compone
 import { LineChartHomeComponent } from './dashboard/line-chart-home/line-chart-home.component';
 import { BarChartHomeComponent } from './dashboard/bar-chart-home/bar-chart-home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     MatIconModule,
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
