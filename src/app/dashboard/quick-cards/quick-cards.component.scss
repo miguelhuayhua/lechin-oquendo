@@ -1,0 +1,50 @@
+.custom-card {
+    width: 90%;
+    margin: 0 auto !important;
+    border-radius: 30px;
+    border: none;
+}
+
+.card-main {
+
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+
+    p {
+        color: rgb(123, 123, 123);
+        font-weight: 500;
+        display: flex;
+        flex-direction: column;
+        font-variant: small-caps;
+
+        span {
+            color: black;
+
+        }
+    }
+
+    mat-icon {
+        color: white;
+        background-color: rgb(80, 91, 192);
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 2em;
+    }
+}
+
+.card-down {
+    margin: 10px auto;
+    p{
+        font-weight: 100;
+        color: rgb(154, 154, 154);
+        span{
+            font-weight: 500;
+            color: rgb(56, 177, 66);
+        }
+    }
+}
