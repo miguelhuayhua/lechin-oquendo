@@ -1,12 +1,45 @@
 @import "../../../../node_modules/bootstrap/scss/functions";
 @import "../../../../node_modules/bootstrap/scss/variables";
 @import "../../../../node_modules/bootstrap/scss/mixins";
-.chart{
-    margin: 0 auto !important;
+
+.chart {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgb(1, 36, 100) 0%, rgb(129, 54, 54) 100%); 
+    padding: 20px;
+    border-radius: 20px;
 }
 
+
+@include media-breakpoint-up(sm) {
+    .chart {
+        width: 350px !important;
+        height: 200px !important;
+    }
+}
 @include media-breakpoint-up(md) {
     .chart {
+        width: 400px !important;
+        height: 200px !important;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .chart {
+        width: 550px !important;
+        height: 250px !important;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .chart {
         width: 700px !important;
+        height: 300px !important;
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    .chart {
+        width: 800px !important;
+        height: 400px !important;
     }
 }

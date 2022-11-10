@@ -1,0 +1,46 @@
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+
+
+
+@include media-breakpoint-up(sm) {
+    .chart {
+        width: 350px !important;
+        height: 200px !important;
+    }
+}
+@include media-breakpoint-up(md) {
+    .chart {
+        width: 350px !important;
+        height: 170px !important;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .chart {
+        width: 350px !important;
+        height: 220px !important;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .chart {
+        width: 340px !important;
+        height: 300px !important;
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    .chart {
+        width: 400px !important;
+        height: 350px !important;
+    }
+}
+
+@media (min-width: 1780px) {
+    .chart {
+
+        width: 500px !important;
+        height: 350px !important;    }
+}

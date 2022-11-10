@@ -13,14 +13,52 @@ export class LineChartHomeComponent implements OnInit {
     datasets: [
       {
         data: [10, 20, 30, 40, 12, 45, 67, 32],
-        label: 'Goles'
+        label: 'Goles',
+        tension: .3,
+        backgroundColor: 'rgba(255,255,255,0.3)',
+        borderColor: '#FFF',
+        pointBorderWidth: 5,
+        pointHoverRadius: 10,
+        fill:true
+
       }
     ],
     labels: ['Miguel', 'Raul', 'Jose', 'Pedro', 'Fernando', 'Maria', 'Luis']
 
   }
   public lineChartOptions: ChartConfiguration['options'] = {
-    
+    plugins: {
+      legend: {
+        labels: {
+          color: 'white'
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks:
+        {
+          font: {
+
+          }, color: 'white',
+
+        },
+        grid: {
+          color: 'white'
+        }
+      },
+      y: {
+        ticks: {
+          color: 'white'
+        },
+        grid: {
+          color: '#666'
+        }
+      }
+
+    }
+    ,
+    maintainAspectRatio:false
   }
   public lineChartType: ChartType = 'line';
   constructor() { }
