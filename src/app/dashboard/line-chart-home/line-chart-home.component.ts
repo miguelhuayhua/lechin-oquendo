@@ -22,7 +22,7 @@ export class LineChartHomeComponent implements OnInit {
   public lineChartOptions: ChartConfiguration['options'] = {
     
   }
-  public lineChartType: ChartType = 'bar';
+  public lineChartType: ChartType = 'line';
   constructor() { }
 
   ngOnInit(): void {
