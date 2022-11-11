@@ -4,10 +4,12 @@
     color: whitesmoke !important;
     font-family: 'Roboto';
     font-size: 1.2em;
+
     a {
         color: inherit;
-        &:hover{
-            color: rgb(55, 63, 88) ;
+
+        &:hover {
+            color: rgb(55, 63, 88);
         }
     }
 }
@@ -16,17 +18,18 @@
 .custom-form {
 
     display: flex;
-    border-radius: 10px;
-    overflow: hidden;
 
     input {
         padding: 10px 10px;
         margin: 0 !important;
         border-radius: 0;
         border: none;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        background-color: whitesmoke;
 
         &:focus {
-            box-shadow: none !important;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.576) !important;
         }
     }
 
@@ -38,7 +41,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
         color: black;
+        background-color: whitesmoke;
+
+        &:hover {
+            background-color: rgb(46, 56, 82);
+            color: white;
+        }
     }
 }
 
@@ -47,9 +58,20 @@
     border: none;
     display: flex;
     align-items: center;
-    background-color: transparent !important;
+    background-color: rgb(43, 67, 100) !important;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.103);
-    padding: 5px;
+    padding: 10px;
+    color: rgb(230, 230, 230);
     border-radius: 10px;
+    transition: box-shadow 1s;
+
+    mat-icon {
+        margin-right: 10px;
+    }
+
+    &:hover {
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.389);
+        transition: box-shadow .5s;
+    }
 
 }

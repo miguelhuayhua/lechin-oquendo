@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeftNavbarComponent implements OnInit {
 
-  constructor() { }
+  dashboardActivo: boolean = false;
+  maestrosActivo: boolean = false;
+  constructor() {
+    this.dashboardActivo, this.maestrosActivo = false;
+  }
 
   ngOnInit(): void {
   }
