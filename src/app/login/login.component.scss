@@ -1,38 +1,45 @@
-#navegador ul{
+#navegador ul {
     list-style-type: none;
     text-align: center;
     background-color: #4286f4;
- } 
- 
-#navegador li{
+}
+
+#navegador li {
     display: inline;
     text-align: center;
     margin: 0 10px 0 0;
     background-color: #4286f4;
- } 
-#navegador{
+}
+
+#navegador {
     padding-top: 5em;
     background-color: #4286f4;
-} 
+}
+
 #navegador li a {
     padding: 2px 7px 2px 7px;
     color: #666;
     text-decoration: none;
- } 
- #navegador li a:hover{
-    background-color: #333333;
-    color: #4286f4;
- } 
-.log_1{
-background: #373B44;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-width: 100%;
-margin: 0 auto 10px auto;
-padding-top: 5em;
 }
 
-.form{
+#navegador li a:hover {
+    background-color: #333333;
+    color: #4286f4;
+}
+
+.log_1 {
+    background: #373B44;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4286f4, #373B44);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4286f4, #373B44);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100%;
+    margin: 0 auto 10px auto;
+    padding-top: 5em;
+}
+
+.form {
     width: 100%;
     max-width: 400px;
     min-width: 300px;
@@ -44,10 +51,11 @@ padding-top: 5em;
     padding-right: 8px;
     padding-bottom: 40px;
 }
-.log_2{
+
+.log_2 {
     text-align: center;
     border-radius: 1em;
-    background-color:#ffffff;
+    background-color: #ffffff;
     color: rgb(18, 18, 19);
     width: 300px;
     height: auto;
@@ -56,24 +64,28 @@ padding-top: 5em;
     position: relative;
     margin-bottom: 10em;
 }
-.link4{
+
+.link4 {
     margin: 0.5em;
     color: #161b22;
 }
-.l1{
+
+.l1 {
     padding-top: 1em;
 }
 
-.i1{
+.i1 {
     border-radius: 0.4em;
     border-color: #30363d;
-    background-color: #16181c;;
+    background-color: #16181c;
+    ;
     width: 100%;
     padding: 5px;
     margin-bottom: 0.5em;
     color: aliceblue;
 }
-.boton{
+
+.boton {
     margin-top: 1em;
     border-radius: 0.4em;
     background-color: #1f2733;
@@ -84,22 +96,25 @@ padding-top: 5em;
     border-color: #38914b;
     color: aliceblue;
 }
-.boton:hover{
+
+.boton:hover {
     color: aliceblue;
-    background-color:#304b71;
+    background-color: #304b71;
 }
-.link1{
+
+.link1 {
     text-decoration: none;
     margin: 0.5em;
 }
-.pie_pagina{
+
+.pie_pagina {
     width: auto;
     padding: 3rem;
     background-color: #ecf0f4;
     position: relative;
 }
-  
-  .form-box {
+
+.form-box {
     width: 320px;
     height: 420px;
     background: #000;
@@ -110,67 +125,21 @@ padding-top: 5em;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 70px 30px;
-  }
-  
-  .form-box .avatar {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    position: absolute;
-    top: -50px;
-    left: calc(50% - 50px);
-  }
-  
-  .form-box {
-      width: 400px;
-      padding: 40px;
-      background: url(/src/assets/fondo1.jpg) no-repeat center top;
-      background-size: cover;
-      text-align: center;
-      border-radius: 40%;
-  }
-  
-  .form-title {
-      color: #000000;
-      text-transform: uppercase;
-      font-weight: 500;
-  }
-  
-  .form-box input[type="text"],
-  .form-box input[type="password"],
-  .form-box button[type="submit"] {
-      border: 0;
-      background: none;
-      display: block;
-      margin: 20px auto;
-      padding: 14px 10px;
-      text-align: center;
-      border: 2px solid #3742fa;
-      width: 200px;
-      outline: none;
-      color: 000000;
-      border-radius: 24px;
-      transition: 0.25s;
-  
-  }
-  
-  .form-box input[type="text"]:focus,
-  .form-box input[type="password"]:focus{
-      width: 280px;
-      border-color: #ffffff;
-      background: #FFD700;
-  
-  }
-  
-  .form-box button[type="submit"] {
-      border: 0;
-      background: #800080;
-      cursor: pointer;
-      border: 2px solid #9370DB;
-      color: white;
-  }
-  
-  .form-box button[type="submit"]:hover {
-      background: none;
-  }
-  
+}
+
+.main-form {
+    input {
+        margin: 10px 0 !important;
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+        font-family: 'roboto';
+        font-weight: 500;
+        font-size: 1.1em;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+}

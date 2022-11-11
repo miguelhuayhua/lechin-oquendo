@@ -17,6 +17,9 @@ import { LoginComponent } from './login/login.component';
 import { TableComponent } from './dashboard/static-components/table/table.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { EstudianteComponent } from './estudiante/estudiante.component';
+import { LoginService } from './services/login.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,9 +40,11 @@ import { EstudianteComponent } from './estudiante/estudiante.component';
     MatIconModule,
     NgbModule,
     BrowserAnimationsModule,
-    NgChartsModule
+    NgChartsModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
