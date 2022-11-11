@@ -2,6 +2,8 @@
 .navbar-left-style {
     background-color: #F9FCFB;
     border-radius: 20px;
+    position: sticky;
+    top: 30px;
 }
 
 
@@ -31,22 +33,20 @@
 //navbar left custom buttons
 
 .navbar-button {
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.067);
     width: 90%;
     margin: 0 auto;
     border-radius: 10px;
     padding: 10px 0;
-    background-color: transparent;
 
-    a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: black;
-        font-family: 'Roboto', sans-serif;
-        font-size: 1.1em;
-        font-weight: 500;
-    }
+
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(160, 160, 160);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: box-shadow 1s, color 1s;
 
     mat-icon {
         display: flex;
@@ -56,8 +56,21 @@
         margin: 0px 10px 0 20px;
         font-size: 1.5em;
         color: #507cce;
-        width: 35px;
-        height: 35px;
+        transition: background-color 1s, color 1s;
 
+    }
+}
+
+.active {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.067);
+    color: black;
+    transition: box-shadow 1s, color 1s;
+
+    mat-icon {
+        background-color: #507cce;
+        color: white;
+        width: 30px;
+        height: 30px;
+        transition: background-color 1s, color 1s;
     }
 }

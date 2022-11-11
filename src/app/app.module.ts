@@ -14,6 +14,9 @@ import { BarChartHomeComponent } from './dashboard/bar-chart-home/bar-chart-home
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgChartsModule } from 'ng2-charts';
 import { LoginComponent } from './login/login.component';
+import { TableComponent } from './dashboard/static-components/table/table.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { EstudianteComponent } from './estudiante/estudiante.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,10 @@ import { LoginComponent } from './login/login.component';
     LeftNavbarComponent,
     LineChartHomeComponent,
     BarChartHomeComponent,
-    LoginComponent
+    LoginComponent,
+    TableComponent,
+    UsuarioComponent,
+    EstudianteComponent
   ],
   imports: [
     BrowserModule,

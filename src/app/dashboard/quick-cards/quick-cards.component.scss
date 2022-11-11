@@ -3,6 +3,11 @@
     margin: 0 auto !important;
     border-radius: 30px;
     border: none;
+    transition: transform .5s;
+    &:hover{
+        transform: scale(1.05);
+        transition: transform .5s;
+    }
 }
 
 .card-main {
@@ -26,7 +31,7 @@
 
     mat-icon {
         color: white;
-        background-color: rgb(80, 91, 192);
+        background-color: rgb(34, 65, 107);
         width: 50px;
         height: 50px;
         display: flex;
