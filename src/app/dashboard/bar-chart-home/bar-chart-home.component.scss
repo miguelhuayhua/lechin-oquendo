@@ -2,7 +2,10 @@
 @import "../../../../node_modules/bootstrap/scss/variables";
 @import "../../../../node_modules/bootstrap/scss/mixins";
 
-
+.chart{
+    background-color: rgb(250, 250, 250);
+    border-radius: 20px;
+}
 
 @include media-breakpoint-up(sm) {
     .chart {
