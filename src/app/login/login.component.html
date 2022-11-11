@@ -1,21 +1,19 @@
 <div id="navegador">
     <ul>
-    <li><a href="#">Elemento 1</a></li>
-    <li><a href="#">Elemento 2</a></li>
-    <li><a href="#">Elemento 3</a></li>
-    <li><a href="#">Elemento 4</a></li>
+        <li><a href="#">Elemento 1</a></li>
+        <li><a href="#">Elemento 2</a></li>
+        <li><a href="#">Elemento 3</a></li>
+        <li><a href="#">Elemento 4</a></li>
     </ul>
-</div> 
-<div class="log_1">
-    <div class="log_2">
-        <p class="p1">Register With</p>
-        <p class="p2">or</p>
-        <form action="index.html"class="form-box animate__animated__bounce">
-            <h1 class="form-title">CAMPO VIRTUAL</h1>
-            <img class="avatar" src="/src/assets/cole.png" alt="Logo de FAzt">
-            <input type="text" placeholder="Usuario">
-            <input type="password" placeholder="password">
-            <button type="submit">
+</div>
+<div class="row">
+    <div class="col-6 offset-3">
+        <form action="/login" class="main-form rounded-5 shadow p-5" (submit)="handleSubmit($event)">
+            <h2 class="text-center">Ingreso de personal</h2>
+            <img class="avatar" class="w-25 d-block mx-auto" src="../../assets/cole.png" alt="Logo de FAzt">
+            <input [(ngModel)]="this.usuario" name="usuario" type="text" class="form-control" placeholder="Usuario">
+            <input [(ngModel)]="this.password" name="password" type="password" class="form-control" placeholder="password">
+            <button type="submit" class="btn btn-dark mx-auto d-block w-50 rounded-pill">
                 INGRESAR
             </button>
             <br>
@@ -30,4 +28,3 @@
         <a href="" class="link4">Póngase en contacto con Lechin Oquendo</a>
     </footer>
 </div>
-
