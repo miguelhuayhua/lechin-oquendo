@@ -80,3 +80,9 @@ body {
       position: sticky;
   }
 }
+
+@media (max-width: 1200px) {
+  #left-navbar {
+      display: none;
+  }
+}

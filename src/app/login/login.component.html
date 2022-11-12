@@ -8,7 +8,7 @@
 </div>
 <div class="row">
     <div class="col-6 offset-3">
-        <form action="/login" class="main-form rounded-5 shadow p-5" (submit)="handleSubmit($event)">
+        <form class="main-form rounded-5 shadow p-5" (submit)="handleSubmit($event)">
             <h2 class="text-center">Ingreso de personal</h2>
             <img class="avatar" class="w-25 d-block mx-auto" src="../../assets/cole.png" alt="Logo de FAzt">
             <input [(ngModel)]="this.usuario" name="usuario" type="text" class="form-control" placeholder="Usuario">

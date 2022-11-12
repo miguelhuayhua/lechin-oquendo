@@ -20,6 +20,9 @@ import { EstudianteComponent } from './estudiante/estudiante.component';
 import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+
+import { UserTableComponent } from './usuario/user-table/user-table.component';
+import { UserActionsComponent } from './usuario/user-actions/user-actions.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,9 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     TableComponent,
     UsuarioComponent,
-    EstudianteComponent
+    EstudianteComponent,
+    UserTableComponent,
+    UserActionsComponent
   ],
   imports: [
     BrowserModule,

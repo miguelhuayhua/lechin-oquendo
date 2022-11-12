@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,8 +8,11 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   loginPost(data: { username: string, password: string }): void {
-    console.log(data)
-    this.http.post('aca va la url', data).subscribe(res => {
+
+    let formData = new FormData();
+    formData.append('usuario', data.username);
+    formData.append('password', data.password)
+    this.http.post('https://lechin.herokuapp.com/login', formData).subscribe(res => {
       console.log("se envió")
     })
   }
