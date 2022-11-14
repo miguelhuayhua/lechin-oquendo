@@ -10,9 +10,9 @@ export class LoginService {
   loginPost(data: { username: string, password: string }): void {
 
     let formData = new FormData();
-    formData.append('usuario', data.username);
+    formData.append('num_dl', data.username);
     formData.append('password', data.password)
-    this.http.post('https://lechin.herokuapp.com/login', formData).subscribe(res => {
+    this.http.post('https://lechin.herokuapp.com/cierre_session', formData).subscribe(res => {
       console.log("se envió")
     })
   }

@@ -1,0 +1,58 @@
+.main-user-info {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(240, 248, 255, 0.747);
+    border-radius: 20px;
+    flex-wrap: wrap;
+
+    .user-info {
+        display: flex;
+
+        img {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            margin: 10px 10px 10px 30px;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            h3 {
+                margin: 0;
+                font-size: 1.3em;
+                font-weight: bold;
+            }
+
+            p {
+                color: rgb(101, 101, 101);
+            }
+        }
+    }
+
+    .user-options {
+        margin-right: 30px;
+        display: flex;
+        align-items: center;
+
+       a {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.238);
+            margin: 0 10px;
+            mat-icon{
+                margin-right: 10px;
+            }
+            
+        }
+    }
+}
+
+.active{
+    background-color: white !important;
+    border: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.601);
+}
