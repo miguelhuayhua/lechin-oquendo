@@ -1,7 +1,14 @@
+//main body for dash navbar
+.main-dash-navbar {
+    padding: 20px 0;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
 //top info into navbar links
 .link-dashboard {
 
-    color: whitesmoke !important;
+    color: rgb(54, 49, 67) !important;
     font-family: 'Roboto';
     font-size: 1.2em;
 
@@ -66,12 +73,47 @@
     transition: box-shadow 1s;
 
     mat-icon {
-        margin-right: 10px;
+        margin-right: 5px;
+        width: 35px;
     }
 
     &:hover {
-        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.389);
-        transition: box-shadow .5s;
+        box-shadow: 0px 0px 10px rgb(85, 73, 164);
+        transition: box-shadow .25s;
     }
 
+}
+
+//user actions after to press the user button
+.userOptions {
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    width: 80%;
+    min-width: 200px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgb(102, 102, 102);
+    height: 150px;
+    display: none;
+}
+
+.showUserOptions {
+    display: block;
+    z-index: 1;
+}
+
+.customOptions {
+    div {
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            margin-top: 5px;
+
+            mat-icon {
+                margin-right: 10px;
+            }
+        }
+    }
 }

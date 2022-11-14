@@ -1,11 +1,11 @@
-<nav class="row my-4">
-    <div class="col-2">
+<nav class="row main-dash-navbar">
+    <div class="col-12 col-md-4 col-xxl-2">
         <p class="link-dashboard">Páginas
             <span>/ </span>
             <a href="">Dashboard</a>
         </p>
     </div>
-    <div class="col-5 offset-5">
+    <div class="col-12 offset-xxl-4 col-md-8 col-xxl-6 ">
         <div class="row d-flex align-items-center">
             <div class="col-7">
                 <form class="d-flex" class="custom-form" action="">
@@ -15,11 +15,32 @@
                     </button>
                 </form>
             </div>
-            <div class="col-5 ">
-                <button class="btn-user">
+            <div class="col-5 position-relative d-flex justify-content-end">
+                <button class="btn-user"  (click)="handleClickButton($event)">
                     <mat-icon>account_circle</mat-icon>
                     Miguel Huayhua Condori
                 </button>
+                <div [ngClass]="{userOptions:true, showUserOptions:this.showUserOptions,row:true,
+                customOptions:true}" (mouseleave)="handleMouseLeave($event)">
+                    <div class="col-12">
+                        <a class="btn w-100" routerLink="/dashboard/me" >
+                            <mat-icon> insert_emoticon</mat-icon>
+                            Mi perfil
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a class="btn w-100">
+                            <mat-icon>edit</mat-icon>
+                            Editar Perfil
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a class="btn w-100">
+                            <mat-icon>exit_to_app</mat-icon>
+                            Cerrar Sesión
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,18 +1,20 @@
 <main class="container-fluid position-relative">
     <div class="row mt-3">
-        <div class="col-xl-2" id="left-navbar">
+        <div class="col-xl-2 d-none d-md-block">
             <app-left-navbar></app-left-navbar>
         </div>
         <div class="col-12 col-xl-10">
             <div class="row mx-1">
                 <div class="col-12 mb-4 position-sticky" style="z-index: 10;
-                    top: 30px;">
+                top: 30px;">
                     <app-dash-navbar></app-dash-navbar>
                 </div>
 
                 <div class="col-12">
+                   <app-user-info-actions></app-user-info-actions>
+                </div>
+                <div class="col-12">
                     <router-outlet></router-outlet>
-
                 </div>
             </div>
         </div>

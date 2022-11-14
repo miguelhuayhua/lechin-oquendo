@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,13 +18,20 @@ import { NgChartsModule } from 'ng2-charts';
 import { LoginComponent } from './login/login.component';
 import { TableComponent } from './dashboard/static-components/table/table.component';
 import { UsuarioComponent } from './usuario/usuario.component';
-import { EstudianteComponent } from './estudiante/estudiante.component';
+
 import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { UserTableComponent } from './usuario/user-table/user-table.component';
-import { UserActionsComponent } from './usuario/user-actions/user-actions.component';
+import { UserTableComponent } from './usuario/ver-estudiantes-acciones/user-table/user-table.component';
+import { UserActionsComponent } from './usuario/ver-estudiantes-acciones/user-actions/user-actions.component';
+import { MeComponent } from './usuario/me/me.component';
+import { UserInfoActionsComponent } from './usuario/me/user-info-actions/user-info-actions.component';
+import { UserInfoComponent } from './usuario/me/user-info/user-info.component';
+import { UserHistoryComponent } from './usuario/me/user-history/user-history.component';
+import { UserLogsComponent } from './usuario/me/user-logs/user-logs.component';
+import { VerEstudiantesAccionesComponent } from './usuario/ver-estudiantes-acciones/ver-estudiantes-acciones.component';
+import { AgregarComponent } from './usuario/agregar/agregar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +44,15 @@ import { UserActionsComponent } from './usuario/user-actions/user-actions.compon
     LoginComponent,
     TableComponent,
     UsuarioComponent,
-    EstudianteComponent,
     UserTableComponent,
-    UserActionsComponent
+    UserActionsComponent,
+    MeComponent,
+    UserInfoActionsComponent,
+    UserInfoComponent,
+    UserHistoryComponent,
+    UserLogsComponent,
+    VerEstudiantesAccionesComponent,
+    AgregarComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +62,9 @@ import { UserActionsComponent } from './usuario/user-actions/user-actions.compon
     BrowserAnimationsModule,
     NgChartsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
