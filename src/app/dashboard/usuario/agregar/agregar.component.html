@@ -4,70 +4,82 @@
         <hr>
         <form action="#" class="form col-12">
             <div class="row">
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>Nombre del {{this.tipo}}</mat-label>
                         <input [(ngModel)]="this.nombre" [ngModelOptions]="{standalone:true}" matInput>
                     </mat-form-field>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>Apellidos del {{this.tipo}}</mat-label>
-                        <input matInput>
+                        <input [(ngModel)]="this.apellidos" [ngModelOptions]="{standalone:true}" matInput>
                     </mat-form-field>
                 </div>
-                <div class="col-3">
+                <div class="col-6 col-md-3">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>Celular</mat-label>
-                        <input size="8" matInput #postalCode maxlength="8" (input)="handleInput($event)"
+                        <input size="8" [(ngModel)]="this.celular" [ngModelOptions]="{standalone:true}" matInput
+                            #postalCode maxlength="8" (input)="handleInputPhone($event)"
                             placeholder="Coloque su número de celular">
-                        <mat-hint align="end">{{postalCode.value.length}} / 7</mat-hint>
+                        <mat-hint [align]="'start'" class="error" *ngIf="this.showPhoneError1">
+                            Introduzca un celular válido
+                        </mat-hint>
+                        <mat-hint align="end">{{postalCode.value.length}} / 8</mat-hint>
                     </mat-form-field>
-                    <p *ngIf="this.showPhoneError1">
-                        Introduzca un celular válido <strong>required</strong>
-                    </p>
+
                 </div>
                 <div class="col-6">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>Correo Electrónico</mat-label>
-                        <input matInput type="email">
+                        <input (input)="handleInputEmail($event)" [(ngModel)]="this.correo"
+                            [ngModelOptions]="{standalone:true}" matInput type="email">
+                        <mat-hint [align]="'start'" class="error" *ngIf="this.showEmailError">
+                            Introduzca el correo con el formato correcto
+                        </mat-hint>
                     </mat-form-field>
                 </div>
-                <div class="col-3">
+                <div class="col-4 col-md-3">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>Género</mat-label>
-                        <mat-select>
+                        <mat-select [(ngModel)]="this.genero" [ngModelOptions]="{standalone:true}">
                             <mat-option *ngFor="let genre of ['Hombre','Mujer','Otro']" [value]="genre">
                                 {{genre}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-2">
+                <div class="col-4 col-md-2">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>C.I. / NIT</mat-label>
-                        <input matInput maxlength="10">
+                        <input #ci (input)="this.handleInputCi($event)" [(ngModel)]="this.ci_nit"
+                            [ngModelOptions]="{standalone:true}" matInput maxlength="10">
+                        <mat-hint [align]="'start'" class="error" *ngIf="this.showCiError">
+                            Introduzca un CI / NIT válido
+                        </mat-hint>
+                        <mat-hint align="end">{{ci.value.length}} / 10</mat-hint>
                     </mat-form-field>
                 </div>
-                <div class="col-2">
+                <div class="col-4 col-md-2">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>CIUDAD</mat-label>
-                        <mat-select>
-                            <mat-option *ngFor="let city of ['LA PAZ', 'COCHABAMBA']" [value]="city">
+                        <mat-select [(ngModel)]="this.ciudad" [ngModelOptions]="{standalone:true}">
+                            <mat-option
+                                *ngFor="let city of ['LA PAZ', 'COCHABAMBA', 'SANTA CRUZ', 'ORURO','POTOSI','CHUQUISACA','TARIJA','PANDO','BENI']"
+                                [value]="city">
                                 {{city}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-8">
-                    <mat-form-field class="w-100" appearance="fill">
-                        <mat-label>Dirección</mat-label>
-                        <input matInput>
-                    </mat-form-field>
+                <div class="col-12 col-md-8">
                 </div>
+
                 <div class="col-4 offset-4">
-                    <input class="btn btn-dark mx-auto d-block w-50
-                    my-4" type="submit" value="Agregar {{this.tipo}}">
+                    <input class="btn submit-button" type="submit" value="Agregar {{this.tipo}}">
+                </div>
+                <div class="col-6 offset-3">
+                    <input max="" type="date">
                 </div>
             </div>
         </form>

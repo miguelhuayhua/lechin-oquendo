@@ -9,11 +9,23 @@ import { RouterInfoService } from 'src/app/services/router-info.service';
 export class DashNavbarComponent implements OnInit {
   showUserOptions: boolean = false;
   //data info
-   dashInfo: string = '';
+  dashInfo: string = '';
+  rutas: { route: string, fullPath: string }[] = [];
   constructor(private router: Router, private routerInfo: RouterInfoService) {
     router.events.subscribe(data => {
       let url: string = (data as RouterEvent).url
-      this.dashInfo = url;
+      if (url != undefined) {
+        let full: string = '';
+        this.dashInfo = url;
+        this.rutas = url.split('/').map(((value, i) => {
+          full = full + '/' + value
+          if (i < url.split('/').length - 1) {
+            value = value + " / "
+          }
+          return { route: value, fullPath: full.substring(1, full.length) }
+        }))
+        this.rutas = this.rutas.slice(1, this.rutas.length)
+      }
     })
   }
 
