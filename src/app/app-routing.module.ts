@@ -3,15 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
-import { MeComponent } from './usuario/me/me.component';
-import { UserHistoryComponent } from './usuario/me/user-history/user-history.component';
-import { UserInfoActionsComponent } from './usuario/me/user-info-actions/user-info-actions.component';
-import { UserInfoComponent } from './usuario/me/user-info/user-info.component';
-import { UserLogsComponent } from './usuario/me/user-logs/user-logs.component';
-import { UserActionsComponent } from './usuario/ver-estudiantes-acciones/user-actions/user-actions.component';
-import { UsuarioComponent } from './usuario/usuario.component';
-import { AgregarComponent } from './usuario/agregar/agregar.component';
-import { VerEstudiantesAccionesComponent } from './usuario/ver-estudiantes-acciones/ver-estudiantes-acciones.component';
+import { MeComponent } from './dashboard/usuario/me/me.component';
+import { UserHistoryComponent } from './dashboard/usuario/me/user-history/user-history.component';
+import { UserInfoActionsComponent } from './dashboard/usuario/me/user-info-actions/user-info-actions.component';
+import { UserInfoComponent } from './dashboard/usuario/me/user-info/user-info.component';
+import { UserLogsComponent } from './dashboard/usuario/me/user-logs/user-logs.component';
+import { UserActionsComponent } from './dashboard/usuario/ver-estudiantes-acciones/user-actions/user-actions.component';
+import { UsuarioComponent } from './dashboard/usuario/usuario.component';
+import { AgregarComponent } from './dashboard/usuario/agregar/agregar.component';
+import { VerEstudiantesAccionesComponent } from './dashboard/usuario/ver-estudiantes-acciones/ver-estudiantes-acciones.component';
+import { MainDashboardComponent } from './dashboard/main-dashboard/main-dashboard.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
+    component: DashboardComponent,
     children: [
       {
         path: 'me',
@@ -45,8 +47,28 @@ const routes: Routes = [
           }
         ]
       }, {
+        path: 'estudiante',
+        component: UsuarioComponent,
+        children: [
+          {
+            path: 'agregar',
+            component: AgregarComponent,
+            data: { tipo: 'estudiante' }
+          },
+          {
+            path: '',
+            component: VerEstudiantesAccionesComponent,
+            pathMatch: 'full'
+          }
+        ]
+      },
+      {
+        path: 'overview',
+        component: MainDashboardComponent,
+      }
+      , {
         path: '',
-        component: DashboardComponent,
+        redirectTo: 'overview',
         pathMatch: 'full'
       }
     ]
@@ -54,22 +76,8 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-  },
-  {
-    path: 'estudiante',
-    component: UsuarioComponent,
-    children: [
-      {
-        path: 'agregar',
-        component: AgregarComponent,
-        data: { tipo: 'estudiante' }
-      },
-      {
-        path: '',
-        component: VerEstudiantesAccionesComponent
-      }
-    ]
-  },
+  }
+
 ];
 
 @NgModule({

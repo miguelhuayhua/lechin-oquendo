@@ -1,0 +1,75 @@
+<div class="row bg-light rounded-3">
+    <div class="col-12">
+        <h2>Agregar {{this.tipo}}</h2>
+        <hr>
+        <form action="#" class="form col-12">
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Nombre del {{this.tipo}}</mat-label>
+                        <input [(ngModel)]="this.nombre" [ngModelOptions]="{standalone:true}" matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Apellidos del {{this.tipo}}</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-3">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Celular</mat-label>
+                        <input size="8" matInput #postalCode maxlength="8" (input)="handleInput($event)"
+                            placeholder="Coloque su número de celular">
+                        <mat-hint align="end">{{postalCode.value.length}} / 7</mat-hint>
+                    </mat-form-field>
+                    <p *ngIf="this.showPhoneError1">
+                        Introduzca un celular válido <strong>required</strong>
+                    </p>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Correo Electrónico</mat-label>
+                        <input matInput type="email">
+                    </mat-form-field>
+                </div>
+                <div class="col-3">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Género</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let genre of ['Hombre','Mujer','Otro']" [value]="genre">
+                                {{genre}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-2">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>C.I. / NIT</mat-label>
+                        <input matInput maxlength="10">
+                    </mat-form-field>
+                </div>
+                <div class="col-2">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>CIUDAD</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let city of ['LA PAZ', 'COCHABAMBA']" [value]="city">
+                                {{city}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-8">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Dirección</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-4 offset-4">
+                    <input class="btn btn-dark mx-auto d-block w-50
+                    my-4" type="submit" value="Agregar {{this.tipo}}">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
