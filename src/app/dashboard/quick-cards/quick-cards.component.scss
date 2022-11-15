@@ -4,7 +4,8 @@
     border-radius: 30px;
     border: none;
     transition: transform .5s;
-    &:hover{
+
+    &:hover {
         transform: scale(1.05);
         transition: transform .5s;
     }
@@ -44,10 +45,12 @@
 
 .card-down {
     margin: 10px auto;
-    p{
+
+    p {
         font-weight: 100;
         color: rgb(154, 154, 154);
-        span{
+
+        span {
             font-weight: 500;
             color: rgb(56, 177, 66);
         }

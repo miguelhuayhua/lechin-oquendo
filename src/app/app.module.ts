@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
@@ -36,6 +36,7 @@ import { UserLogsComponent } from './dashboard/usuario/me/user-logs/user-logs.co
 import { VerEstudiantesAccionesComponent } from './dashboard/usuario/ver-estudiantes-acciones/ver-estudiantes-acciones.component';
 import { AgregarComponent } from './dashboard/usuario/agregar/agregar.component';
 import { MainDashboardComponent } from './dashboard/main-dashboard/main-dashboard.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,9 @@ import { MainDashboardComponent } from './dashboard/main-dashboard/main-dashboar
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    BrowserAnimationsModule,
+    HammerModule,
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
