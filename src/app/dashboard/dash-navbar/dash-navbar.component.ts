@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute, Router, RouterEvent } from '@angular/router';
+import { RouterInfoService } from 'src/app/services/router-info.service';
 @Component({
   selector: 'app-dash-navbar',
   templateUrl: './dash-navbar.component.html',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashNavbarComponent implements OnInit {
   showUserOptions: boolean = false;
-  constructor() { }
+  //data info
+   dashInfo: string = '';
+  constructor(private router: Router, private routerInfo: RouterInfoService) {
+    router.events.subscribe(data => {
+      let url: string = (data as RouterEvent).url
+      this.dashInfo = url;
+    })
+  }
 
   ngOnInit(): void {
+
   }
   handleMouseEnter(event: MouseEvent): void {
     this.showUserOptions = true;

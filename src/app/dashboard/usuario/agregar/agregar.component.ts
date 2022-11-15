@@ -19,7 +19,6 @@ export class AgregarComponent implements OnInit {
     isNaN(+((e as InputEvent).target as HTMLInputElement).value) ?
       this.showPhoneError1 = true :
       this.showPhoneError1 = false;
-
   }
   constructor(private activeRoute: ActivatedRoute) { }
 

@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,21 +20,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgChartsModule } from 'ng2-charts';
 import { LoginComponent } from './login/login.component';
 import { TableComponent } from './dashboard/static-components/table/table.component';
-import { UsuarioComponent } from './usuario/usuario.component';
+import { UsuarioComponent } from './dashboard/usuario/usuario.component';
 
 import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { UserTableComponent } from './usuario/ver-estudiantes-acciones/user-table/user-table.component';
-import { UserActionsComponent } from './usuario/ver-estudiantes-acciones/user-actions/user-actions.component';
-import { MeComponent } from './usuario/me/me.component';
-import { UserInfoActionsComponent } from './usuario/me/user-info-actions/user-info-actions.component';
-import { UserInfoComponent } from './usuario/me/user-info/user-info.component';
-import { UserHistoryComponent } from './usuario/me/user-history/user-history.component';
-import { UserLogsComponent } from './usuario/me/user-logs/user-logs.component';
-import { VerEstudiantesAccionesComponent } from './usuario/ver-estudiantes-acciones/ver-estudiantes-acciones.component';
-import { AgregarComponent } from './usuario/agregar/agregar.component';
+import { UserTableComponent } from './dashboard/usuario/ver-estudiantes-acciones/user-table/user-table.component';
+import { UserActionsComponent } from './dashboard/usuario/ver-estudiantes-acciones/user-actions/user-actions.component';
+import { MeComponent } from './dashboard/usuario/me/me.component';
+import { UserInfoActionsComponent } from './dashboard/usuario/me/user-info-actions/user-info-actions.component';
+import { UserInfoComponent } from './dashboard/usuario/me/user-info/user-info.component';
+import { UserHistoryComponent } from './dashboard/usuario/me/user-history/user-history.component';
+import { UserLogsComponent } from './dashboard/usuario/me/user-logs/user-logs.component';
+import { VerEstudiantesAccionesComponent } from './dashboard/usuario/ver-estudiantes-acciones/ver-estudiantes-acciones.component';
+import { AgregarComponent } from './dashboard/usuario/agregar/agregar.component';
+import { MainDashboardComponent } from './dashboard/main-dashboard/main-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +57,7 @@ import { AgregarComponent } from './usuario/agregar/agregar.component';
     UserLogsComponent,
     VerEstudiantesAccionesComponent,
     AgregarComponent,
+    MainDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +69,9 @@ import { AgregarComponent } from './usuario/agregar/agregar.component';
     HttpClientModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
