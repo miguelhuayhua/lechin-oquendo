@@ -1,0 +1,30 @@
+button {
+    width: 50px;
+    margin: 0 10px;
+    font-weight: bold;
+    color: rgb(93, 93, 93);
+
+    &:hover {
+        color: white;
+    }
+}
+
+.si {
+    background-color: transparent;
+    border: 1px solid rgb(128, 198, 22);
+
+    &:hover {
+        background-color: rgb(128, 198, 22);
+    }
+}
+
+.no {
+
+    background-color: transparent;
+    border: 1px solid rgb(208, 13, 13);
+
+    &:hover {
+        background-color: rgb(208, 13, 13);
+
+    }
+}

@@ -86,8 +86,7 @@
                 <div class="col-12 col-md-2">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>MES</mat-label>
-                        <mat-select 
-                            (selectionChange)="handleSelectMonth($event)" [(ngModel)]="this.month"
+                        <mat-select (selectionChange)="handleSelectMonth($event)" [(ngModel)]="this.month"
                             [ngModelOptions]="{standalone:true}">
                             <mat-option *ngFor="let data of this.months; index as i" [value]="i">
                                 {{data}}
@@ -110,5 +109,7 @@
                 </div>
             </div>
         </form>
+        <mat-progress-bar  style="display:none;" [ngClass]="{show:this.showProgressBar}" mode="indeterminate"></mat-progress-bar>
+
     </div>
 </div>
