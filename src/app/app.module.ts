@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { LoginComponent } from './login/login.component';
 import { TableComponent } from './dashboard/static-components/table/table.component';
 import { UsuarioComponent } from './dashboard/usuario/usuario.component';
+import { MatCard, MatCardModule } from '@angular/material/card';
 
 import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -40,6 +41,13 @@ import { StudentTableComponent } from './dashboard/usuario/ver-estudiantes-accio
 import { TeacherActionsComponent } from './dashboard/usuario/ver-docentes-acciones/teacher-actions/teacher-actions.component';
 import { TeacherTableComponent } from './dashboard/usuario/ver-docentes-acciones/teacher-table/teacher-table.component';
 import { FooterComponent } from './dashboard/footer/footer.component';
+import { MateriasComponent } from './dashboard/materias/materias.component';
+import { InscripcionComponent } from './dashboard/inscripcion/inscripcion.component';
+import { ListadoMateriasComponent } from './dashboard/materias/listado-materias/listado-materias.component';
+import { AccionesMateriasComponent } from './dashboard/materias/acciones-materias/acciones-materias.component';
+import { VerMateriaComponent } from './dashboard/materias/ver-materia/ver-materia.component';
+import { AgregarMateriaComponent } from './dashboard/materias/agregar-materia/agregar-materia.component';
+import { DialogComponent } from './dashboard/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +75,13 @@ import { FooterComponent } from './dashboard/footer/footer.component';
     TeacherActionsComponent,
     TeacherTableComponent,
     FooterComponent,
+    MateriasComponent,
+    InscripcionComponent,
+    ListadoMateriasComponent,
+    AccionesMateriasComponent,
+    VerMateriaComponent,
+    AgregarMateriaComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,9 +95,11 @@ import { FooterComponent } from './dashboard/footer/footer.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatCardModule,
     MatDatepickerModule,
     BrowserAnimationsModule,
     HammerModule,
+    MatDialogModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]

@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
 import { MatSelectChange } from '@angular/material/select';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { DialogComponent } from '../../dialog/dialog.component';
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
@@ -67,7 +69,8 @@ export class AgregarComponent implements OnInit {
       this.showEmailError = true;
   }
   constructor(private activeRoute: ActivatedRoute,
-    private userApi: UsuarioService) { }
+    private userApi: UsuarioService,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.activeRoute.data.subscribe(data => {
@@ -123,6 +126,11 @@ export class AgregarComponent implements OnInit {
       correo: this.correo,
       f_nacimiento: date,
       genero: this.genero
+    })
+    this.dialog.open(DialogComponent, {
+      width: '300px',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '1000ms'
     })
   }
 }
