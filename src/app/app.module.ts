@@ -48,6 +48,8 @@ import { AccionesMateriasComponent } from './dashboard/materias/acciones-materia
 import { VerMateriaComponent } from './dashboard/materias/ver-materia/ver-materia.component';
 import { AgregarMateriaComponent } from './dashboard/materias/agregar-materia/agregar-materia.component';
 import { DialogComponent } from './dashboard/dialog/dialog.component';
+import { TileChartComponent } from './dashboard/static-components/tile-chart/tile-chart.component';
+import { PieChartComponent } from './dashboard/static-components/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +84,8 @@ import { DialogComponent } from './dashboard/dialog/dialog.component';
     VerMateriaComponent,
     AgregarMateriaComponent,
     DialogComponent,
+    TileChartComponent,
+    PieChartComponent,
   ],
   imports: [
     BrowserModule,
