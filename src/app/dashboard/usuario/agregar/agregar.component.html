@@ -1,8 +1,8 @@
 <div class="row bg-light rounded-3">
     <div class="col-12">
-        <h2>Agregar {{this.tipo}}</h2>
+        <h2 class="my-3">Datos personales del {{this.tipo}}</h2>
         <hr>
-        <form action="#" class="form col-12">
+        <form (submit)="handleSubmit($event)" class="form col-12">
             <div class="row">
                 <div class="col-12 col-md-6">
                     <mat-form-field class="w-100" appearance="fill">
@@ -72,14 +72,41 @@
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-md-2">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>AÑO</mat-label>
+                        <mat-select [(ngModel)]="this.year" [ngModelOptions]="{standalone:true}"
+                            (selectionChange)="handleSelect($event)">
+                            <mat-option *ngFor="let data of this.date" [value]="data.year">
+                                {{data.year}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
-
+                <div class="col-12 col-md-2">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>MES</mat-label>
+                        <mat-select 
+                            (selectionChange)="handleSelectMonth($event)" [(ngModel)]="this.month"
+                            [ngModelOptions]="{standalone:true}">
+                            <mat-option *ngFor="let data of this.months; index as i" [value]="i">
+                                {{data}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-12 col-md-2">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>DÍA</mat-label>
+                        <mat-select [(ngModel)]="this.day" [ngModelOptions]="{standalone:true}">
+                            <mat-option *ngFor="let data of this.days" [value]="data">
+                                {{data}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
                 <div class="col-4 offset-4">
                     <input class="btn submit-button" type="submit" value="Agregar {{this.tipo}}">
-                </div>
-                <div class="col-6 offset-3">
-                    <input max="" type="date">
                 </div>
             </div>
         </form>

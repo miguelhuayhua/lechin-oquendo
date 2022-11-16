@@ -25,11 +25,7 @@
         button {
             display: flex;
             align-items: center;
-            background: rgb(209, 231, 242);
-            background: -moz-linear-gradient(90deg, rgba(209, 231, 242, 1) 0%, rgba(199, 212, 223, 1) 100%);
-            background: -webkit-linear-gradient(90deg, rgba(209, 231, 242, 1) 0%, rgba(199, 212, 223, 1) 100%);
-            background: linear-gradient(90deg, rgba(209, 231, 242, 1) 0%, rgba(199, 212, 223, 1) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d1e7f2", endColorstr="#c7d4df", GradientType=1);
+            background-color: whitesmoke;
             border: none;
             font-weight: 600;
 

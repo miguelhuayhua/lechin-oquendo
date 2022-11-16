@@ -26,8 +26,6 @@ import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { UserTableComponent } from './dashboard/usuario/ver-estudiantes-acciones/user-table/user-table.component';
-import { UserActionsComponent } from './dashboard/usuario/ver-estudiantes-acciones/user-actions/user-actions.component';
 import { MeComponent } from './dashboard/usuario/me/me.component';
 import { UserInfoActionsComponent } from './dashboard/usuario/me/user-info-actions/user-info-actions.component';
 import { UserInfoComponent } from './dashboard/usuario/me/user-info/user-info.component';
@@ -36,6 +34,12 @@ import { UserLogsComponent } from './dashboard/usuario/me/user-logs/user-logs.co
 import { VerEstudiantesAccionesComponent } from './dashboard/usuario/ver-estudiantes-acciones/ver-estudiantes-acciones.component';
 import { AgregarComponent } from './dashboard/usuario/agregar/agregar.component';
 import { MainDashboardComponent } from './dashboard/main-dashboard/main-dashboard.component';
+import { VerDocentesAccionesComponent } from './dashboard/usuario/ver-docentes-acciones/ver-docentes-acciones.component';
+import { StudentActionsComponent } from './dashboard/usuario/ver-estudiantes-acciones/student-actions/student-actions.component';
+import { StudentTableComponent } from './dashboard/usuario/ver-estudiantes-acciones/student-table/student-table.component';
+import { TeacherActionsComponent } from './dashboard/usuario/ver-docentes-acciones/teacher-actions/teacher-actions.component';
+import { TeacherTableComponent } from './dashboard/usuario/ver-docentes-acciones/teacher-table/teacher-table.component';
+import { FooterComponent } from './dashboard/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -49,8 +53,6 @@ import { MainDashboardComponent } from './dashboard/main-dashboard/main-dashboar
     LoginComponent,
     TableComponent,
     UsuarioComponent,
-    UserTableComponent,
-    UserActionsComponent,
     MeComponent,
     UserInfoActionsComponent,
     UserInfoComponent,
@@ -59,6 +61,12 @@ import { MainDashboardComponent } from './dashboard/main-dashboard/main-dashboar
     VerEstudiantesAccionesComponent,
     AgregarComponent,
     MainDashboardComponent,
+    VerDocentesAccionesComponent,
+    StudentActionsComponent,
+    StudentTableComponent,
+    TeacherActionsComponent,
+    TeacherTableComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

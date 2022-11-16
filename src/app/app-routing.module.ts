@@ -5,14 +5,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { MeComponent } from './dashboard/usuario/me/me.component';
 import { UserHistoryComponent } from './dashboard/usuario/me/user-history/user-history.component';
-import { UserInfoActionsComponent } from './dashboard/usuario/me/user-info-actions/user-info-actions.component';
 import { UserInfoComponent } from './dashboard/usuario/me/user-info/user-info.component';
 import { UserLogsComponent } from './dashboard/usuario/me/user-logs/user-logs.component';
-import { UserActionsComponent } from './dashboard/usuario/ver-estudiantes-acciones/user-actions/user-actions.component';
 import { UsuarioComponent } from './dashboard/usuario/usuario.component';
 import { AgregarComponent } from './dashboard/usuario/agregar/agregar.component';
 import { VerEstudiantesAccionesComponent } from './dashboard/usuario/ver-estudiantes-acciones/ver-estudiantes-acciones.component';
 import { MainDashboardComponent } from './dashboard/main-dashboard/main-dashboard.component';
+import { VerDocentesAccionesComponent } from './dashboard/usuario/ver-docentes-acciones/ver-docentes-acciones.component';
 
 const routes: Routes = [
   {
@@ -62,6 +61,23 @@ const routes: Routes = [
           }
         ]
       },
+      {
+        path: 'docente',
+        component: UsuarioComponent,
+        children: [
+          {
+            path: 'agregar',
+            component: AgregarComponent,
+            data: { tipo: 'docente' }
+          },
+          {
+            path: '',
+            component: VerDocentesAccionesComponent,
+            pathMatch: 'full'
+          }
+        ]
+      }
+      ,
       {
         path: 'overview',
         component: MainDashboardComponent,
