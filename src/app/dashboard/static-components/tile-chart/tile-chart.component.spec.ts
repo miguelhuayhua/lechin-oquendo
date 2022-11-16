@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserTableComponent } from './user-table.component';
+import { TileChartComponent } from './tile-chart.component';
 
-describe('UserTableComponent', () => {
-  let component: UserTableComponent;
-  let fixture: ComponentFixture<UserTableComponent>;
+describe('TileChartComponent', () => {
+  let component: TileChartComponent;
+  let fixture: ComponentFixture<TileChartComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserTableComponent ]
+      declarations: [ TileChartComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UserTableComponent);
+    fixture = TestBed.createComponent(TileChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

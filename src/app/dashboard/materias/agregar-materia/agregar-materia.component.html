@@ -1,0 +1,27 @@
+<div class="row bg-light rounded-3">
+    <div class="col-12">
+        <form class="form row">
+            <div class="col-12 col-md-6">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Título</mat-label>
+                    <input [(ngModel)]="this.nombre" [ngModelOptions]="{standalone:true}" matInput>
+                </mat-form-field>
+            </div>
+            <div class="col-12 col-md-3">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Grado:</mat-label>
+                    <input [(ngModel)]="this.grado" [ngModelOptions]="{standalone:true}" matInput>
+                </mat-form-field>
+            </div>
+            <div class="col-12 col-md-3">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Costo:</mat-label>
+                    <input [(ngModel)]="this.costo" [ngModelOptions]="{standalone:true}" matInput>
+                </mat-form-field>
+            </div>
+            <div class="col-4 offset-4">
+                <input class="btn submit-button" type="submit" value="">
+            </div>
+        </form>
+    </div>
+</div>

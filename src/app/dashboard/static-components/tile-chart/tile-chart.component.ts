@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Chart, ChartConfiguration, ChartEvent, ChartType } from 'chart.js'
+import { ChartType, ChartConfiguration } from 'chart.js';
 @Component({
-  selector: 'app-bar-chart-home',
-  templateUrl: './bar-chart-home.component.html',
-  styleUrls: ['./bar-chart-home.component.scss']
+  selector: 'app-tile-chart',
+  templateUrl: './tile-chart.component.html',
+  styleUrls: ['./tile-chart.component.scss']
 })
-export class BarChartHomeComponent implements OnInit {
+export class TileChartComponent implements OnInit {
 
   public barChartData: ChartConfiguration['data'] = {
 
@@ -14,27 +13,23 @@ export class BarChartHomeComponent implements OnInit {
       {
         data: [10, 20, 30, 40, 12, 45, 67, 32],
         label: 'Goles',
-        tension: .3,
-        backgroundColor: 'rgba(90, 115, 166,0.9)',
+        backgroundColor: '#005',
         borderColor: '#FFF',
-        pointBorderWidth: 5,
-        pointHoverRadius: 10,
-        categoryPercentage: 1
+        categoryPercentage: .5
       }
     ],
     labels: ['Miguel', 'Raul', 'Jose', 'Pedro', 'Fernando', 'Maria', 'Luis']
 
   }
   public barChartOptions: ChartConfiguration['options'] = {
-  
     plugins: {
       legend: {
         labels: {
           color: 'black'
         }
       },
+
     },
-    indexAxis: 'y',
     scales: {
       x: {
 
@@ -47,17 +42,17 @@ export class BarChartHomeComponent implements OnInit {
 
         },
         grid: {
-          color: 'rgba(0,0,0,0.4)',
-          borderDash: [8, 3],
+          color: 'transparent',
         }
-        
+
       },
       y: {
         ticks: {
           color: 'black'
         },
         grid: {
-          color: 'transparent',
+          color: 'rgba(0,0,0,0.05)',
+          borderDash: [8, 3],
         },
         beginAtZero: true
       },
