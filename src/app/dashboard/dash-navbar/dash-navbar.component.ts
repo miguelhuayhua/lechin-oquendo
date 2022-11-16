@@ -17,6 +17,7 @@ export class DashNavbarComponent implements OnInit {
       if (url != undefined) {
         let full: string = '';
         this.dashInfo = url;
+        url = url.split('?')[0];
         this.rutas = url.split('/').map(((value, i) => {
           full = full + '/' + value
           if (i < url.split('/').length - 1) {

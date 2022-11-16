@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,6 +51,7 @@ import { AgregarMateriaComponent } from './dashboard/materias/agregar-materia/ag
 import { DialogComponent } from './dashboard/dialog/dialog.component';
 import { TileChartComponent } from './dashboard/static-components/tile-chart/tile-chart.component';
 import { PieChartComponent } from './dashboard/static-components/pie-chart/pie-chart.component';
+import { CrearUsuarioComponent } from './dashboard/usuario/crear-usuario/crear-usuario.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,7 @@ import { PieChartComponent } from './dashboard/static-components/pie-chart/pie-c
     DialogComponent,
     TileChartComponent,
     PieChartComponent,
+    CrearUsuarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,7 +106,8 @@ import { PieChartComponent } from './dashboard/static-components/pie-chart/pie-c
     MatDatepickerModule,
     BrowserAnimationsModule,
     HammerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressBarModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]

@@ -17,6 +17,7 @@ import { InscripcionComponent } from './dashboard/inscripcion/inscripcion.compon
 import { ListadoMateriasComponent } from './dashboard/materias/listado-materias/listado-materias.component';
 import { AgregarMateriaComponent } from './dashboard/materias/agregar-materia/agregar-materia.component';
 import { VerMateriaComponent } from './dashboard/materias/ver-materia/ver-materia.component';
+import { CrearUsuarioComponent } from './dashboard/usuario/crear-usuario/crear-usuario.component';
 
 const routes: Routes = [
   {
@@ -60,6 +61,10 @@ const routes: Routes = [
             data: { tipo: 'estudiante' }
           },
           {
+            path: 'usuario',
+            component: CrearUsuarioComponent
+          },
+          {
             path: '',
             component: VerEstudiantesAccionesComponent,
             pathMatch: 'full'
@@ -79,6 +84,10 @@ const routes: Routes = [
             path: '',
             component: VerDocentesAccionesComponent,
             pathMatch: 'full'
+          },
+          {
+            path: 'usuario',
+            component: CrearUsuarioComponent
           }
         ]
       },

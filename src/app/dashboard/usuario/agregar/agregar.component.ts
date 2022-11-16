@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { MatSelectChange } from '@angular/material/select';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -48,6 +47,8 @@ export class AgregarComponent implements OnInit {
   showPhoneError1: boolean = false;
   showEmailError: boolean = false;
   showCiError: boolean = false;
+
+  showProgressBar: boolean = false;
   //INPUTS
   handleInputPhone(e: Event): void {
     isNaN(+((e as InputEvent).target as HTMLInputElement).value) ?
@@ -68,9 +69,12 @@ export class AgregarComponent implements OnInit {
       this.showEmailError = false :
       this.showEmailError = true;
   }
+
+  //constructor
   constructor(private activeRoute: ActivatedRoute,
     private userApi: UsuarioService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.activeRoute.data.subscribe(data => {
@@ -101,6 +105,8 @@ export class AgregarComponent implements OnInit {
       }
     })
   }
+
+  //manejo de eventos
   handleSelect(event: MatSelectChange): void {
     this.days = this.date.find((date => {
       return date.year == event.value && date.months[this.month].index == this.month;
@@ -117,20 +123,24 @@ export class AgregarComponent implements OnInit {
     event.preventDefault();
 
     let date = new Date(this.year, this.month, this.day);
-    this.userApi.addUsuario({
-      nombre: this.nombre,
-      apellido: this.apellidos,
-      celular: this.celular,
-      ci: this.ci_nit,
-      ciudad: this.ciudad,
-      correo: this.correo,
-      f_nacimiento: date,
-      genero: this.genero
-    })
-    this.dialog.open(DialogComponent, {
-      width: '300px',
-      enterAnimationDuration: '300ms',
-      exitAnimationDuration: '1000ms'
+
+    let dialogRef = this.dialog.open(DialogComponent);
+    dialogRef.componentInstance.yes.subscribe(() => {
+      this.showProgressBar = true;
+      this.router.navigate(['usuario'], {
+        relativeTo: this.activeRoute.parent,
+        queryParams:{nombre:this.nombre}
+      })
+      this.userApi.addUsuario({
+        nombre: this.nombre,
+        apellido: this.apellidos,
+        celular: this.celular,
+        ci: this.ci_nit,
+        ciudad: this.ciudad,
+        correo: this.correo,
+        f_nacimiento: date,
+        genero: this.genero
+      })
     })
   }
 }
