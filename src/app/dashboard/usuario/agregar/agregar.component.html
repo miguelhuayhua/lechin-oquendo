@@ -65,8 +65,8 @@
                         <mat-label>CIUDAD</mat-label>
                         <mat-select [(ngModel)]="this.ciudad" [ngModelOptions]="{standalone:true}">
                             <mat-option
-                                *ngFor="let city of ['LA PAZ', 'COCHABAMBA', 'SANTA CRUZ', 'ORURO','POTOSI','CHUQUISACA','TARIJA','PANDO','BENI']"
-                                [value]="city">
+                                *ngFor="let city of ['LA PAZ', 'COCHABAMBA', 'SANTA CRUZ', 'ORURO','POTOSI','CHUQUISACA','TARIJA','PANDO','BENI']; index as i"
+                                [value]="i">
                                 {{city}}
                             </mat-option>
                         </mat-select>
@@ -109,7 +109,8 @@
                 </div>
             </div>
         </form>
-        <mat-progress-bar  style="display:none;" [ngClass]="{show:this.showProgressBar}" mode="indeterminate"></mat-progress-bar>
+        <mat-progress-bar style="display:none;" [ngClass]="{show:this.showProgressBar}" mode="indeterminate">
+        </mat-progress-bar>
 
     </div>
 </div>

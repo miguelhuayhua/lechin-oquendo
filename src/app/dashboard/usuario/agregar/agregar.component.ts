@@ -127,19 +127,23 @@ export class AgregarComponent implements OnInit {
     let dialogRef = this.dialog.open(DialogComponent);
     dialogRef.componentInstance.yes.subscribe(() => {
       this.showProgressBar = true;
-      this.router.navigate(['usuario'], {
-        relativeTo: this.activeRoute.parent,
-        queryParams:{nombre:this.nombre}
-      })
       this.userApi.addUsuario({
         nombre: this.nombre,
         apellido: this.apellidos,
         celular: this.celular,
         ci: this.ci_nit,
-        ciudad: this.ciudad,
+        departamento: this.ciudad,
         correo: this.correo,
-        f_nacimiento: date,
-        genero: this.genero
+        f_nacimiento: this.year + '/' + this.month + '/' + this.day,
+        genero: this.genero,
+        direccion: this.direccion
+      }).subscribe(data => {
+        console.log(data);
+        this.showProgressBar = false;
+        this.router.navigate(['usuario'], {
+          relativeTo: this.activeRoute.parent,
+          queryParams: { id: data.id_usuario }
+        })
       })
     })
   }
