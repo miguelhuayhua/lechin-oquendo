@@ -62,7 +62,8 @@ const routes: Routes = [
           },
           {
             path: 'usuario',
-            component: CrearUsuarioComponent
+            component: CrearUsuarioComponent,
+            data: { tipo: 'estudiante' }
           },
           {
             path: '',

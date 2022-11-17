@@ -138,11 +138,10 @@ export class AgregarComponent implements OnInit {
         genero: this.genero,
         direccion: this.direccion
       }).subscribe(data => {
-        console.log(data);
         this.showProgressBar = false;
         this.router.navigate(['usuario'], {
           relativeTo: this.activeRoute.parent,
-          queryParams: { id: data.id_usuario }
+          queryParams: { id: data.iduser }
         })
       })
     })
