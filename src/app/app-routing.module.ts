@@ -63,7 +63,7 @@ const routes: Routes = [
           {
             path: 'usuario',
             component: CrearUsuarioComponent,
-            data: { tipo: 'estudiante' }
+            data: { tipo: 'estudiante', roles: 3 }
           },
           {
             path: '',

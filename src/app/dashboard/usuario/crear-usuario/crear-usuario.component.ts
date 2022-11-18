@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
+import { UsuarioService } from 'src/app/services/usuario.service';
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
@@ -11,13 +12,18 @@ export class CrearUsuarioComponent implements OnInit {
 
   //data
   tipo: string = '';
-
+  roles: string = '';
   //user data
   usuario: string = "";
   token_cea: string = this.makeid();
   id: string = "";
-  constructor(private activatedRouter: ActivatedRoute,
-    private dialog: MatDialog) { }
+
+  //constructor
+  constructor(
+    private activatedRouter: ActivatedRoute,
+    private dialog: MatDialog,
+    private api: UsuarioService
+  ) { }
 
   ngOnInit(): void {
     this.activatedRouter.queryParams.subscribe(data => {
@@ -31,10 +37,17 @@ export class CrearUsuarioComponent implements OnInit {
   handleSubmit(event: SubmitEvent): void {
     event.preventDefault();
 
-
     let dialogRef = this.dialog.open(DialogComponent);
     dialogRef.componentInstance.yes.subscribe(() => {
-
+      this.api.createFirstUser({
+        id_roles: this.roles,
+        num_u: this.id,
+        password: '',
+        token_cea: this.token_cea,
+        usuario: this.usuario
+      }).subscribe(data => {
+        console.log(data.status)
+      })
     })
   }
 
