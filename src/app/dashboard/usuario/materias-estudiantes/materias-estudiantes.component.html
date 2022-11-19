@@ -1,0 +1,36 @@
+<div class="row ">
+    <div class="col-6">
+        <app-asignar-materia (materia)="verMateria($event)">
+        </app-asignar-materia>
+    </div>
+    <div class="col-6 bg-light rounded-3">
+        <div class="table-main">
+            <div class="table-header">
+                <h3>
+                    Asignar Curso
+                </h3>
+
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre de curso/materia</th>
+                        <th scope="col">Costo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let materia of materias">
+                        <th scope="row">
+                            {{materia.id_m}}
+                        </th>
+                        <td>{{materia.nombre}}</td>
+                        <td>{{materia.costo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><span>Total: </span>{{this.total}} Bs.</p>
+    </div>
+</div>

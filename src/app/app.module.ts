@@ -52,6 +52,8 @@ import { DialogComponent } from './dashboard/dialog/dialog.component';
 import { TileChartComponent } from './dashboard/static-components/tile-chart/tile-chart.component';
 import { PieChartComponent } from './dashboard/static-components/pie-chart/pie-chart.component';
 import { CrearUsuarioComponent } from './dashboard/usuario/crear-usuario/crear-usuario.component';
+import { AsignarMateriaComponent } from './dashboard/materias/asignar-materia/asignar-materia.component';
+import { MateriasEstudiantesComponent } from './dashboard/usuario/materias-estudiantes/materias-estudiantes.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +91,8 @@ import { CrearUsuarioComponent } from './dashboard/usuario/crear-usuario/crear-u
     TileChartComponent,
     PieChartComponent,
     CrearUsuarioComponent,
+    AsignarMateriaComponent,
+    MateriasEstudiantesComponent,
   ],
   imports: [
     BrowserModule,

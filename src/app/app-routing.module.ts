@@ -18,6 +18,8 @@ import { ListadoMateriasComponent } from './dashboard/materias/listado-materias/
 import { AgregarMateriaComponent } from './dashboard/materias/agregar-materia/agregar-materia.component';
 import { VerMateriaComponent } from './dashboard/materias/ver-materia/ver-materia.component';
 import { CrearUsuarioComponent } from './dashboard/usuario/crear-usuario/crear-usuario.component';
+import { AsignarMateriaComponent } from './dashboard/materias/asignar-materia/asignar-materia.component';
+import { MateriasEstudiantesComponent } from './dashboard/usuario/materias-estudiantes/materias-estudiantes.component';
 
 const routes: Routes = [
   {
@@ -63,7 +65,11 @@ const routes: Routes = [
           {
             path: 'usuario',
             component: CrearUsuarioComponent,
-            data: { tipo: 'estudiante', roles: 3 }
+            data: { tipo: 3}
+          },
+          {
+            path: 'asignar',
+            component: MateriasEstudiantesComponent
           },
           {
             path: '',

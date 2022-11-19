@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { EstudianteService } from 'src/app/services/estudiante.service';
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
@@ -11,7 +12,6 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class CrearUsuarioComponent implements OnInit {
 
   //data
-  tipo: string = '';
   roles: string = '';
   //user data
   usuario: string = "";
@@ -22,16 +22,20 @@ export class CrearUsuarioComponent implements OnInit {
   constructor(
     private activatedRouter: ActivatedRoute,
     private dialog: MatDialog,
-    private api: UsuarioService
+    private api: UsuarioService,
+    private apiEstudiante: EstudianteService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.activatedRouter.queryParams.subscribe(data => {
       this.id = (data as { id: string }).id;
+      this.apiEstudiante.getEstudiante(this.id).subscribe(data => {
+        this.usuario = data.apellidos + "_" + data.carnet;
+      })
     })
-    this.activatedRouter.data.subscribe(data => {
-      this.tipo = (data as { tipo: string }).tipo;
-    })
+
+
   }
   //handle events
   handleSubmit(event: SubmitEvent): void {
@@ -46,7 +50,19 @@ export class CrearUsuarioComponent implements OnInit {
         token_cea: this.token_cea,
         usuario: this.usuario
       }).subscribe(data => {
-        console.log(data.status)
+        if (data.status == 1) {
+          this.activatedRouter.data.subscribe(data => {
+            let tipo: number = (data as { tipo: number }).tipo;
+            console.log(tipo)
+            if (tipo == 3) {
+              this.router.navigate(['dashboard','estudiante','asignar'], {relativeTo:this.activatedRouter.root, queryParams: { id: this.id } });
+            }
+          })
+        }
+        else {
+          console.log('error')
+        }
+
       })
     })
   }
