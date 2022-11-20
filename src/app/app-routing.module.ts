@@ -20,6 +20,7 @@ import { VerMateriaComponent } from './dashboard/materias/ver-materia/ver-materi
 import { CrearUsuarioComponent } from './dashboard/usuario/crear-usuario/crear-usuario.component';
 import { AsignarMateriaComponent } from './dashboard/materias/asignar-materia/asignar-materia.component';
 import { MateriasEstudiantesComponent } from './dashboard/usuario/materias-estudiantes/materias-estudiantes.component';
+import { ConfirmarEstudianteComponent } from './dashboard/usuario/confirmar-estudiante/confirmar-estudiante.component';
 
 const routes: Routes = [
   {
@@ -65,11 +66,15 @@ const routes: Routes = [
           {
             path: 'usuario',
             component: CrearUsuarioComponent,
-            data: { tipo: 3}
+            data: { tipo: 3 }
           },
           {
             path: 'asignar',
             component: MateriasEstudiantesComponent
+          },
+          {
+            path: 'confirmar',
+            component: ConfirmarEstudianteComponent
           },
           {
             path: '',

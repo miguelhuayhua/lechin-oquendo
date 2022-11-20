@@ -54,6 +54,8 @@ import { PieChartComponent } from './dashboard/static-components/pie-chart/pie-c
 import { CrearUsuarioComponent } from './dashboard/usuario/crear-usuario/crear-usuario.component';
 import { AsignarMateriaComponent } from './dashboard/materias/asignar-materia/asignar-materia.component';
 import { MateriasEstudiantesComponent } from './dashboard/usuario/materias-estudiantes/materias-estudiantes.component';
+import { ConfirmarEstudianteComponent } from './dashboard/usuario/confirmar-estudiante/confirmar-estudiante.component';
+import { DateComponent } from './dashboard/static-components/date/date.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +95,8 @@ import { MateriasEstudiantesComponent } from './dashboard/usuario/materias-estud
     CrearUsuarioComponent,
     AsignarMateriaComponent,
     MateriasEstudiantesComponent,
+    ConfirmarEstudianteComponent,
+    DateComponent,
   ],
   imports: [
     BrowserModule,

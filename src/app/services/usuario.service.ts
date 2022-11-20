@@ -33,6 +33,12 @@ export class UsuarioService {
     data.append('token_cea', usuario.token_cea);
     return this.api.post<{ status: number }>('http://localhost:5000/registro_estudiante', data);
   }
+
+  getUsuarioById(num_u: string): Observable<Usuario> {
+    let formData = new FormData();
+    formData.append('num_u', num_u);
+    return this.api.post<Usuario>('http://localhost:5000/usuario', formData)
+  }
 }
 
 export type UsuarioEstudiante = {
@@ -47,7 +53,7 @@ export type UsuarioEstudiante = {
   telf: string
 }
 
-type Usuario = {
+export type Usuario = {
   num_u: string,
   usuario: string,
   password: string,

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { MatSelectChange } from '@angular/material/select';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
 @Component({
   selector: 'app-agregar',
@@ -121,9 +121,6 @@ export class AgregarComponent implements OnInit {
   }
   handleSubmit(event: SubmitEvent): void {
     event.preventDefault();
-
-    let date = new Date(this.year, this.month, this.day);
-
     let dialogRef = this.dialog.open(DialogComponent);
     dialogRef.componentInstance.yes.subscribe(() => {
       this.showProgressBar = true;

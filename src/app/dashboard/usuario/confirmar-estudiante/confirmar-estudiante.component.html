@@ -1,0 +1,113 @@
+<div class="row ">
+    <div class="col-12 col-md-8 my-2 my-md-0 bg-light rounded-3">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="my-3">Detalles del registro</h3>
+                <hr>
+            </div>
+            <div class="col-12">
+                <h4 class="my-0">INFORMACIÓN DEL NUEVO USUARIO</h4>
+            </div>
+            <div class="col-6">
+                <p><span>Nombre de Usuario: </span>{{this.nEstudiante.usuario.usuario}}</p>
+            </div>
+            <div class="col-6">
+                <p>
+                    <span>
+                        Correo Electrónico:
+                    </span>
+                    {{this.nEstudiante.estudiante.email}}
+                </p>
+            </div>
+            <div class="col-6">
+                <p>
+                    <span>
+                        Nombres:
+                    </span>
+                    {{this.nEstudiante.estudiante.nombres}}
+                </p>
+            </div>
+            <div class="col-6">
+                <p>
+                    <span>
+                        Apellidos:
+                    </span>
+                    {{this.nEstudiante.estudiante.apellidos}}
+                </p>
+            </div>
+            <hr>
+            <h4>
+                INFORMACIÓN DE CONTACTO
+            </h4>
+            <div class="col-12">
+                <p>
+                    <span>Dirección: </span>
+                    {{this.nEstudiante.estudiante.direccion}}
+                </p>
+            </div>
+            <div class="col-4">
+                <p>
+                    <span>
+                        Departamento:
+                    </span>
+                    {{this.nombreDepartamento[+this.nEstudiante.estudiante.departamento]}}
+                </p>
+            </div>
+            <div class="col-4">
+                <p>
+                    <span>
+                        Celular / Teléfono:
+                    </span>
+                    {{this.nEstudiante.estudiante.telf}}
+                </p>
+            </div>
+            <div class="col-4">
+                <p>
+                    <span>
+                        Género:
+                    </span>
+                    {{this.nEstudiante.estudiante.genero}}
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-12 col-md-4 ">
+        <div class="row mx-auto bg-light rounded-3 " style="width: 95%;">
+            <div class="col-12" style="border-bottom: 1px solid black">
+                <h2>
+                    Cursos / Materias Inscritos
+                </h2>
+                <div class="d-flex">
+                    <div class="lista-nombre">
+                        <span>
+                            Nombre:
+                        </span>
+                    </div>
+                    <div class="lista-precio">
+                        <span>
+                            Precio
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 d-flex" *ngFor="let materia of this.nEstudiante.materias">
+                <div class="lista-nombre ">
+                    <p>
+                        {{materia.nombre}}
+                    </p>
+                </div>
+                <div class="lista-precio">
+                    <p>
+                        {{materia.costo}} Bs.
+                    </p>
+                </div>
+            </div>
+            <div class="my-3">
+                <hr>
+                <p>TOTAL: {{this.nEstudiante.total}} Bs.</p>
+            </div>
+        </div>
+    </div>
+</div>

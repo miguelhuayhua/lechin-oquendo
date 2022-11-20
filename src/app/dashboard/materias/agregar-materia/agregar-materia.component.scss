@@ -1,0 +1,33 @@
+.costo {
+    width: 100px;
+    height: 32px;
+    position: absolute;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    right: 0;
+    top: 0;
+    border-top-right-radius: inherit;
+    border-end-start-radius: inherit;
+    background-color: rgb(127, 54, 54);
+}
+
+hr {
+    width: 90%;
+    margin: 10px auto !important;
+  }
+  
+  p {
+    margin: 10px 0 !important;
+    display: flex;
+    flex-direction: column;
+    color: rgb(78, 78, 78);
+    font-family: 'Roboto';
+  
+    span {
+      display: inline-block;
+      margin: 10px 0;
+      font-weight: bold;
+      color: rgb(31, 31, 31);
+    }
+  }
