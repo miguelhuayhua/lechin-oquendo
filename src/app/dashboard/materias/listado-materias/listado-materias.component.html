@@ -1,10 +1,12 @@
 <div class="row ">
     <div class="col-8">
+        <mat-progress-bar style="display:block" [ngClass]="{show:this.displayLoader}" mode="indeterminate" ></mat-progress-bar>
+
         <div class="row custom-list">
-            <a class="col-4 my-3" *ngFor="let materia of materias" routerLink="{{this.materia.id}}">
+            <a class="col-4 my-3" *ngFor="let materia of materias" routerLink="{{this.materia.id_m}}">
                 <mat-card>
                     <mat-card-header>
-                        <mat-card-title>{{this.materia.title}}</mat-card-title>
+                        <mat-card-title>{{this.materia.nombre}}</mat-card-title>
                         <mat-card-subtitle>{{this.materia.costo}} Bs.
                             <h4>
                                 Grado {{this.materia.grado}}
@@ -12,11 +14,8 @@
                         </mat-card-subtitle>
 
                     </mat-card-header>
-                    <img mat-card-image src="{{this.materia.banner}}" alt="Photo of a Shiba Inu">
+                    <img mat-card-image src="{{this.materia.url}}" alt="Photo of a Shiba Inu">
                     <mat-card-content>
-                        <span *ngIf="this.materia.estado==1;else elsecase">Vigente</span>
-                        <ng-template #elsecase> <span style="color:red">No disponible</span>
-                        </ng-template>
                         <p>
                             {{this.materia.descripcion}}
                         </p>

@@ -52,6 +52,12 @@ import { DialogComponent } from './dashboard/dialog/dialog.component';
 import { TileChartComponent } from './dashboard/static-components/tile-chart/tile-chart.component';
 import { PieChartComponent } from './dashboard/static-components/pie-chart/pie-chart.component';
 import { CrearUsuarioComponent } from './dashboard/usuario/crear-usuario/crear-usuario.component';
+import { AsignarMateriaComponent } from './dashboard/materias/asignar-materia/asignar-materia.component';
+import { MateriasEstudiantesComponent } from './dashboard/usuario/materias-estudiantes/materias-estudiantes.component';
+import { ConfirmarEstudianteComponent } from './dashboard/usuario/confirmar-estudiante/confirmar-estudiante.component';
+import { DateComponent } from './dashboard/static-components/date/date.component';
+import { DetalleDocenteComponent } from './dashboard/usuario/detalle-docente/detalle-docente.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +95,12 @@ import { CrearUsuarioComponent } from './dashboard/usuario/crear-usuario/crear-u
     TileChartComponent,
     PieChartComponent,
     CrearUsuarioComponent,
+    AsignarMateriaComponent,
+    MateriasEstudiantesComponent,
+    ConfirmarEstudianteComponent,
+    DateComponent,
+    DetalleDocenteComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

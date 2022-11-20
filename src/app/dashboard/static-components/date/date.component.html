@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-12 col-md-4">
+        <mat-form-field class="w-100" appearance="fill">
+            <mat-label>AÑO</mat-label>
+            <mat-select [(ngModel)]="this.year" [ngModelOptions]="{standalone:true}"
+                (selectionChange)="handleSelectYear($event)">
+                <mat-option *ngFor="let data of this.date" [value]="data.year">
+                    {{data.year}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+        <mat-form-field class="w-100" appearance="fill">
+            <mat-label>MES</mat-label>
+            <mat-select (selectionChange)="handleSelectMonth($event)" [(ngModel)]="this.month"
+                [ngModelOptions]="{standalone:true}">
+                <mat-option *ngFor="let data of this.months; index as i" [value]="i+1">
+                    {{data}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+        <mat-form-field class="w-100" appearance="fill">
+            <mat-label>DÍA</mat-label>
+            <mat-select (selectionChange)="handleSelectDay($event)" [(ngModel)]="this.day"
+                [ngModelOptions]="{standalone:true}">
+                <mat-option *ngFor="let data of this.days" [value]="data">
+                    {{data}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>

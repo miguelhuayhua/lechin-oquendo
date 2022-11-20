@@ -1,1 +1,26 @@
-<p>crear-usuario works!</p>
+<div class="row bg-light rounded-3">
+    <div class="col-12">
+        <h2 class="my-3">Creación de usuario</h2>
+        <hr>
+        <form (submit)="handleSubmit($event)" class="form col-12">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Nombre de usuario:</mat-label>
+                        <input [(ngModel)]="this.usuario" [ngModelOptions]="{standalone:true}" matInput>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Token de primer acceso:</mat-label>
+                        <input disabled [(ngModel)]="this.token_cea" [ngModelOptions]="{standalone:true}" matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-4 offset-4">
+                    <input class="btn submit-button" type="submit" value="CREAR USUARIO">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

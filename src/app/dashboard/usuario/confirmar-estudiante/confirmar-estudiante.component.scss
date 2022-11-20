@@ -1,0 +1,48 @@
+h3{
+    font-size: 2em;
+    font-weight: bold;
+}
+h4 {
+    color: rgb(116, 116, 116);
+    font-size: 1.1em;
+}
+
+hr{
+    width: 90%;
+    margin: 10px auto !important;
+}
+p {
+    margin: 10px 0 !important;
+    display: flex;
+    flex-direction: column;
+    color: rgb(78, 78, 78);
+    font-family: 'Roboto';
+    span {
+        display: inline-block;
+        margin: 10px 0;
+        font-weight: bold;
+        color: rgb(31, 31, 31);
+    }
+}
+
+//lista materias
+
+.lista-nombre{
+    width: 70%;
+    span{
+        font-weight: bold;
+        
+    }
+}
+.lista-precio{
+    width: 30%;
+    border-left: 1px solid black;
+    p{
+        text-align: center;
+    }
+    span{
+        font-weight: bold;
+        display: block;
+        text-align: center;
+    }
+}

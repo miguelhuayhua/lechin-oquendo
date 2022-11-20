@@ -1,0 +1,43 @@
+<div class="row ">
+    <div class="col-6">
+        <app-asignar-materia [id_delete]="this.id_delete" (materia)="verMateria($event)">
+        </app-asignar-materia>
+    </div>
+    <div class="col-6 bg-light rounded-3">
+        <div class="table-main">
+            <div class="table-header">
+                <h3>
+                    Asignar Curso
+                </h3>
+
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre de curso/materia</th>
+                        <th scope="col">Costo</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let materia of materias; index as i" class="">
+                        <th scope="row">
+                            {{i+1}}
+                        </th>
+                        <td>{{materia.nombre}}</td>
+                        <td>{{materia.costo}} Bs.</td>
+                        <td>
+                            <button id="{{materia.id_m}}" class="btn btn-danger" (click)="handleDelete($event)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="text-center bold my-4"><span>Total: </span>{{this.total}} Bs.</p>
+        <button (click)="handleSubmit($event)" class="btn btn-outline-dark d-block mx-auto my-4">Aceptar Todo</button>
+    </div>
+</div>

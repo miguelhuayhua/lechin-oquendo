@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { MatSelectChange } from '@angular/material/select';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
 @Component({
   selector: 'app-agregar',
@@ -75,71 +74,45 @@ export class AgregarComponent implements OnInit {
     private userApi: UsuarioService,
     public dialog: MatDialog,
     private router: Router) { }
-
+  //send data using url
+  private url: string = '';
   ngOnInit(): void {
     this.activeRoute.data.subscribe(data => {
       this.tipo = data['tipo'];
-    })
-    let veintenueve = Array.from(Array(29).keys()).map(val => val + 1);
-    let years = Array.from(Array(90).keys()).map(val => val + 1930);
-    let biyear = 1932;
-    this.date = years.map(value => {
-      if (value == biyear) {
-        biyear = value + 4;
-        return {
-          year: value, months: this.months.map((month, index) => {
-            if (index == 1)
-              return { index, month, days: veintenueve }
-            else
-              return { index, month, days: this.monthDays[index] }
-
-          })
-        }
+      if (+data['id'] == 3) {
+        this.url = 'http://localhost:5000/add_estudiante';
+      }
+      else if (+data['id'] == 2) {
+        this.url = 'http://localhost:5000/add_docente';
       }
       else {
-        return {
-          year: value, months: this.months.map((month, index) => {
-            return { index, month, days: this.monthDays[index] }
-          })
-        }
+        this.url = 'http://localhost:5000/add_administrativo';
       }
     })
-  }
-
-  //manejo de eventos
-  handleSelect(event: MatSelectChange): void {
-    this.days = this.date.find((date => {
-      return date.year == event.value && date.months[this.month].index == this.month;
-    }))?.months[this.month].days;
-    this.year = event.value;
-  }
-  handleSelectMonth(event: MatSelectChange): void {
-    this.days = this.date.find((date => {
-      return date.year == this.year && date.months[event.value].index == event.value;
-    }))?.months[this.month].days;
-    this.month = event.value;
+    //manejo de eventos
   }
   handleSubmit(event: SubmitEvent): void {
     event.preventDefault();
-
-    let date = new Date(this.year, this.month, this.day);
-
     let dialogRef = this.dialog.open(DialogComponent);
     dialogRef.componentInstance.yes.subscribe(() => {
       this.showProgressBar = true;
-      this.router.navigate(['usuario'], {
-        relativeTo: this.activeRoute.parent,
-        queryParams:{nombre:this.nombre}
-      })
-      this.userApi.addUsuario({
-        nombre: this.nombre,
-        apellido: this.apellidos,
-        celular: this.celular,
-        ci: this.ci_nit,
-        ciudad: this.ciudad,
-        correo: this.correo,
-        f_nacimiento: date,
-        genero: this.genero
+      this.userApi.addADE({
+        nombres: this.nombre,
+        apellidos: this.apellidos,
+        telf: this.celular,
+        carnet: this.ci_nit,
+        departamento: this.ciudad,
+        email: this.correo,
+        fecha_nac: this.year + '/' + this.month + '/' + this.day,
+        genero: this.genero,
+        direccion: this.direccion
+      }, this.url).subscribe(response => {
+        this.showProgressBar = false;
+        this.router.navigate(['usuario'], {
+          queryParams: { id: response.id }
+          ,
+          relativeTo: this.activeRoute.parent,
+        })
       })
     })
   }

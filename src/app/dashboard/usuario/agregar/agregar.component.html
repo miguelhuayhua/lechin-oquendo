@@ -16,7 +16,7 @@
                         <input [(ngModel)]="this.apellidos" [ngModelOptions]="{standalone:true}" matInput>
                     </mat-form-field>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-4">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>Celular</mat-label>
                         <input size="8" [(ngModel)]="this.celular" [ngModelOptions]="{standalone:true}" matInput
@@ -29,7 +29,7 @@
                     </mat-form-field>
 
                 </div>
-                <div class="col-6">
+                <div class="col-8">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>Correo Electrónico</mat-label>
                         <input (input)="handleInputEmail($event)" [(ngModel)]="this.correo"
@@ -49,7 +49,7 @@
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-4 col-md-2">
+                <div class="col-4 col-md-3">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>C.I. / NIT</mat-label>
                         <input #ci (input)="this.handleInputCi($event)" [(ngModel)]="this.ci_nit"
@@ -60,56 +60,31 @@
                         <mat-hint align="end">{{ci.value.length}} / 10</mat-hint>
                     </mat-form-field>
                 </div>
-                <div class="col-4 col-md-2">
+                <div class="col-6 col-md-3">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>CIUDAD</mat-label>
                         <mat-select [(ngModel)]="this.ciudad" [ngModelOptions]="{standalone:true}">
                             <mat-option
-                                *ngFor="let city of ['LA PAZ', 'COCHABAMBA', 'SANTA CRUZ', 'ORURO','POTOSI','CHUQUISACA','TARIJA','PANDO','BENI']"
-                                [value]="city">
+                                *ngFor="let city of ['LA PAZ', 'COCHABAMBA', 'SANTA CRUZ', 'ORURO','POTOSI','CHUQUISACA','TARIJA','PANDO','BENI']; index as i"
+                                [value]="i">
                                 {{city}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-12 col-md-2">
-                    <mat-form-field class="w-100" appearance="fill">
-                        <mat-label>AÑO</mat-label>
-                        <mat-select [(ngModel)]="this.year" [ngModelOptions]="{standalone:true}"
-                            (selectionChange)="handleSelect($event)">
-                            <mat-option *ngFor="let data of this.date" [value]="data.year">
-                                {{data.year}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-                <div class="col-12 col-md-2">
-                    <mat-form-field class="w-100" appearance="fill">
-                        <mat-label>MES</mat-label>
-                        <mat-select (selectionChange)="handleSelectMonth($event)" [(ngModel)]="this.month"
-                            [ngModelOptions]="{standalone:true}">
-                            <mat-option *ngFor="let data of this.months; index as i" [value]="i">
-                                {{data}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-                <div class="col-12 col-md-2">
-                    <mat-form-field class="w-100" appearance="fill">
-                        <mat-label>DÍA</mat-label>
-                        <mat-select [(ngModel)]="this.day" [ngModelOptions]="{standalone:true}">
-                            <mat-option *ngFor="let data of this.days" [value]="data">
-                                {{data}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
+                <div class="col-9">
+                    <span>
+                        Fecha de Nacimiento:
+                    </span>
+                    <app-date [year]="2000"  [biyear]="1930" [start]="1930" [yearRange]="80"></app-date>
                 </div>
                 <div class="col-4 offset-4">
                     <input class="btn submit-button" type="submit" value="Agregar {{this.tipo}}">
                 </div>
             </div>
         </form>
-        <mat-progress-bar  style="display:none;" [ngClass]="{show:this.showProgressBar}" mode="indeterminate"></mat-progress-bar>
+        <mat-progress-bar style="display:none;" [ngClass]="{show:this.showProgressBar}" mode="indeterminate">
+        </mat-progress-bar>
 
     </div>
 </div>

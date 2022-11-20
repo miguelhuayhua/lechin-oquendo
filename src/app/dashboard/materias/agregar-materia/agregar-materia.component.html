@@ -1,16 +1,19 @@
-<div class="row bg-light rounded-3">
-    <div class="col-12">
+<div class="row ">
+    <div class="col-8 bg-light rounded-3">
+        <h2>
+            Materia
+        </h2>
         <form class="form row">
             <div class="col-12 col-md-6">
                 <mat-form-field class="w-100" appearance="fill">
-                    <mat-label>Título</mat-label>
+                    <mat-label>Título:</mat-label>
                     <input [(ngModel)]="this.nombre" [ngModelOptions]="{standalone:true}" matInput>
                 </mat-form-field>
             </div>
             <div class="col-12 col-md-3">
                 <mat-form-field class="w-100" appearance="fill">
-                    <mat-label>Grado:</mat-label>
-                    <input [(ngModel)]="this.grado" [ngModelOptions]="{standalone:true}" matInput>
+                    <mat-label>Duración:</mat-label>
+                    <input [(ngModel)]="this.duracion" [ngModelOptions]="{standalone:true}" matInput>
                 </mat-form-field>
             </div>
             <div class="col-12 col-md-3">
@@ -19,9 +22,132 @@
                     <input [(ngModel)]="this.costo" [ngModelOptions]="{standalone:true}" matInput>
                 </mat-form-field>
             </div>
+            <div class="col-12">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Banner:</mat-label>
+                    <input [(ngModel)]="this.url" [ngModelOptions]="{standalone:true}" matInput
+                        placeholder="Introduzca la URL del banner">
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <span>Fecha de Inicio:</span>
+                <app-date (selectedDay)="handleDayChange($event)" (selectedMonth)="handleMonthChange($event)"
+                    (selectedYear)="handleYearChange($event)"></app-date>
+            </div>
+            <div class="col-6">
+                <span>Fecha de Conclusión:</span>
+                <app-date (selectedDay)="handleDayChange2($event)" (selectedMonth)="handleMonthChange2($event)"
+                    (selectedYear)="handleYearChange2($event)"></app-date>
+            </div>
+            <div class="col-6">
+                <span>
+                    Horario de entrada:
+                </span>
+                <div class="row">
+                    <div class="col-6">
+                        <mat-form-field class="w-100" appearance="fill">
+                            <mat-label>Hora:</mat-label>
+                            <mat-select [(ngModel)]="this.hora_inicio" [ngModelOptions]="{standalone:true}">
+                                <mat-option *ngFor="let hour of hours" [value]="hour">
+                                    {{hour}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-6">
+                        <mat-form-field class="w-100" appearance="fill">
+                            <mat-label>Minuto:</mat-label>
+                            <mat-select [(ngModel)]="this.minuto_inicio" [ngModelOptions]="{standalone:true}">
+                                <mat-option *ngFor="let minute of minutes" [value]="minute">
+                                    {{minute}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <span>
+                    Horario de salida:
+                </span>
+                <div class="row">
+                    <div class="col-6">
+                        <mat-form-field class="w-100" appearance="fill">
+                            <mat-label>Hora:</mat-label>
+                            <mat-select [(ngModel)]="this.hora_salida" [ngModelOptions]="{standalone:true}">
+                                <mat-option *ngFor="let hour of hours" [value]="hour">
+                                    {{hour}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-6">
+                        <mat-form-field class="w-100" appearance="fill">
+                            <mat-label>Minuto:</mat-label>
+                            <mat-select [(ngModel)]="this.minuto_salida" [ngModelOptions]="{standalone:true}">
+                                <mat-option *ngFor="let minute of minutes" [value]="minute">
+                                    {{minute}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <mat-form-field class="w-100 mh-100" appearance="fill">
+                    <mat-label>Textarea</mat-label>
+                    <textarea matInput></textarea>
+                </mat-form-field>
+            </div>
             <div class="col-4 offset-4">
                 <input class="btn submit-button" type="submit" value="">
             </div>
         </form>
+    </div>
+    <div class="col-4">
+        <div class="row mx-auto bg-light rounded-3" style="width: 95%; position: relative;">
+            <div class="costo">
+                {{+this.costo+0}} Bs.
+            </div>
+            <div class="col-10 offset-1">
+                <img class="img-fluid my-3" src="{{this.url}}" alt="">
+            </div>
+            <hr>
+            <div class="col-12">
+                <p class="text-center w-100 fs-3">
+                    {{this.nombre}}
+                </p>
+            </div>
+            <div class="col-6">
+                <p>
+                    <span>Fecha de Inicio:</span>
+                    {{this.f_inicio.getDate()+"/"+this.months[this.f_inicio.getMonth()]+"/"+this.f_inicio.getFullYear()}}
+                </p>
+            </div>
+            <div class="col-6">
+                <p>
+                    <span>Fecha de Conclusión</span>
+                    {{this.f_conclusion.getDate()+"/"+this.months[this.f_conclusion.getMonth()]+"/"+this.f_conclusion.getFullYear()}}
+                </p>
+            </div>
+            <div class="col-12">
+                <p>
+                    <span>Duración del Curso:</span>
+                    {{+this.duracion+0}} Días
+                </p>
+            </div>
+            <div class="col-6">
+                <p>
+                    <span>Hora de Entrada:</span>
+                    {{this.hora_inicio + ":"+this.minuto_inicio}}
+                </p>
+            </div>
+            <div class="col-6">
+                <p>
+                    <span>Hora de Salida:</span>
+                    {{this.hora_salida + ":"+this.minuto_salida}}
+                </p>
+            </div>
+        </div>
     </div>
 </div>

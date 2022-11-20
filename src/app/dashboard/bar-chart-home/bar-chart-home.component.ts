@@ -28,6 +28,7 @@ export class BarChartHomeComponent implements OnInit {
   public barChartOptions: ChartConfiguration['options'] = {
   
     plugins: {
+      
       legend: {
         labels: {
           color: 'black'
