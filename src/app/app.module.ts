@@ -56,6 +56,8 @@ import { AsignarMateriaComponent } from './dashboard/materias/asignar-materia/as
 import { MateriasEstudiantesComponent } from './dashboard/usuario/materias-estudiantes/materias-estudiantes.component';
 import { ConfirmarEstudianteComponent } from './dashboard/usuario/confirmar-estudiante/confirmar-estudiante.component';
 import { DateComponent } from './dashboard/static-components/date/date.component';
+import { DetalleDocenteComponent } from './dashboard/usuario/detalle-docente/detalle-docente.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +99,8 @@ import { DateComponent } from './dashboard/static-components/date/date.component
     MateriasEstudiantesComponent,
     ConfirmarEstudianteComponent,
     DateComponent,
+    DetalleDocenteComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

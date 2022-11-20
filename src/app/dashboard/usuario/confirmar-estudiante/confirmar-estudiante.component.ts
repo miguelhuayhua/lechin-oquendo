@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from 'src/app/services/store.service';
 import { Materia } from 'src/app/services/types/usuarios';
-import { Usuario, UsuarioEstudiante } from 'src/app/services/usuario.service';
+import { Usuario, ADE } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-confirmar-estudiante',
@@ -14,7 +14,7 @@ export class ConfirmarEstudianteComponent implements OnInit {
   //data
   nombreDepartamento: string[] = ['LA PAZ', 'COCHABAMBA', 'SANTA CRUZ', 'ORURO', 'POTOSI', 'CHUQUISACA', 'TARIJA', 'PANDO', 'BENI'];
   nEstudiante: {
-    estudiante: UsuarioEstudiante,
+    estudiante: ADE,
     materias: Materia[],
     total: number,
     usuario: Usuario

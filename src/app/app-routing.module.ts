@@ -21,11 +21,19 @@ import { CrearUsuarioComponent } from './dashboard/usuario/crear-usuario/crear-u
 import { AsignarMateriaComponent } from './dashboard/materias/asignar-materia/asignar-materia.component';
 import { MateriasEstudiantesComponent } from './dashboard/usuario/materias-estudiantes/materias-estudiantes.component';
 import { ConfirmarEstudianteComponent } from './dashboard/usuario/confirmar-estudiante/confirmar-estudiante.component';
+import { DetalleDocenteComponent } from './dashboard/usuario/detalle-docente/detalle-docente.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
     component: AppComponent,
+    children: [
+      {
+        path: '',
+        component: HomeComponent
+      }
+    ]
   },
   {
     path: 'dashboard',
@@ -61,7 +69,7 @@ const routes: Routes = [
           {
             path: 'agregar',
             component: AgregarComponent,
-            data: { tipo: 'estudiante' }
+            data: { tipo: 'estudiante', id: 3 }
           },
           {
             path: 'usuario',
@@ -90,16 +98,21 @@ const routes: Routes = [
           {
             path: 'agregar',
             component: AgregarComponent,
-            data: { tipo: 'docente' }
+            data: { tipo: 'docente', id: 2 }
+          },
+          {
+            path: 'usuario',
+            component: CrearUsuarioComponent,
+            data: { tipo: 2 }
+          },
+          {
+            path: 'detalles',
+            component: DetalleDocenteComponent
           },
           {
             path: '',
             component: VerDocentesAccionesComponent,
             pathMatch: 'full'
-          },
-          {
-            path: 'usuario',
-            component: CrearUsuarioComponent
           }
         ]
       },

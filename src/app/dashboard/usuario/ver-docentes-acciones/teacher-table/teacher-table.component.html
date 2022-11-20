@@ -1,4 +1,6 @@
 <div class="main-table">
+    <mat-progress-bar style="display:block" [ngClass]="{show:this.displayProgressBar}" mode="indeterminate">
+    </mat-progress-bar>
     <span>LISTADO DE ESTUDIANTES</span>
     <div>
         <h3>Ordenar Por</h3>
@@ -30,94 +32,40 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let docente of this.docentes;">
                     <td class="estudiante">
+                        <mat-icon> person_pin</mat-icon>
 
-                        <img src="https://i.pinimg.com/474x/b8/91/fb/b891fb0046f2a92b99754d061710c1dc.jpg" alt="">
                         <div>
-                            <h3>Alejandra Ramirez</h3>
-                            <h4>alejandra@gmail.com</h4>
+                            <h3>{{this.docente.nombres+" "+this.docente.apellidos}}</h3>
+                            <h4>{{this.docente.email}}</h4>
                         </div>
                     </td>
                     <td>
-                        <p [ngClass]="{estado:true, estadoactivo:true}">
-                            En Estudio
+                        <p *ngIf="docente.disponible!; else noDispo" [ngClass]="{estado:true, estadoactivo:true}">
+                            En servicio
                         </p>
+                        <ng-template #noDispo>
+                            <p [ngClass]="{estado:true,estadoInactivo:true}">
+                                Sin servicio
+                            </p>
+                        </ng-template>
                     </td>
-                    <td>+591 72343244</td>
+                    <td>+591 {{this.docente.telf}}</td>
                     <td>
-                        <mat-icon>edit</mat-icon>
+                        <a routerLink="{{this.docente.num_u}}">
+                            <mat-icon>edit</mat-icon>
+                        </a>
                     </td>
                     <td>
-                        <mat-icon>remove_red_eye</mat-icon>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="estudiante">
+                        <a routerLink="view/{{this.docente.num_u}}">
 
-                        <img src="https://i.pinimg.com/474x/b8/91/fb/b891fb0046f2a92b99754d061710c1dc.jpg" alt="">
-                        <div>
-                            <h3>Alejandra Ramirez</h3>
-                            <h4>alejandra@gmail.com</h4>
-                        </div>
-                    </td>
-                    <td>
-                        <p [ngClass]="{estado:true, estadoactivo:true}">
-                            En Estudio
-                        </p>
-                    </td>
-                    <td>+591 72343244</td>
-                    <td>
-                        <mat-icon>edit</mat-icon>
-                    </td>
-                    <td>
-                        <mat-icon>remove_red_eye</mat-icon>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="estudiante">
+                            <mat-icon>remove_red_eye</mat-icon>
+                        </a>
 
-                        <img src="https://i.pinimg.com/474x/b8/91/fb/b891fb0046f2a92b99754d061710c1dc.jpg" alt="">
-                        <div>
-                            <h3>Alejandra Ramirez</h3>
-                            <h4>alejandra@gmail.com</h4>
-                        </div>
-                    </td>
-                    <td>
-                        <p [ngClass]="{estado:true, estadoactivo:true}">
-                            En Estudio
-                        </p>
-                    </td>
-                    <td>+591 72343244</td>
-                    <td>
-                        <mat-icon>edit</mat-icon>
-                    </td>
-                    <td>
-                        <mat-icon>remove_red_eye</mat-icon>
                     </td>
                 </tr>
-                <tr>
-                    <td class="estudiante">
 
-                        <img src="https://i.pinimg.com/474x/b8/91/fb/b891fb0046f2a92b99754d061710c1dc.jpg" alt="">
-                        <div>
-                            <h3>Alejandra Ramirez</h3>
-                            <h4>alejandra@gmail.com</h4>
-                        </div>
-                    </td>
-                    <td>
-                        <p [ngClass]="{estado:true, estadoactivo:true}">
-                            En Estudio
-                        </p>
-                    </td>
-                    <td>+591 72343244</td>
-                    <td>
-                        <mat-icon>edit</mat-icon>
-                    </td>
-                    <td>
-                        <mat-icon>remove_red_eye</mat-icon>
-                    </td>
-                </tr>
 
             </tbody>
         </table>

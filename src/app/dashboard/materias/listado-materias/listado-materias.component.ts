@@ -8,12 +8,14 @@ import { Materia } from 'src/app/services/types/usuarios';
 })
 export class ListadoMateriasComponent implements OnInit {
 
+  displayLoader: boolean = false;
   materias: Materia[] = []
   constructor(private apiMateria: MateriaService) { }
 
   ngOnInit(): void {
     this.apiMateria.getAllMaterias().subscribe(data => {
       this.materias = data;
+      this.displayLoader = true;
     })
   }
 

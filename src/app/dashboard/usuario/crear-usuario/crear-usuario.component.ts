@@ -18,20 +18,36 @@ export class CrearUsuarioComponent implements OnInit {
   token_cea: string = this.makeid();
   id: string = "";
 
+
+  //url to post data
+  url: string = '';
+  tipo: number = 0;
   //constructor
   constructor(
     private activatedRouter: ActivatedRoute,
     private dialog: MatDialog,
     private api: UsuarioService,
-    private apiEstudiante: EstudianteService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.activatedRouter.queryParams.subscribe(data => {
-      this.id = (data as { id: string }).id;
-      this.apiEstudiante.getEstudiante(this.id).subscribe(data => {
-        this.usuario = data.apellidos + "_" + data.carnet;
+    this.activatedRouter.data.subscribe(data => {
+      let tipo = (data as { tipo: number }).tipo;
+      if (tipo == 3) {
+        this.url = 'http://localhost:5000/estudiante';
+      }
+      else if (tipo == 2) {
+        this.url = 'http://localhost:5000/docente';
+      }
+      else {
+        this.url = 'http://localhost:5000/administrativo';
+      }
+      this.tipo = tipo;
+      this.activatedRouter.queryParams.subscribe(data => {
+        this.id = (data as { id: string }).id;
+        this.api.getADEById(this.id, this.url).subscribe(data => {
+          this.usuario = data.nombres + "_" + data.carnet;
+        })
       })
     })
 
@@ -49,15 +65,17 @@ export class CrearUsuarioComponent implements OnInit {
         password: '',
         token_cea: this.token_cea,
         usuario: this.usuario
-      }).subscribe(data => {
+      }, this.tipo).subscribe(data => {
         if (data.status == 1) {
-          this.activatedRouter.data.subscribe(data => {
-            let tipo: number = (data as { tipo: number }).tipo;
-            console.log(tipo)
-            if (tipo == 3) {
-              this.router.navigate(['dashboard','estudiante','asignar'], {relativeTo:this.activatedRouter.root, queryParams: { id: this.id } });
-            }
-          })
+          if (this.tipo == 3) {
+            this.router.navigate(['dashboard', 'estudiante', 'asignar'], { relativeTo: this.activatedRouter.root, queryParams: { id: this.id } });
+          }
+          else if (this.tipo == 2) {
+            this.router.navigate(['dashboard', 'docente', 'detalles'], { relativeTo: this.activatedRouter.root, queryParams: { id: this.id } });
+          }
+          else {
+            this.router.navigate(['dashboard', 'administrativo', 'asignar'], { relativeTo: this.activatedRouter.root, queryParams: { id: this.id } });
+          }
         }
         else {
           console.log('error')

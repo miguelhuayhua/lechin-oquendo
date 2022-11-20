@@ -26,26 +26,27 @@ export class DateComponent implements OnInit {
     Array.from(Array(31).keys()).map(val => val + 1)]
 
   days: number[] | undefined = Array.from(Array(31).keys()).map(val => val + 1);
-  month: number = 0;
-  @Input() year: number = 2000;
-  day: number = 1;
-  @Input() start: number = 2016;
+  month: number = new Date().getMonth();
+  @Input() start: number = 2022;
+  @Input() biyear: number = 2024;
+  @Input() yearRange: number = 20;
+  day: number = new Date().getDate();
+  @Input() year: number = new Date().getFullYear();
 
   //OUTPUTS
   @Output() selectedYear = new EventEmitter<number>();
   @Output() selectedMonth = new EventEmitter<number>();
   @Output() selectedDay = new EventEmitter<number>();
   //constructor
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
-
     let veintenueve = Array.from(Array(29).keys()).map(val => val + 1);
-    let years = Array.from(Array(90).keys()).map(val => val + this.start);
-    let biyear = 2016;
+    let years = Array.from(Array(this.yearRange).keys()).map(val => val + this.start);
     this.date = years.map(value => {
-      if (value == biyear) {
-        biyear = value + 4;
+      if (value == this.biyear) {
+        this.biyear = value + 4;
         return {
           year: value, months: this.months.map((month, index) => {
             if (index == 1)
