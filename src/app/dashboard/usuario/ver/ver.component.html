@@ -1,0 +1,97 @@
+<div class="row bg-light rounded-3">
+    <div class="col-12">
+        <h2 class="my-3">Datos personales del {{this.tipo}}</h2>
+        <hr>
+        <form (submit)="handleSubmit($event)" class="form col-12">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Nombre del {{this.tipo}}</mat-label>
+                        <input [(ngModel)]="this.nombres" [ngModelOptions]="{standalone:true}" matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-12 col-md-6">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Apellidos del {{this.tipo}}</mat-label>
+                        <input [(ngModel)]="this.apellidos" [ngModelOptions]="{standalone:true}" matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-6 col-md-4">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Celular</mat-label>
+                        <input size="8" [(ngModel)]="this.celular" [ngModelOptions]="{standalone:true}" matInput
+                            #postalCode maxlength="8" (input)="handleInputPhone($event)"
+                            placeholder="Coloque su número de celular">
+                        <mat-hint [align]="'start'" class="error" *ngIf="this.showPhoneError1">
+                            Introduzca un celular válido
+                        </mat-hint>
+                        <mat-hint align="end">{{postalCode.value.length}} / 8</mat-hint>
+                    </mat-form-field>
+
+                </div>
+                <div class="col-8">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Correo Electrónico</mat-label>
+                        <input (input)="handleInputEmail($event)" [(ngModel)]="this.correo"
+                            [ngModelOptions]="{standalone:true}" matInput type="email">
+                        <mat-hint [align]="'start'" class="error" *ngIf="this.showEmailError">
+                            Introduzca el correo con el formato correcto
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-12">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Dirección</mat-label>
+                        <input [(ngModel)]="this.direccion" [ngModelOptions]="{standalone:true}" matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-4 col-md-3">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Género</mat-label>
+                        <mat-select [(ngModel)]="this.genero" [ngModelOptions]="{standalone:true}">
+                            <mat-option *ngFor="let genre of ['Hombre','Mujer','Otro']" [value]="genre">
+                                {{genre}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-4 col-md-3">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>C.I. / NIT</mat-label>
+                        <input #ci (input)="this.handleInputCi($event)" [(ngModel)]="this.ci_nit"
+                            [ngModelOptions]="{standalone:true}" matInput maxlength="10">
+                        <mat-hint [align]="'start'" class="error" *ngIf="this.showCiError">
+                            Introduzca un CI / NIT válido
+                        </mat-hint>
+                        <mat-hint align="end">{{ci.value.length}} / 10</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-6 col-md-3">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>CIUDAD</mat-label>
+                        <mat-select [(ngModel)]="this.ciudad" [ngModelOptions]="{standalone:true}">
+                            <mat-option
+                                *ngFor="let city of ['LA PAZ', 'COCHABAMBA', 'SANTA CRUZ', 'ORURO','POTOSI','CHUQUISACA','TARIJA','PANDO','BENI']; index as i"
+                                [value]="i">
+                                {{city}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-9">
+                    <span>
+                        Fecha de Nacimiento:
+                    </span>
+                    <app-date [year]="this.year" [month]="this.month" [day]="this.day" [biyear]="1930" [start]="1930"
+                        [yearRange]="80"></app-date>
+                </div>
+                <div class="col-4 offset-4">
+                    <input class="btn submit-button" type="submit" value="Actualizar {{this.tipo}}">
+                </div>
+            </div>
+        </form>
+        <mat-progress-bar style="display:none;" [ngClass]="{show:this.showProgressBar}" mode="indeterminate">
+        </mat-progress-bar>
+
+    </div>
+</div>

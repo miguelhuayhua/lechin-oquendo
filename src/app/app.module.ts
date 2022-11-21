@@ -59,6 +59,8 @@ import { DateComponent } from './dashboard/static-components/date/date.component
 import { DetalleDocenteComponent } from './dashboard/usuario/detalle-docente/detalle-docente.component';
 import { HomeComponent } from './home/home.component';
 import { VerDocenteComponent } from './dashboard/usuario/ver-docente/ver-docente.component';
+import { VerEstudianteComponent } from './dashboard/usuario/ver-estudiante/ver-estudiante.component';
+import { VerComponent } from './dashboard/usuario/ver/ver.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +105,8 @@ import { VerDocenteComponent } from './dashboard/usuario/ver-docente/ver-docente
     DetalleDocenteComponent,
     HomeComponent,
     VerDocenteComponent,
+    VerEstudianteComponent,
+    VerComponent,
   ],
   imports: [
     BrowserModule,
