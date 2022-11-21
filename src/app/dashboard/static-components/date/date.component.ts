@@ -26,11 +26,11 @@ export class DateComponent implements OnInit {
     Array.from(Array(31).keys()).map(val => val + 1)]
 
   days: number[] | undefined = Array.from(Array(31).keys()).map(val => val + 1);
-  month: number = new Date().getMonth();
+  @Input() month: number = new Date().getMonth();
   @Input() start: number = 2022;
   @Input() biyear: number = 2024;
   @Input() yearRange: number = 20;
-  day: number = new Date().getDate();
+  @Input() day: number = new Date().getDate();
   @Input() year: number = new Date().getFullYear();
 
   //OUTPUTS

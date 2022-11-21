@@ -23,6 +23,7 @@ import { MateriasEstudiantesComponent } from './dashboard/usuario/materias-estud
 import { ConfirmarEstudianteComponent } from './dashboard/usuario/confirmar-estudiante/confirmar-estudiante.component';
 import { DetalleDocenteComponent } from './dashboard/usuario/detalle-docente/detalle-docente.component';
 import { HomeComponent } from './home/home.component';
+import { VerDocenteComponent } from './dashboard/usuario/ver-docente/ver-docente.component';
 
 const routes: Routes = [
   {
@@ -109,6 +110,13 @@ const routes: Routes = [
             path: 'detalles',
             component: DetalleDocenteComponent
           },
+          {
+            path: ':id',
+            component: VerDocenteComponent,
+            data: { tipo: 'Docente', id: 2 }
+          }
+          ,
+          
           {
             path: '',
             component: VerDocentesAccionesComponent,

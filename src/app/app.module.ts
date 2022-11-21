@@ -58,6 +58,7 @@ import { ConfirmarEstudianteComponent } from './dashboard/usuario/confirmar-estu
 import { DateComponent } from './dashboard/static-components/date/date.component';
 import { DetalleDocenteComponent } from './dashboard/usuario/detalle-docente/detalle-docente.component';
 import { HomeComponent } from './home/home.component';
+import { VerDocenteComponent } from './dashboard/usuario/ver-docente/ver-docente.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { HomeComponent } from './home/home.component';
     DateComponent,
     DetalleDocenteComponent,
     HomeComponent,
+    VerDocenteComponent,
   ],
   imports: [
     BrowserModule,

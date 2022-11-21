@@ -15,7 +15,7 @@
             <mat-label>MES</mat-label>
             <mat-select (selectionChange)="handleSelectMonth($event)" [(ngModel)]="this.month"
                 [ngModelOptions]="{standalone:true}">
-                <mat-option *ngFor="let data of this.months; index as i" [value]="i+1">
+                <mat-option *ngFor="let data of this.months; index as i" [value]="i">
                     {{data}}
                 </mat-option>
             </mat-select>

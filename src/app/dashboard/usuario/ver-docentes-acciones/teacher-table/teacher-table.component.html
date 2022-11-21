@@ -27,7 +27,6 @@
                     <th scope="col">Estudiante</th>
                     <th scope="col">Estado</th>
                     <th scope="col">Teléfono</th>
-                    <th scope="col">Editar</th>
                     <th scope="col">Ver</th>
                 </tr>
             </thead>
@@ -51,14 +50,11 @@
                             </p>
                         </ng-template>
                     </td>
-                    <td>+591 {{this.docente.telf}}</td>
-                    <td>
-                        <a routerLink="{{this.docente.num_u}}">
-                            <mat-icon>edit</mat-icon>
-                        </a>
+                    <td>+591 {{this.docente.telf}}
+
                     </td>
                     <td>
-                        <a routerLink="view/{{this.docente.num_u}}">
+                        <a routerLink="{{this.docente.num_u}}">
 
                             <mat-icon>remove_red_eye</mat-icon>
                         </a>
