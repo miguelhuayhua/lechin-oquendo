@@ -1,4 +1,6 @@
-{{this.materia.id}}
-<app-agregar-materia [title]="'Algebra'">
+{{this.materia.id_m}}
+<app-agregar-materia [nombre]="this.materia.nombre" 
+[costo]="this.materia.costo.toString()"
+[duracion]="this.materia.duracion.toString()">
 
 </app-agregar-materia>
