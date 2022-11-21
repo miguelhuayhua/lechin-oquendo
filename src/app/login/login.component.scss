@@ -1,31 +1,61 @@
-#navegador ul {
-    list-style-type: none;
+.titulo{
+    color: #ecf0f4;
+    display: block;
     text-align: center;
-    background-color: #4286f4;
+    padding-top: 14px;
+    padding-left: 6px;
+    padding-bottom: 2px;
 }
-
-#navegador li {
+//PARTE 1
+#li {
     display: inline;
+  }
+//PARTE 2
+#li {
+    float: left;
+  }
+  
+#a {
+    display: block;
+    padding: 8px;
+    background-color: rgb(17, 16, 16);
+  }
+//PARTE 3
+#ul {
+    background-color: rgb(17, 16, 16);
+  }
+//PARTE 4
+#ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(17, 16, 16);
+  }
+  
+#li {
+    float: left;
+  }
+  
+#li #a {
+    display: block;
+    color: white;
     text-align: center;
-    margin: 0 10px 0 0;
-    background-color: #4286f4;
-}
-
-#navegador {
-    padding-top: 5em;
-    background-color: #4286f4;
-}
-
-#navegador li a {
-    padding: 2px 7px 2px 7px;
-    color: #666;
+    padding: 14px 16px;
     text-decoration: none;
-}
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+#li #a:hover {
+    background-color: rgb(136, 23, 23);
+  }
 
-#navegador li a:hover {
-    background-color: #333333;
-    color: #4286f4;
-}
+//PARTE 5
+.active {
+    background-color: rgb(17, 16, 16);
+  }
+
+
 
 .log_1 {
     background: #373B44;
