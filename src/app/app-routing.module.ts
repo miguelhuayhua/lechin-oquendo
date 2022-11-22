@@ -25,6 +25,7 @@ import { DetalleDocenteComponent } from './dashboard/usuario/detalle-docente/det
 import { HomeComponent } from './home/home.component';
 import { VerDocenteComponent } from './dashboard/usuario/ver-docente/ver-docente.component';
 import { VerEstudianteComponent } from './dashboard/usuario/ver-estudiante/ver-estudiante.component';
+import { FirstLoginComponent } from './login/first-login/first-login.component';
 
 const routes: Routes = [
   {
@@ -167,9 +168,17 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    children: [
+      {
+        path: ':token',
+        component: FirstLoginComponent
+      },
+      {
+        path: '',
+        component: LoginComponent
+      }
+    ]
   }
-
 ];
 
 @NgModule({

@@ -65,6 +65,7 @@ export type ADE = {
   telf: string,
   num_u?: string,
   disponible?: number,
+  edad?:number
 }
 
 export type Usuario = {

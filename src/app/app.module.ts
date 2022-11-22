@@ -61,6 +61,7 @@ import { HomeComponent } from './home/home.component';
 import { VerDocenteComponent } from './dashboard/usuario/ver-docente/ver-docente.component';
 import { VerEstudianteComponent } from './dashboard/usuario/ver-estudiante/ver-estudiante.component';
 import { VerComponent } from './dashboard/usuario/ver/ver.component';
+import { FirstLoginComponent } from './login/first-login/first-login.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +108,7 @@ import { VerComponent } from './dashboard/usuario/ver/ver.component';
     VerDocenteComponent,
     VerEstudianteComponent,
     VerComponent,
+    FirstLoginComponent,
   ],
   imports: [
     BrowserModule,
