@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import { StoreService } from 'src/app/services/store.service';
 import { ADE } from 'src/app/services/usuario.service';
 
 @Component({
@@ -23,8 +24,11 @@ export class FirstLoginComponent implements OnInit {
   }
   f_nac: Date = new Date();
   deps = ['LA PAZ', 'COCHABAMBA', 'SANTA CRUZ', 'ORURO', 'POTOSI', 'CHUQUISACA', 'TARIJA', 'PANDO', 'BENI'];
-  constructor(private loginApi: LoginService,
-    private activeRouter: ActivatedRoute) { }
+  constructor(
+    private loginApi: LoginService,
+    private activeRouter: ActivatedRoute,
+    private store: StoreService,
+    private route: Router) { }
 
   ngOnInit(): void {
     this.activeRouter.params.subscribe(data => {
@@ -38,6 +42,16 @@ export class FirstLoginComponent implements OnInit {
           this.f_nac = new Date(this.ade.fecha_nac);
         }
       })
+    })
+  }
+
+  //handles
+  handleClick(event: MouseEvent): void {
+    event.preventDefault();
+    this.loginApi.confirmUserData(this.ade.num_u!).subscribe(user => {
+      this.store.setUsuario(user);
+      this.store.setFastUserInfo({ nombres: this.ade.nombres, num_u: this.ade.num_u!, usuario: user.usuario })
+      this.route.navigate(['usuario'], { relativeTo: this.activeRouter.parent });
     })
   }
 
