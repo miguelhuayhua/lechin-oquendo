@@ -5,21 +5,16 @@
     padding: 20px;
     border-radius: 20px;
     overflow-x: scroll;
-    max-height: 600px;
 
+    span {
+        color: white;
+        font-family: 'Roboto';
+    }
 
-    .table-head {
+    div {
         display: flex;
         align-items: center;
         justify-content: space-around;
-        position: sticky;
-        background-color: inherit;
-        top: 0;
-        span {
-            color: white;
-            font-family: 'Roboto';
-        }
-
 
         h3 {
             margin: auto 0;
@@ -30,18 +25,16 @@
         button {
             display: flex;
             align-items: center;
-            background-color: whitesmoke;
-            border: none;
+            border: 1px solid white;
             font-weight: 600;
-
             span {
                 margin: 3px 0 0 10px;
-                color: rgb(34, 34, 34);
+                color: rgb(207, 207, 207);
             }
         }
     }
 
-    .table-overflow {
+    div {
         table {
             border-radius: 20px;
             margin-top: 20px;
@@ -88,10 +81,10 @@
 .estudiante {
     display: flex;
 
-    img {
+    mat-icon {
         width: 50px;
         height: 50px;
-        border-radius: 50%;
+        font-size: 4em;
     }
 
     div {
@@ -108,6 +101,7 @@
             font-size: .85em;
             color: rgb(186, 186, 186);
         }
+
     }
 }
 
@@ -125,7 +119,14 @@
     background-color: rgb(101, 155, 19);
 }
 
+.estadoInactivo {
+    background-color: rgb(172, 75, 75);
+}
 
-mat-icon {
+.show {
+    display: none !important;
+}
+
+mat-icon{
     color: white;
 }

@@ -11,6 +11,7 @@ export class UsuarioService {
 
 
   addADE(eda: ADE, url: string): Observable<{ id: string }> {
+    console.log(eda.fecha_nac)
     let data = new FormData();
     data.append('nombres', eda.nombres);
     data.append('apellidos', eda.apellidos);
@@ -64,7 +65,7 @@ export type ADE = {
   telf: string,
   num_u?: string,
   disponible?: number,
-
+  edad?:number
 }
 
 export type Usuario = {

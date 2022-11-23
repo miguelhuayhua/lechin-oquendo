@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ADE, UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-student-table',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-table.component.scss']
 })
 export class StudentTableComponent implements OnInit {
+  public displayProgressBar: boolean = false;
 
-  constructor() { }
+  public estudiantes: ADE[] = []
+  constructor(private apiUsuario: UsuarioService) { }
 
   ngOnInit(): void {
+    this.apiUsuario.getAllADEs('http://localhost:5000/estudiantes').subscribe(data => {
+      this.estudiantes = data;
+      this.displayProgressBar = true;
+    })
   }
 
 }

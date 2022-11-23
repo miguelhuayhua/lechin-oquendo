@@ -58,6 +58,14 @@ import { ConfirmarEstudianteComponent } from './dashboard/usuario/confirmar-estu
 import { DateComponent } from './dashboard/static-components/date/date.component';
 import { DetalleDocenteComponent } from './dashboard/usuario/detalle-docente/detalle-docente.component';
 import { HomeComponent } from './home/home.component';
+import { VerDocenteComponent } from './dashboard/usuario/ver-docente/ver-docente.component';
+import { VerEstudianteComponent } from './dashboard/usuario/ver-estudiante/ver-estudiante.component';
+import { VerComponent } from './dashboard/usuario/ver/ver.component';
+import { FirstLoginComponent } from './login/first-login/first-login.component';
+import { AfterVerifyComponent } from './login/after-verify/after-verify.component';
+
+
+import { CookieModule } from 'ngx-cookie';
 
 @NgModule({
   declarations: [
@@ -101,6 +109,11 @@ import { HomeComponent } from './home/home.component';
     DateComponent,
     DetalleDocenteComponent,
     HomeComponent,
+    VerDocenteComponent,
+    VerEstudianteComponent,
+    VerComponent,
+    FirstLoginComponent,
+    AfterVerifyComponent,
   ],
   imports: [
     BrowserModule,
@@ -119,7 +132,8 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     HammerModule,
     MatDialogModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    CookieModule.withOptions()
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]

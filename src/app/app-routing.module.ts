@@ -23,6 +23,10 @@ import { MateriasEstudiantesComponent } from './dashboard/usuario/materias-estud
 import { ConfirmarEstudianteComponent } from './dashboard/usuario/confirmar-estudiante/confirmar-estudiante.component';
 import { DetalleDocenteComponent } from './dashboard/usuario/detalle-docente/detalle-docente.component';
 import { HomeComponent } from './home/home.component';
+import { VerDocenteComponent } from './dashboard/usuario/ver-docente/ver-docente.component';
+import { VerEstudianteComponent } from './dashboard/usuario/ver-estudiante/ver-estudiante.component';
+import { FirstLoginComponent } from './login/first-login/first-login.component';
+import { AfterVerifyComponent } from './login/after-verify/after-verify.component';
 
 const routes: Routes = [
   {
@@ -88,7 +92,12 @@ const routes: Routes = [
             path: '',
             component: VerEstudiantesAccionesComponent,
             pathMatch: 'full'
-          }
+          },
+          {
+            path: ':id',
+            component: VerEstudianteComponent,
+            data: { tipo: 'Estudiante', id: 3 }
+          },
         ]
       },
       {
@@ -109,11 +118,18 @@ const routes: Routes = [
             path: 'detalles',
             component: DetalleDocenteComponent
           },
+
           {
             path: '',
             component: VerDocentesAccionesComponent,
             pathMatch: 'full'
+          },
+          {
+            path: ':id',
+            component: VerDocenteComponent,
+            data: { tipo: 'Docente', id: 2 }
           }
+          ,
         ]
       },
       {
@@ -153,9 +169,21 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    children: [
+      {
+        path: 'usuario',
+        component: AfterVerifyComponent
+      },
+      {
+        path: ':token',
+        component: FirstLoginComponent
+      },
+      {
+        path: '',
+        component: LoginComponent
+      }
+    ]
   }
-
 ];
 
 @NgModule({

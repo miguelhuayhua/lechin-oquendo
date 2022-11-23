@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h1 class="text-center">
+                CONFIRME SUS DATOS PERSONALES
+            </h1>
+        </div>
+        <div class="col-12">
+            <div class="row datos-personales">
+                <div class="col-4">
+                    <p>
+                        <span>Nombres: </span>
+                        {{this.ade.nombres}}
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <span>Apellidos: </span>
+                        {{this.ade.apellidos}}
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <span>Correo electrónico: </span>
+                        {{this.ade.email}}
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <span>NIT / C.I.: </span>
+                        {{this.ade.carnet}}
+                    </p>
+                </div>
+
+                <div class="col-4">
+                    <p>
+                        <span>Celular:</span>
+                        {{this.ade.telf}}
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <span>Género: </span>
+                        {{this.ade.genero}}
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <span>Departamento: </span>
+                        {{this.deps[+this.ade.departamento]}}
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <span>Dirección: </span>
+                        {{this.ade.direccion}}
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <span>Edad:</span>
+                        {{this.ade.edad}} Años
+                    </p>
+                </div>
+                <div class="col-4 offset-4">
+                    <p>
+                        <span>Fecha de nacimiento: </span>
+                        {{this.f_nac.getDate()+ "/"+(this.f_nac.getMonth()+1)+"/"+this.f_nac.getFullYear()}}
+                    </p>
+                </div>
+                <div class="col-4 offset-4 my-5">
+                    <button (click)="handleClick($event)" class="btn btn-success d-block mx-auto p-3"> CONFIRMAR DATOS</button>
+                    <p class="m-2 text-center">Confirmo que todos mis datos está correctos</p>
+                </div>
+                <form action="" class="col-12">
+                    <div class="row">
+                        <div class="col-8">
+                            <mat-form-field class="w-100" appearance="fill">
+                                <mat-label>Comentarios sobre alguna observación...</mat-label>
+                                <textarea matInput></textarea>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-4">
+                            <input type="submit" class="btn btn-dark submit d-block w-75 mx-auto"
+                                value="ENVIAR OBSERVACIÓN">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

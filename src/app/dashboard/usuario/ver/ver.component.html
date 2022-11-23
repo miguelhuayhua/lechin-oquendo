@@ -7,7 +7,7 @@
                 <div class="col-12 col-md-6">
                     <mat-form-field class="w-100" appearance="fill">
                         <mat-label>Nombre del {{this.tipo}}</mat-label>
-                        <input [(ngModel)]="this.nombre" [ngModelOptions]="{standalone:true}" matInput>
+                        <input [(ngModel)]="this.nombres" [ngModelOptions]="{standalone:true}" matInput>
                     </mat-form-field>
                 </div>
                 <div class="col-12 col-md-6">
@@ -82,16 +82,16 @@
                     <span>
                         Fecha de Nacimiento:
                     </span>
-                    <app-date (selectedDay)="handleSelectDay($event)" (selectedMonth)="handleSelectMonth($event)"
-                        (selectedYear)="handleSelectYear($event)" [year]="2000" [biyear]="1930" [start]="1930"
+                    <app-date [year]="this.year" [month]="this.month" [day]="this.day" [biyear]="1930" [start]="1930"
                         [yearRange]="80"></app-date>
                 </div>
                 <div class="col-4 offset-4">
-                    <input class="btn submit-button" type="submit" value="Agregar {{this.tipo}}">
+                    <input class="btn submit-button" type="submit" value="Actualizar {{this.tipo}}">
                 </div>
             </div>
         </form>
         <mat-progress-bar style="display:none;" [ngClass]="{show:this.showProgressBar}" mode="indeterminate">
         </mat-progress-bar>
+
     </div>
 </div>
