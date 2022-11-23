@@ -26,6 +26,7 @@ import { HomeComponent } from './home/home.component';
 import { VerDocenteComponent } from './dashboard/usuario/ver-docente/ver-docente.component';
 import { VerEstudianteComponent } from './dashboard/usuario/ver-estudiante/ver-estudiante.component';
 import { FirstLoginComponent } from './login/first-login/first-login.component';
+import { AfterVerifyComponent } from './login/after-verify/after-verify.component';
 
 const routes: Routes = [
   {
@@ -169,6 +170,10 @@ const routes: Routes = [
   {
     path: 'login',
     children: [
+      {
+        path: 'usuario',
+        component: AfterVerifyComponent
+      },
       {
         path: ':token',
         component: FirstLoginComponent

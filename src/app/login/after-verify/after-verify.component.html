@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <img src="../../../assets/LOGO JLO.png" alt="">
+    <h1 class="text-center my-4">Agradecemos que nos hayas elegido {{this.nombres}}!</h1>
+    <p>Por favor, completa el último paso para poder acceder a nuestra plataforma!</p>
+    <div class="row">
+        <form action="" class="col-6 offset-3 shadow rounded-3 py-5" (submit)="handleSubmit($event)">
+            <h2 class="text-center">
+                Cambia tu contraseña
+            </h2>
+            <p>
+                Si deseas puedes cambiar tu nombre de usuario
+            </p>
+            <div class="row">
+                <div class="col-12 col-md-8 offset-md-2 my-4">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Nombre de usuario:</mat-label>
+                        <input [(ngModel)]="this.newUser" [ngModelOptions]="{standalone:true}" matInput>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-12 col-md-8 offset-md-2 my-3">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Contraseña:</mat-label>
+                        <input [type]="hide ? 'password' : 'text'" [(ngModel)]="this.usuario.password"
+                            [ngModelOptions]="{standalone:true}" matInput>
+
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{this.hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="col-12 col-md-8 offset-md-2 my-3">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Confirmar Contraseña:</mat-label>
+                        <input [type]="hide2 ? 'password' : 'text'" [(ngModel)]="this.confirmPassword"
+                            [ngModelOptions]="{standalone:true}" matInput>
+                        <mat-hint [align]="'start'" class="error" *ngIf="this.usuario.password != this.confirmPassword">
+                            Introduzca el correo con el formato correcto
+                        </mat-hint>
+                        <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{this.hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="col-4 offset-4">
+                    <input class="btn submit-button" type="submit" value="ACTUALIZAR USUARIO">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

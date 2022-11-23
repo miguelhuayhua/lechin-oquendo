@@ -62,6 +62,10 @@ import { VerDocenteComponent } from './dashboard/usuario/ver-docente/ver-docente
 import { VerEstudianteComponent } from './dashboard/usuario/ver-estudiante/ver-estudiante.component';
 import { VerComponent } from './dashboard/usuario/ver/ver.component';
 import { FirstLoginComponent } from './login/first-login/first-login.component';
+import { AfterVerifyComponent } from './login/after-verify/after-verify.component';
+
+
+import { CookieModule } from 'ngx-cookie';
 
 @NgModule({
   declarations: [
@@ -109,6 +113,7 @@ import { FirstLoginComponent } from './login/first-login/first-login.component';
     VerEstudianteComponent,
     VerComponent,
     FirstLoginComponent,
+    AfterVerifyComponent,
   ],
   imports: [
     BrowserModule,
@@ -127,7 +132,8 @@ import { FirstLoginComponent } from './login/first-login/first-login.component';
     BrowserAnimationsModule,
     HammerModule,
     MatDialogModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    CookieModule.withOptions()
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
