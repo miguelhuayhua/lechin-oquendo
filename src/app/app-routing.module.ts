@@ -29,6 +29,7 @@ import { AfterVerifyComponent } from './login/after-verify/after-verify.componen
 import { MeStudentComponent } from './me-student/me-student.component';
 import { OverviewComponent } from './me-student/overview/overview.component';
 import { AsignarDocenteComponent } from './dashboard/materias/asignar-docente/asignar-docente.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,10 @@ const routes: Routes = [
         component: HomeComponent
       }
     ]
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
   },
   {
     path: 'dashboard',

@@ -77,6 +77,7 @@ import { OverviewComponent } from './me-student/overview/overview.component';
 import { SubjectInfoComponent } from './me-student/subject-info/subject-info.component';
 import { AsignarDocenteComponent } from './dashboard/materias/asignar-docente/asignar-docente.component';
 import { ListadoDocentesComponent } from './dashboard/materias/asignar-docente/listado-docentes/listado-docentes.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -134,6 +135,7 @@ import { ListadoDocentesComponent } from './dashboard/materias/asignar-docente/l
     SubjectInfoComponent,
     AsignarDocenteComponent,
     ListadoDocentesComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
