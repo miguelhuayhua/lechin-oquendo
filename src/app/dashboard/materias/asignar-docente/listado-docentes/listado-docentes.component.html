@@ -1,0 +1,37 @@
+<section class="row">
+    <div class="col-11 mx-auto table-main bg-white">
+        <h3 class="text-center my-3">SELECCIONE UN DOCENTE A DICTAR:</h3>
+
+        <table mat-table [dataSource]="this.docentes">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="nro">
+                <th mat-header-cell *matHeaderCellDef> Nro. </th>
+                <td mat-cell *matCellDef="let docente; let i = index"> {{this.i+1}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="nombres">
+                <th mat-header-cell *matHeaderCellDef> Nombres </th>
+                <td mat-cell *matCellDef="let docente"> {{docente.nombres}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="apellidos">
+                <th mat-header-cell *matHeaderCellDef>Apellidos </th>
+                <td mat-cell *matCellDef="let docente"> {{docente.apellidos}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="telefono">
+                <th mat-header-cell *matHeaderCellDef> Celular / Teléfono </th>
+                <td mat-cell *matCellDef="let docente"> {{docente.telf}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['nro','nombres','apellidos','telefono']; sticky: true"></tr>
+            <tr mat-row class="table-row" (click)="setDocente(row)"
+                *matRowDef="let row; columns: ['nro','nombres','apellidos','telefono'];"></tr>
+        </table>
+    </div>
+
+</section>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Materia } from 'src/app/services/types/usuarios';
+import { Materia } from 'src/app/services/types/types';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
 import { StoreService } from 'src/app/services/store.service';

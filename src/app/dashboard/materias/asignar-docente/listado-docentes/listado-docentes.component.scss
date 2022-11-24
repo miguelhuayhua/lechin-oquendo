@@ -1,0 +1,16 @@
+.table-main{
+    width: 98%;
+    margin: 0 auto;
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+table{
+    width: 100%;
+}
+
+.table-row{
+    &:hover{
+background-color: whitesmoke;
+        cursor: pointer;
+    }
+}

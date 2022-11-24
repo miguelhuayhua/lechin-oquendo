@@ -9,14 +9,11 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  loginPost(data: { username: string, password: string }): void {
-
+  loginPost(usuario: string, password: string): Observable<{ num_u: string, login_token: string,tipo:number } | { error: number }> {
     let formData = new FormData();
-    formData.append('usuario', data.username);
-    formData.append('password', data.password)
-    this.http.post('https://lechin.herokuapp.com/cierre_session', formData).subscribe(res => {
-      console.log("se envió")
-    })
+    formData.append('usuario', usuario);
+    formData.append('password', password);
+    return this.http.post<{ num_u: string, login_token: string,tipo:number } | { error: number }>('http://localhost:5000/login', formData);
   }
   firstLogin(token: string): Observable<ADE | { error: number }> {
     let formData = new FormData();
