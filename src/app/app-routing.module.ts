@@ -18,7 +18,6 @@ import { ListadoMateriasComponent } from './dashboard/materias/listado-materias/
 import { AgregarMateriaComponent } from './dashboard/materias/agregar-materia/agregar-materia.component';
 import { VerMateriaComponent } from './dashboard/materias/ver-materia/ver-materia.component';
 import { CrearUsuarioComponent } from './dashboard/usuario/crear-usuario/crear-usuario.component';
-import { AsignarMateriaComponent } from './dashboard/materias/asignar-materia/asignar-materia.component';
 import { MateriasEstudiantesComponent } from './dashboard/usuario/materias-estudiantes/materias-estudiantes.component';
 import { ConfirmarEstudianteComponent } from './dashboard/usuario/confirmar-estudiante/confirmar-estudiante.component';
 import { DetalleDocenteComponent } from './dashboard/usuario/detalle-docente/detalle-docente.component';
@@ -27,6 +26,9 @@ import { VerDocenteComponent } from './dashboard/usuario/ver-docente/ver-docente
 import { VerEstudianteComponent } from './dashboard/usuario/ver-estudiante/ver-estudiante.component';
 import { FirstLoginComponent } from './login/first-login/first-login.component';
 import { AfterVerifyComponent } from './login/after-verify/after-verify.component';
+import { MeStudentComponent } from './me-student/me-student.component';
+import { OverviewComponent } from './me-student/overview/overview.component';
+import { AsignarDocenteComponent } from './dashboard/materias/asignar-docente/asignar-docente.component';
 
 const routes: Routes = [
   {
@@ -142,6 +144,11 @@ const routes: Routes = [
             component: AgregarMateriaComponent
           },
           {
+
+            path: 'asignar',
+            component: AsignarDocenteComponent
+          },
+          {
             path: ':id',
             component: VerMateriaComponent
           },
@@ -165,6 +172,17 @@ const routes: Routes = [
         redirectTo: 'overview',
         pathMatch: 'full'
       }
+    ]
+  },
+  {
+    path: 'me',
+    component: MeStudentComponent,
+    children: [
+      {
+        path: '',
+        component: OverviewComponent
+      },
+
     ]
   },
   {

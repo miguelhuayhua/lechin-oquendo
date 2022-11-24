@@ -7,6 +7,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar'
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatTableModule } from '@angular/material/table';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -66,6 +69,15 @@ import { AfterVerifyComponent } from './login/after-verify/after-verify.componen
 
 
 import { CookieModule } from 'ngx-cookie';
+import { TeachingComponent } from './teaching/teaching.component';
+import { MeStudentComponent } from './me-student/me-student.component';
+import { HeaderComponent } from './me-student/header/header.component';
+import { SubjectTableComponent } from './me-student/subject-table/subject-table.component';
+import { OverviewComponent } from './me-student/overview/overview.component';
+import { SubjectInfoComponent } from './me-student/subject-info/subject-info.component';
+import { AsignarDocenteComponent } from './dashboard/materias/asignar-docente/asignar-docente.component';
+import { ListadoDocentesComponent } from './dashboard/materias/asignar-docente/listado-docentes/listado-docentes.component';
+
 
 @NgModule({
   declarations: [
@@ -114,6 +126,14 @@ import { CookieModule } from 'ngx-cookie';
     VerComponent,
     FirstLoginComponent,
     AfterVerifyComponent,
+    TeachingComponent,
+    MeStudentComponent,
+    HeaderComponent,
+    SubjectTableComponent,
+    OverviewComponent,
+    SubjectInfoComponent,
+    AsignarDocenteComponent,
+    ListadoDocentesComponent,
   ],
   imports: [
     BrowserModule,
@@ -133,6 +153,8 @@ import { CookieModule } from 'ngx-cookie';
     HammerModule,
     MatDialogModule,
     MatProgressBarModule,
+    MatBadgeModule,
+    MatTableModule,
     CookieModule.withOptions()
   ],
   providers: [LoginService],

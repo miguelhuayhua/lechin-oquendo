@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Materia } from './types/usuarios';
+import { Materia } from './types/types';
 import { Usuario, ADE } from './usuario.service';
 
 @Injectable({
@@ -16,6 +16,19 @@ export class StoreService {
 
   private usuario: Usuario = { id_roles: '', num_u: '', password: '', token_cea: '', usuario: '' };
   private fastUserInfo: { num_u: string, nombres: string, usuario: string } = { nombres: '', num_u: '', usuario: '' }
+
+  //materia
+  private materia: Materia = {
+    costo: 0,
+    descripcion: '',
+    duracion: 0,
+    f_final: new Date(),
+    f_inicio: new Date(),
+    hora_inicio: '',
+    hora_salida: '',
+    nombre: '',
+    url: ''
+  }
   constructor() { }
 
   setInfoNuevoUsuario(estudiante: ADE, usuario: Usuario, materias: Materia[], total: number): void {
@@ -41,5 +54,14 @@ export class StoreService {
   }
   getFastUserInfo(): { nombres: string, usuario: string, num_u: string } {
     return this.fastUserInfo;
+  }
+
+
+  //materia
+  setMateria(materia: Materia): void {
+    this.materia = materia;
+  }
+  getMateria(): Materia {
+    return this.materia;
   }
 }

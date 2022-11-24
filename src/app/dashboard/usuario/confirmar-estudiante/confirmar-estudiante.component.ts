@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from 'src/app/services/store.service';
-import { Materia } from 'src/app/services/types/usuarios';
+import { Materia } from 'src/app/services/types/types';
 import { Usuario, ADE } from 'src/app/services/usuario.service';
 
 @Component({

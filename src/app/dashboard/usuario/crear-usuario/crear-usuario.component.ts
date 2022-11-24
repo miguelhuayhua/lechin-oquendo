@@ -64,7 +64,7 @@ export class CrearUsuarioComponent implements OnInit {
         num_u: this.id,
         password: '',
         token_cea: this.token_cea,
-        usuario: this.usuario
+        usuario: this.usuario,
       }, this.tipo).subscribe(data => {
         if (data.status == 1) {
           if (this.tipo == 3) {

@@ -1,0 +1,14 @@
+.user-card {
+    width: 100%;
+    margin: 0 auto !important;
+
+    .user-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-detail {
+        width: 95%;
+    }
+}

@@ -7,16 +7,33 @@
         <li id="li" style="float:right"><a id="a" class="active" href="#about">CURSOS</a>
     </ul>
 </div>
-<div class="row">
+<div class="row py-4">
     <div class="col-6 offset-3">
-        <form class="main-form rounded-5 shadow p-5" (submit)="handleSubmit($event)">
-            <h2 class="text-center">Ingreso de personal</h2>
+        <form class="main-form rounded-5 shadow p-5 bg-white" (submit)="handleSubmit($event)">
+            <h2 class="text-center">INGRESO DE PERSONAL</h2>
             <img class="avatar" class="w-25 d-block mx-auto" src="../../assets/cole.png" alt="Logo de FAzt">
-            <input [(ngModel)]="this.usuario" name="usuario" type="text" class="form-control" placeholder="Usuario">
-            <input [(ngModel)]="this.password" name="password" type="password" class="form-control" placeholder="password">
-            <button type="submit" class="btn btn-dark mx-auto d-block w-50 rounded-pill">
-                INGRESAR
-            </button>
+            <div class="col-12 col-md-8 offset-md-2 my-4">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Nombre de usuario:</mat-label>
+                    <input [(ngModel)]="this.usuario" [ngModelOptions]="{standalone:true}" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="col-12 col-md-8 offset-md-2 my-3">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Contraseña:</mat-label>
+                    <input [type]="hide ? 'password' : 'text'" [(ngModel)]="this.password"
+                        [ngModelOptions]="{standalone:true}" matInput>
+
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{this.hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <div class="col-4 offset-4">
+                <input type="submit" value="ACCEDER" class="btn btn-dark d-block w-100">
+            </div>
             <br>
             <a href="#">Olvidaste tu contraseña?</a> <br>
             <a href="#">Iniciar sesion como invitado</a>

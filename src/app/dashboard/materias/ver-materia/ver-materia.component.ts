@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MateriaService } from 'src/app/services/materia.service';
-import { Materia } from 'src/app/services/types/usuarios';
+import { Materia } from 'src/app/services/types/types';
 @Component({
   selector: 'app-ver-materia',
   templateUrl: './ver-materia.component.html',
@@ -13,14 +13,14 @@ export class VerMateriaComponent implements OnInit {
     url: '',
     costo: 0,
     descripcion: '',
-    estado: 0,
-    grado: '1',
-    fecha_desde: new Date(),
-    fecha_hasta: new Date(),
+    f_inicio: new Date(),
+    f_final: new Date(),
     id_m: 0,
     id_semestre: 0,
     nombre: '',
-    duracion: 0
+    duracion: 0,
+    hora_inicio: '',
+    hora_salida: '',
   };
   constructor(private currentRoute: ActivatedRoute,
     private apiMateria: MateriaService) { }

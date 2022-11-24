@@ -9,11 +9,11 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  loginPost(usuario: string, password: string): Observable<{ num_u: string, login_token: string } | { error: number }> {
+  loginPost(usuario: string, password: string): Observable<{ num_u: string, login_token: string,tipo:number } | { error: number }> {
     let formData = new FormData();
     formData.append('usuario', usuario);
     formData.append('password', password);
-    return this.http.post<{ num_u: string, login_token: string } | { error: number }>('http://localhost:5000/login', formData);
+    return this.http.post<{ num_u: string, login_token: string,tipo:number } | { error: number }>('http://localhost:5000/login', formData);
   }
   firstLogin(token: string): Observable<ADE | { error: number }> {
     let formData = new FormData();
