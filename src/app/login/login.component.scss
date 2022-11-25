@@ -1,141 +1,92 @@
+.negra1{
+    background: -webkit-linear-gradient(rgb(228, 228, 218),rgb(180, 29, 29));
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .titulo {
     color: #ecf0f4;
-    display: block;
-    text-align: center;
-    padding-top: 14px;
-    padding-left: 6px;
-    padding-bottom: 2px;
-}
-
-//PARTE 1
-#li {
-    display: inline;
-}
-
-//PARTE 2
-#li {
     float: left;
-}
-
-#a {
+    margin: 0%;
+    display: inline;
+    display: block;
+    padding-left: 4px;
+    font-size: 2rem;
+  }
+  .logo{
+    width: auto;
+    height: 4rem;
+    padding-left: 6px;
+  }
+  //PARTE 2
+  #li {
+    float: left;
+    display: inline;
+  }
+  
+  #a {
     display: block;
     padding: 8px;
-    background-color: rgb(17, 16, 16);
-}
-
-//PARTE 3
-#ul {
-    background-color: rgb(17, 16, 16);
-}
-
-//PARTE 4
-#ul {
+  }
+  //PARTE 4
+  #ul {
     list-style-type: none;
     margin: 0;
+    align-items: center;
     padding: 0;
     overflow: hidden;
     background-color: rgb(17, 16, 16);
-}
-
-#li {
-    float: left;
-}
-
-#li #a {
-    display: block;
-    color: white;
+    padding: 12px;
+  }
+  #li #a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-#li #a:hover {
+    color: #ecf0f4;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  #li #a:hover {
     background-color: rgb(136, 23, 23);
-}
-
-//PARTE 5
-.active {
-    background-color: rgb(17, 16, 16);
-}
-
-
-
-.log_1 {
-    background: #373B44;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #4286f4, #373B44);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #4286f4, #373B44);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  .titulo:hover{
+    font-size: 1.6rem;
+  }
+  .logo:hover{
+    width: auto;
+    height: 3.1rem;
+    border-radius: 4em;
+    background-image: linear-gradient(rgba(9, 9, 9, 0.5), rgba(171, 18, 18, 0.5));
+  }
+  //@at-root
+  .caja{
+    /*background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+    /*background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: #cacfd3;
+    // background: linear-gradient(to right, #1c4c73, #323941); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     width: 100%;
     margin: 0 auto 10px auto;
-    padding-top: 5em;
-}
-
-.form {
-    width: 100%;
-    max-width: 400px;
-    min-width: 300px;
-    margin: auto;
-    border-radius: 3px;
-    padding-top: 10px;
-    padding-left: 1px;
-    padding-right: 8px;
-    padding-bottom: 40px;
-}
-
-.log_2 {
-    text-align: center;
-    border-radius: 1em;
-    background-color: #ffffff;
-    color: rgb(18, 18, 19);
-    width: 300px;
-    height: auto;
-    padding: 1em;
-    margin: 0 auto 10px auto;
-    position: relative;
-    margin-bottom: 10em;
-}
-
+    padding-top: 2em;
+    }
+    .link1{
+        text-decoration: none;
+        margin: 0.5em;
+    }
+    .link1:hover{
+        text-decoration:underline;
+    }
 .link4 {
     margin: 0.5em;
     color: #161b22;
 }
-
-.l1 {
-    padding-top: 1em;
-}
-
-.i1 {
-    border-radius: 0.4em;
-    border-color: #30363d;
-    background-color: #16181c;
-    ;
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 0.5em;
-    color: aliceblue;
-}
-
-.boton:hover {
-    color: aliceblue;
-    background-color: #304b71;
-}
-
-.link1 {
-    text-decoration: none;
-    margin: 0.5em;
-}
-
-.pie_pagina {
+.pie_pagina{
+    margin-top: 2em;
     width: auto;
-    padding: 3rem;
+    padding: 1rem;
     background-color: #ecf0f4;
     position: relative;
+    display:flex;
+    justify-content: center;
 }
-
-
 .main-form {
 
     a {
