@@ -71,5 +71,4 @@ export type Usuario = {
   usuario: string,
   password: string,
   token_cea: string,
-  id_roles: string
 }

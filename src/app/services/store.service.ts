@@ -11,10 +11,10 @@ export class StoreService {
     materias: [],
     total: 0,
     estudiante: { apellidos: 'Huayhua Condori', carnet: '', departamento: '', direccion: '', email: '', fecha_nac: '', genero: '', nombres: '', telf: '' },
-    usuario: { id_roles: '', num_u: '', password: '', token_cea: '', usuario: '' }
+    usuario: { num_u: '', password: '', token_cea: '', usuario: '' }
   }
 
-  private usuario: Usuario = { id_roles: '', num_u: '', password: '', token_cea: '', usuario: '' };
+  private usuario: Usuario = { num_u: '', password: '', token_cea: '', usuario: '' };
   private fastUserInfo: { num_u: string, nombres: string, usuario: string } = { nombres: '', num_u: '', usuario: '' }
 
   //materia

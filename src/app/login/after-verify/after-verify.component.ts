@@ -12,7 +12,6 @@ import { Usuario } from 'src/app/services/usuario.service';
 export class AfterVerifyComponent implements OnInit {
 
   usuario: Usuario = {
-    id_roles: '',
     num_u: '',
     password: '',
     token_cea: '',

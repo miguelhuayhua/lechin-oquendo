@@ -60,7 +60,6 @@ export class CrearUsuarioComponent implements OnInit {
     let dialogRef = this.dialog.open(DialogComponent);
     dialogRef.componentInstance.yes.subscribe(() => {
       this.api.createFirstUser({
-        id_roles: this.roles,
         num_u: this.id,
         password: '',
         token_cea: this.token_cea,

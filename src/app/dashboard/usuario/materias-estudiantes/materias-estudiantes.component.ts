@@ -55,13 +55,15 @@ export class MateriasEstudiantesComponent implements OnInit {
 
   //registrar todo 
   handleSubmit(event: Event) {
+    event.preventDefault();
     let dialogRef = this.dialog.open(DialogComponent);
     dialogRef.componentInstance.yes.subscribe(value => {
       this.apiEstudiante.getEstudiante(this.num_es).subscribe(estudiante => {
+        console.log(estudiante)
         this.apiUsuario.getUsuarioById(this.num_es).subscribe(usuario => {
+          console.log(usuario)
           this.store.setInfoNuevoUsuario(estudiante, usuario, this.materias, this.total);
-          this.router.navigate(['dashboard', 'estudiante', 'confirmar'], { relativeTo: this.activeRouter.root })
-
+          this.router.navigate(['../confirmar'], { relativeTo: this.activeRouter })
         })
       })
     })
