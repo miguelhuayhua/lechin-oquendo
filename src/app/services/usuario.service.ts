@@ -9,18 +9,17 @@ export class UsuarioService {
 
   constructor(private api: HttpClient) { }
 
-
-  addADE(eda: ADE, url: string): Observable<{ id: string }> {
+  addADE(ade: ADE, url: string): Observable<{ id: string }> {
     let data = new FormData();
-    data.append('nombres', eda.nombres);
-    data.append('apellidos', eda.apellidos);
-    data.append('carnet', eda.carnet);
-    data.append('email', eda.email);
-    data.append('fecha_nac', eda.fecha_nac);
-    data.append('telf', eda.telf);
-    data.append('genero', eda.genero);
-    data.append('direccion', eda.direccion);
-    data.append('departamento', eda.departamento);
+    data.append('nombres', ade.nombres);
+    data.append('apellidos', ade.apellidos);
+    data.append('carnet', ade.carnet);
+    data.append('email', ade.email);
+    data.append('fecha_nac', ade.fecha_nac);
+    data.append('telf', ade.telf);
+    data.append('genero', ade.genero);
+    data.append('direccion', ade.direccion);
+    data.append('departamento', ade.departamento);
     return this.api.post<{ id: string }>(url, data);
   }
 
@@ -64,7 +63,7 @@ export type ADE = {
   telf: string,
   num_u?: string,
   disponible?: number,
-  edad?:number
+  edad?: number
 }
 
 export type Usuario = {

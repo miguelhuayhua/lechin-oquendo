@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EstudianteService } from 'src/app/services/ade.service';
 import { CarreraService } from 'src/app/services/carrera.service';
@@ -16,7 +17,8 @@ export class DetalleDocenteComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private carreraApi: CarreraService,
     private adeApi: EstudianteService,
-    private router: Router) { }
+    private router: Router,
+    private snackBar: MatSnackBar) { }
   docente: ADE = {
     apellidos: '',
     carnet: '',
@@ -34,6 +36,7 @@ export class DetalleDocenteComponent implements OnInit {
   curriculum = '';
   carreras: Carrera[] = []
   fecha: string = '';
+  num_u: string = '';
   nombreDepartamento: string[] = ['LA PAZ', 'COCHABAMBA', 'SANTA CRUZ', 'ORURO', 'POTOSI', 'CHUQUISACA', 'TARIJA', 'PANDO', 'BENI'];
 
   ngOnInit(): void {
@@ -43,10 +46,9 @@ export class DetalleDocenteComponent implements OnInit {
     this.carreraApi.getAllCarreras().subscribe(carreras => {
       this.carreras = carreras;
       this.activeRoute.queryParams.subscribe(data => {
-        let id: string = (data as { id: string }).id;
-        this.apiAde.getADEById(id, 'http://localhost:5000/docente').subscribe(docente => {
+        this.num_u = (data as { id: string }).id;
+        this.apiAde.getADEById(this.num_u, 'http://localhost:5000/docente').subscribe(docente => {
           this.docente = docente;
-
           let fecha = new Date(this.docente.fecha_nac);
           this.fecha = fecha.getDate() + '/' + (fecha.getMonth() + 1) + "/" + fecha.getFullYear();
         })
@@ -58,10 +60,13 @@ export class DetalleDocenteComponent implements OnInit {
   //handle submit
   handleSubmit(event: Event): void {
     event.preventDefault();
-    this.adeApi.updateDocente(this.docente, this.antiguedad, this.id_carrera).subscribe(res => {
+    this.adeApi.updateDocente(this.num_u, this.antiguedad, this.id_carrera).subscribe(res => {
       if (res.status == 1) {
         this.router.navigate(['../'], { relativeTo: this.activeRoute, replaceUrl: true })
 
+      }
+      else {
+        this.snackBar.open('Ha ocurrido un error inesperado', 'OK')
       }
     })
 

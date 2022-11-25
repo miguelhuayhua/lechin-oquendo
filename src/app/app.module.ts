@@ -25,7 +25,9 @@ import { NgChartsModule } from 'ng2-charts';
 import { LoginComponent } from './login/login.component';
 import { TableComponent } from './dashboard/static-components/table/table.component';
 import { UsuarioComponent } from './dashboard/usuario/usuario.component';
-import { MatCard, MatCardModule } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -157,6 +159,7 @@ import { ContactComponent } from './contact/contact.component';
     MatProgressBarModule,
     MatBadgeModule,
     MatTableModule,
+    MatSnackBarModule,
     CookieModule.withOptions()
   ],
   providers: [LoginService],
