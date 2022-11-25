@@ -42,6 +42,7 @@ export class AsignarDocenteComponent implements OnInit {
   }
   turno: number = 0;
   tipo: number = 0;
+  fecha: string = '';
   nombreDepartamento: string[] = ['LA PAZ', 'COCHABAMBA', 'SANTA CRUZ', 'ORURO', 'POTOSI', 'CHUQUISACA', 'TARIJA', 'PANDO', 'BENI'];
   tipos: Tipo[] = [];
   turnos: Turno[] = [];
@@ -56,5 +57,7 @@ export class AsignarDocenteComponent implements OnInit {
   }
   chooseDocente(docente: ADE) {
     this.docente = docente;
+    let fecha = new Date(this.docente.fecha_nac);
+    this.fecha = fecha.getDate() + '/' + fecha.getMonth() + "/" + fecha.getFullYear();
   }
 }

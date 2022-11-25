@@ -1,1 +1,91 @@
-<p>detalle-docente works!</p>
+<div class="row">
+    <div class="col-6">
+        <div class="user-card rounded-3 row bg-white">
+            <div class="user-info col-4">
+                <mat-icon>account_circle</mat-icon>
+                <h2>{{this.docente.nombres + " "+this.docente.apellidos}}</h2>
+                <p>
+                    {{this.docente.email}}
+                </p>
+                <p>
+                    {{this.nombreDepartamento[+this.docente.departamento]}}
+                </p>
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-11 user-detail rounded-1 shadow my-lg-4 ">
+                        <h3>DATOS PERSONALES DEL DOCENTE:</h3>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <p>
+                                    <span>Celular de contacto:</span>{{docente.telf}}
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p>
+                                    <span>Género:</span>{{docente.genero}}
+                                </p>
+                            </div>
+                            <div class="col-12">
+                                <p>
+                                    <span>Direccion:</span>{{docente.direccion}}
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p>
+                                    <span>Celular de contacto:</span>{{docente.telf}}
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p>
+                                    <span>Fecha de nacimiento:</span>{{this.fecha}}
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p>
+                                    <span>Edad:</span>{{docente.edad}}
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <form (submit)="handleSubmit($event)">
+            <div class="row bg-light rounded-3">
+                <h2 class="text-center">
+                    Añade información adicional para el {{this.tipo}}
+                </h2>
+                <div class="col-6 my-3">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Años de antiguedad: </mat-label>
+                        <input [(ngModel)]="this.antiguedad" [ngModelOptions]="{standalone:true}" matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-6 my-3">
+                    <input type="file">
+                </div>
+                <div class="col-6 my-3  offset-3">
+                    <mat-form-field class="w-100 my-2" appearance="fill">
+                        <mat-label>Carrera:</mat-label>
+                        <mat-select [(ngModel)]="this.id_carrera" [ngModelOptions]="{standalone:true}">
+                            <mat-option *ngFor="let carrera of this.carreras" [value]="carrera.id_e">
+                                {{carrera.universidad + ' - '+carrera.nombre}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-4 offset-4">
+                    <input class="btn btn-dark my-4" type="submit" value="ACEPTAR INFORMACIÓN">
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -26,3 +26,17 @@ export type Turno = {
     turno: string,
     paralelo: string
 }
+
+export type detalle_personal = {
+    id_dd: number,
+    num_dd: string,
+    antiguedad: number,
+    curriculum: Blob,
+    id_carrera: number
+}
+
+export type Carrera = {
+    id_e: number,
+    nombre: string,
+    universidad: string
+}

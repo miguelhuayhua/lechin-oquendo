@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { EstudianteService } from 'src/app/services/estudiante.service';
+import { EstudianteService } from 'src/app/services/ade.service';
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
