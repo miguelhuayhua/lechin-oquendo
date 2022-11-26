@@ -28,9 +28,13 @@ export class ConfirmarEstudianteComponent implements OnInit {
     this.nEstudiante = this.store.getInfoNuevoUsuario();
   }
   handleInscribir(): void {
-    this.inscribirApi.addNuevoRegistro(this.nEstudiante.estudiante.num_u!, this.nEstudiante.total).subscribe(res => {
+    this.inscribirApi.addNuevoRegistro(this.nEstudiante.usuario.num_u, this.nEstudiante.total).subscribe(res => {
       if (res.status == 1) {
-        this.inscribirApi.addDetalleRegistro(res.id_i!, this.nEstudiante.materias);
+        this.inscribirApi.addDetalleRegistro(res.id_i!, this.nEstudiante.materias).subscribe(res=>{
+          if(res.status==1){
+
+          }
+        })
       }
     })
   }

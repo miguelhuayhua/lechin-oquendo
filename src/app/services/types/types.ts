@@ -3,7 +3,6 @@ export type Materia = {
     nombre: string,
     url: string,
     costo: number,
-    id_semestre?: number,
     f_inicio: Date,
     f_final: Date,
     descripcion: string,

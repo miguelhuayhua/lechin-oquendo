@@ -61,8 +61,7 @@ export class MateriasEstudiantesComponent implements OnInit {
       this.apiEstudiante.getEstudiante(this.num_es).subscribe(estudiante => {
         console.log(estudiante)
         this.apiUsuario.getUsuarioById(this.num_es).subscribe(usuario => {
-          console.log(usuario)
-          this.store.setInfoNuevoUsuario(estudiante, usuario, this.materias, this.total);
+          this.store.setInfoNuevoUsuario(estudiante, {...usuario,num_u:this.num_es}, this.materias, this.total);
           this.router.navigate(['../confirmar'], { relativeTo: this.activeRouter })
         })
       })

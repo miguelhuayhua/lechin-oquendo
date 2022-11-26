@@ -12,6 +12,7 @@ export class InscripcionService {
 
   addNuevoRegistro(num_es: string , total: number): Observable<{ status: number ,id_i?:number}> {
     let formData = new FormData();
+    console.log(num_es,total)
     formData.append('num_es', num_es);
     formData.append('costo_total', total.toString());
     return this.http.post<{ status: number,id_i?:number }>('http://localhost:5000/createInscripcion', formData)

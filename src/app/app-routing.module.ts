@@ -147,7 +147,8 @@ const routes: Routes = [
 
           {
             path: 'agregar',
-            component: AgregarMateriaComponent
+            component: AgregarMateriaComponent,
+            data: { action: 'AGREGAR' }
           },
           {
             path: 'asignar',
@@ -155,7 +156,8 @@ const routes: Routes = [
           },
           {
             path: ':id',
-            component: VerMateriaComponent
+            component: VerMateriaComponent,
+            data: { action: 'ACTUALIZAR' }
           },
           {
             path: '',

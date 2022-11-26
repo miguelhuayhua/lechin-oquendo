@@ -3,37 +3,37 @@
         <app-listado-docentes (docente)="chooseDocente($event)">
         </app-listado-docentes>
     </div>
-    <div class="col-4">
-        <form>
-            <div class="row bg-light rounded-3">
-                <div class="col-12 my-3">
-                    <h2 class="text-center">
-                        Seleccione características del curso
-                    </h2>
+        <div class="col-4">
+            <form>
+                <div class="row bg-light rounded-3">
+                    <div class="col-12 my-3">
+                        <h2 class="text-center">
+                            Seleccione características del curso
+                        </h2>
+                    </div>
+                    <div class="col-8 offset-2">
+                        <mat-form-field class="w-100 my-2" appearance="fill">
+                            <mat-label>Paralelo:</mat-label>
+                            <mat-select [(ngModel)]="this.turno" [ngModelOptions]="{standalone:true}">
+                                <mat-option *ngFor="let turno of turnos" [value]="turno.id_t">
+                                    {{turno.turno + " - "+turno.paralelo}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-8 offset-2">
+                        <mat-form-field class="w-100 my-2" appearance="fill">
+                            <mat-label>Area:</mat-label>
+                            <mat-select [(ngModel)]="this.tipo" [ngModelOptions]="{standalone:true}">
+                                <mat-option *ngFor="let tipo of tipos" [value]="tipo.id_t">
+                                    {{tipo.area + " - "+tipo.nivel}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
                 </div>
-                <div class="col-8 offset-2">
-                    <mat-form-field class="w-100 my-2" appearance="fill">
-                        <mat-label>Paralelo:</mat-label>
-                        <mat-select [(ngModel)]="this.turno" [ngModelOptions]="{standalone:true}">
-                            <mat-option *ngFor="let turno of turnos" [value]="turno.id_t">
-                                {{turno.turno + " - "+turno.paralelo}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-                <div class="col-8 offset-2">
-                    <mat-form-field class="w-100 my-2" appearance="fill">
-                        <mat-label>Area:</mat-label>
-                        <mat-select [(ngModel)]="this.tipo" [ngModelOptions]="{standalone:true}">
-                            <mat-option *ngFor="let tipo of tipos" [value]="tipo.id_t">
-                                {{tipo.area + " - "+tipo.nivel}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
     <div class="col-8">
         <div class="user-card rounded-3 row bg-white">
             <div class="user-info col-4">
@@ -90,7 +90,7 @@
         </div>
     </div>
     <div class="col-4">
-        <button class="btn w-75 my-5 d-block mx-auto btn-dark">
+        <button (click)="handleLanzarCurso()" class="btn w-75 my-5 d-block mx-auto btn-dark">
             LANZAR CURSO
         </button>
     </div>
