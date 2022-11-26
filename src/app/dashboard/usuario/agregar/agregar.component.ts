@@ -11,7 +11,7 @@ import { DialogComponent } from '../../dialog/dialog.component';
 export class AgregarComponent implements OnInit {
   tipo: string = '';
 
-  month: number = 0;
+  month: number = new Date().getMonth();
   year: number = 2000;
   day: number = 1;
   //DATA
@@ -100,7 +100,7 @@ export class AgregarComponent implements OnInit {
   }
   //handle selects
   handleSelectDay(day: number) {
-    this.day = day ;
+    this.day = day;
   }
   handleSelectMonth(month: number) {
     this.month = month;

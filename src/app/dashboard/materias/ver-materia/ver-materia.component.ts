@@ -16,12 +16,17 @@ export class VerMateriaComponent implements OnInit {
     f_inicio: new Date(),
     f_final: new Date(),
     id_m: 0,
-    id_semestre: 0,
     nombre: '',
     duracion: 0,
     hora_inicio: '',
     hora_salida: '',
   };
+  hora_ent: string = '';
+  min_ent: string = '';
+  hora_sal: string = '';
+  min_sal: string = '';
+  f_ent: Date = new Date();
+  f_sal: Date = new Date();
   constructor(private currentRoute: ActivatedRoute,
     private apiMateria: MateriaService) { }
 
@@ -30,6 +35,13 @@ export class VerMateriaComponent implements OnInit {
       this.id = +(data as { id: string }).id;
       this.apiMateria.getMateriaById(this.id).subscribe(materia => {
         this.materia = materia;
+        this.hora_ent = this.materia.hora_inicio.split(":")[0];
+        this.min_ent = this.materia.hora_inicio.split(":")[1];
+        this.hora_sal = this.materia.hora_salida.split(":")[0];
+        this.min_sal = this.materia.hora_salida.split(":")[1];
+        this.f_ent = new Date(this.materia.f_inicio)
+        this.f_sal = new Date(this.materia.f_final);
+        console.log(materia)
       })
     })
   }

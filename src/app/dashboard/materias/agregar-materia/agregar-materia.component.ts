@@ -27,14 +27,19 @@ export class AgregarMateriaComponent implements OnInit {
   @Input() minuto_inicio: string = '00';
   @Input() hora_salida: string = '07';
   @Input() minuto_salida: string = '00';
+  @Input() id_m: number = 0;
   months: string[] = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 
+  action: string = '';
   constructor(private materiaApi: MateriaService,
     private store: StoreService,
-    private activedRouter:ActivatedRoute,
-    private router:Router) { }
+    private activedRouter: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.activedRouter.data.subscribe(data => {
+      this.action = (data as { action: string }).action;
+    })
   }
   //handle f_inicio date time
   handleDayChange(day: number) {
@@ -58,19 +63,37 @@ export class AgregarMateriaComponent implements OnInit {
   }
 
   handleSubmit(): void {
-    this.materiaApi.addMateria({
-      costo: +this.costo,
-      descripcion: this.descripcion,
-      duracion: +this.duracion,
-      f_final: this.f_conclusion,
-      f_inicio: this.f_inicio,
-      hora_inicio: this.hora_entrada + ":" + this.minuto_inicio,
-      hora_salida: this.hora_salida + ":" + this.minuto_salida,
-      nombre: this.nombre,
-      url: this.url
-    }).subscribe(data => {
-      this.store.setMateria((data as Materia));
-      this.router.navigate(['../asignar'],{relativeTo:this.activedRouter})
-    })
+    if (this.action == 'ACTUALIZAR') {
+      this.materiaApi.updateMateria({
+        costo: +this.costo,
+        descripcion: this.descripcion,
+        duracion: +this.duracion,
+        f_final: this.f_conclusion,
+        f_inicio: this.f_inicio,
+        hora_inicio: this.hora_entrada + ":" + this.minuto_inicio,
+        hora_salida: this.hora_salida + ":" + this.minuto_salida,
+        nombre: this.nombre,
+        url: this.url,
+        id_m: this.id_m
+      }).subscribe(res => {
+        console.log(res.status)
+      })
+    }
+    else if (this.action == 'AGREGAR') {
+      this.materiaApi.addMateria({
+        costo: +this.costo,
+        descripcion: this.descripcion,
+        duracion: +this.duracion,
+        f_final: this.f_conclusion,
+        f_inicio: this.f_inicio,
+        hora_inicio: this.hora_entrada + ":" + this.minuto_inicio,
+        hora_salida: this.hora_salida + ":" + this.minuto_salida,
+        nombre: this.nombre,
+        url: this.url
+      }).subscribe(data => {
+        this.store.setMateria((data as Materia));
+        this.router.navigate(['../asignar'], { relativeTo: this.activedRouter })
+      })
+    }
   }
 }

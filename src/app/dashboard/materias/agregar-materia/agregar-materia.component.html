@@ -32,12 +32,19 @@
             <div class="col-6">
                 <span>Fecha de Inicio:</span>
                 <app-date (selectedDay)="handleDayChange($event)" (selectedMonth)="handleMonthChange($event)"
-                    (selectedYear)="handleYearChange($event)"></app-date>
+                    (selectedYear)="handleYearChange($event)"
+                    [day]="this.f_inicio.getDate()+1"
+                    [month]="this.f_inicio.getMonth()"
+                    [year]="this.f_inicio.getFullYear()"></app-date>
             </div>
             <div class="col-6">
                 <span>Fecha de Conclusión:</span>
                 <app-date (selectedDay)="handleDayChange2($event)" (selectedMonth)="handleMonthChange2($event)"
-                    (selectedYear)="handleYearChange2($event)"></app-date>
+                    (selectedYear)="handleYearChange2($event)"
+                    [day]="f_conclusion.getDate()+1"
+                    [month]="f_conclusion.getMonth()"
+                    [year]="f_conclusion.getFullYear()"
+                    ></app-date>
             </div>
             <div class="col-6">
                 <span>
@@ -100,7 +107,7 @@
                 </mat-form-field>
             </div>
             <div class="col-4 offset-4">
-                <input class="btn submit-button" type="submit" value="AGREGAR MATERIA">
+                <input class="btn submit-button" type="submit" value="{{this.action}} MATERIA">
             </div>
         </form>
     </div>

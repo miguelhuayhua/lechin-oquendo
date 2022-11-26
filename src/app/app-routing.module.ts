@@ -123,7 +123,8 @@ const routes: Routes = [
           },
           {
             path: 'detalles',
-            component: DetalleDocenteComponent
+            component: DetalleDocenteComponent,
+            data: { tipo: 'Docente' }
           },
 
           {
@@ -146,16 +147,17 @@ const routes: Routes = [
 
           {
             path: 'agregar',
-            component: AgregarMateriaComponent
+            component: AgregarMateriaComponent,
+            data: { action: 'AGREGAR' }
           },
           {
-
             path: 'asignar',
             component: AsignarDocenteComponent
           },
           {
             path: ':id',
-            component: VerMateriaComponent
+            component: VerMateriaComponent,
+            data: { action: 'ACTUALIZAR' }
           },
           {
             path: '',

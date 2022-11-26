@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EstudianteService } from 'src/app/services/ade.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { DialogComponent } from '../../dialog/dialog.component';
 @Component({
@@ -13,7 +15,7 @@ export class VerComponent implements OnInit {
 
   tipo: string = '';
 
-  month: number = 0;
+  month: number = new Date().getMonth();
   year: number = 2000;
   day: number = 1;
   //DATA
@@ -25,7 +27,7 @@ export class VerComponent implements OnInit {
   ci_nit: string = "";
   ciudad: number = 0;
   direccion: string = "";
-
+  num_u: string = "";
   //HINTS
   showPhoneError1: boolean = false;
   showEmailError: boolean = false;
@@ -57,7 +59,11 @@ export class VerComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute,
     public dialog: MatDialog,
     private router: Router,
-    private apiADE: UsuarioService) { }
+    private apiADE: UsuarioService,
+    private apiAde: EstudianteService,
+    private snackBar: MatSnackBar) { }
+
+
   //send data using url
   private url: string = '';
   private id_tipo: number = 1;
@@ -73,8 +79,8 @@ export class VerComponent implements OnInit {
         this.url = 'http://localhost:5000/administrativo';
     })
     this.activeRoute.paramMap.subscribe(data => {
-      this.apiADE.getADEById(data.get('id')!, this.url).subscribe(data => {
-        console.log(data)
+      this.num_u = data.get('id')!;
+      this.apiADE.getADEById(this.num_u, this.url).subscribe(data => {
         this.nombres = data.nombres;
         this.apellidos = data.apellidos;
         this.celular = +data.telf;
@@ -83,11 +89,9 @@ export class VerComponent implements OnInit {
         this.correo = data.email;
         this.ciudad = +data.departamento;
         this.direccion = data.direccion;
-
         this.year = new Date(data.fecha_nac).getFullYear();
         this.month = new Date(data.fecha_nac).getMonth();
         this.day = new Date(data.fecha_nac).getDate() + 1;
-        console.log(this.year, this.month, this.day)
       })
     })
   }
@@ -97,7 +101,34 @@ export class VerComponent implements OnInit {
     let dialogRef = this.dialog.open(DialogComponent);
     dialogRef.componentInstance.yes.subscribe(() => {
       this.showProgressBar = true;
+      this.apiAde.updateADE(this.id_tipo, {
+        apellidos: this.apellidos,
+        carnet: this.ci_nit,
+        departamento: this.ciudad.toString(),
+        direccion: this.direccion,
+        email: this.correo,
+        fecha_nac: this.year + '/' + (this.month + 1) + '/' + this.day,
+        genero: this.genero, nombres: this.nombres, telf: this.celular.toString(),
+        num_u: this.num_u
+      }).subscribe(res => {
+        if (res.status == 1) {
+          this.showProgressBar = false;
+          this.snackBar.open(`${this.tipo} Actualizado`, 'OK', { duration: 4000 });
+          this.apiADE.getADEById(this.num_u, this.url).subscribe(data => {
 
+          })
+
+        }
+      })
     })
+  }
+  handleSelectDay(day: number) {
+    this.day = day;
+  }
+  handleSelectMonth(month: number) {
+    this.month = month;
+  }
+  handleSelectYear(year: number) {
+    this.year = year;
   }
 }

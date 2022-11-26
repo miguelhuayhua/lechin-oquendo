@@ -6,6 +6,7 @@ import { ADE } from 'src/app/services/usuario.service';
 import { TipoService } from 'src/app/services/tipo.service';
 import { TurnoService } from 'src/app/services/turno.service';
 import { Tipo, Turno } from 'src/app/services/types/types';
+import { MateriaService } from 'src/app/services/materia.service';
 @Component({
   selector: 'app-asignar-docente',
   templateUrl: './asignar-docente.component.html',
@@ -15,7 +16,8 @@ export class AsignarDocenteComponent implements OnInit {
 
   constructor(private store: StoreService,
     private tipoApi: TipoService,
-    private turnoApi: TurnoService) { }
+    private turnoApi: TurnoService,
+    private materiaApi: MateriaService) { }
   materia: Materia = {
     costo: 0,
     descripcion: '',
@@ -42,6 +44,7 @@ export class AsignarDocenteComponent implements OnInit {
   }
   turno: number = 0;
   tipo: number = 0;
+  fecha: string = '';
   nombreDepartamento: string[] = ['LA PAZ', 'COCHABAMBA', 'SANTA CRUZ', 'ORURO', 'POTOSI', 'CHUQUISACA', 'TARIJA', 'PANDO', 'BENI'];
   tipos: Tipo[] = [];
   turnos: Turno[] = [];
@@ -56,5 +59,14 @@ export class AsignarDocenteComponent implements OnInit {
   }
   chooseDocente(docente: ADE) {
     this.docente = docente;
+    let fecha = new Date(this.docente.fecha_nac);
+    this.fecha = fecha.getDate() + '/' + fecha.getMonth() + "/" + fecha.getFullYear();
+  }
+
+  handleLanzarCurso(): void {
+    console.log('click')
+    this.materiaApi.lauchMateria(this.docente.num_u!, this.tipo, this.turno, this.materia.id_m!).subscribe(res => {
+      console.log(res)
+    })
   }
 }

@@ -3,7 +3,7 @@ import { Materia } from 'src/app/services/types/types';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
 import { StoreService } from 'src/app/services/store.service';
-import { EstudianteService } from 'src/app/services/estudiante.service';
+import { EstudianteService } from 'src/app/services/ade.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 @Component({
@@ -55,13 +55,14 @@ export class MateriasEstudiantesComponent implements OnInit {
 
   //registrar todo 
   handleSubmit(event: Event) {
+    event.preventDefault();
     let dialogRef = this.dialog.open(DialogComponent);
     dialogRef.componentInstance.yes.subscribe(value => {
       this.apiEstudiante.getEstudiante(this.num_es).subscribe(estudiante => {
+        console.log(estudiante)
         this.apiUsuario.getUsuarioById(this.num_es).subscribe(usuario => {
-          this.store.setInfoNuevoUsuario(estudiante, usuario, this.materias, this.total);
-          this.router.navigate(['dashboard', 'estudiante', 'confirmar'], { relativeTo: this.activeRouter.root })
-
+          this.store.setInfoNuevoUsuario(estudiante, {...usuario,num_u:this.num_es}, this.materias, this.total);
+          this.router.navigate(['../confirmar'], { relativeTo: this.activeRouter })
         })
       })
     })

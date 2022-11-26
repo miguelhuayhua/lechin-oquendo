@@ -12,3 +12,32 @@
         width: 95%;
     }
 }
+
+p {
+    span {
+        font-weight: bold;
+        color: rgb(136, 136, 136);
+        margin: 10px 5px;
+    }
+
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    color: rgb(41, 41, 72);
+    font-size: 1.5em;
+    font-weight: 100;
+    margin: 10px 0;
+}
+
+mat-icon {
+    font-size: 5em;
+    width: 90px;
+    height: 90px;
+    margin: 10px 0;
+    text-align: center;
+    background: -webkit-linear-gradient(rgb(65, 66, 107), rgb(97, 124, 161));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
