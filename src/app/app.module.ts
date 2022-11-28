@@ -80,6 +80,7 @@ import { SubjectInfoComponent } from './me-student/subject-info/subject-info.com
 import { AsignarDocenteComponent } from './dashboard/materias/asignar-docente/asignar-docente.component';
 import { ListadoDocentesComponent } from './dashboard/materias/asignar-docente/listado-docentes/listado-docentes.component';
 import { ContactComponent } from './contact/contact.component';
+import { BarInfoComponent } from './me-student/charts/bar-info/bar-info.component';
 
 
 @NgModule({
@@ -138,6 +139,7 @@ import { ContactComponent } from './contact/contact.component';
     AsignarDocenteComponent,
     ListadoDocentesComponent,
     ContactComponent,
+    BarInfoComponent,
   ],
   imports: [
     BrowserModule,

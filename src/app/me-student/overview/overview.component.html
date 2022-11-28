@@ -1,9 +1,18 @@
 <div class="row">
     <div class="col-8">
-        <app-subject-table></app-subject-table>
+        <app-subject-table (materia)="addMateria($event)"></app-subject-table>
 
     </div>
+
     <div class="col-4">
-        <app-subject-info></app-subject-info>
+        <div class="row">
+            <div class="col-12">
+                <app-bar-info></app-bar-info>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-8">
+        <app-subject-info [materia]="this.materia"></app-subject-info>
     </div>
 </div>

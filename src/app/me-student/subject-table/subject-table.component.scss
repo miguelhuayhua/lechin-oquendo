@@ -1,6 +1,13 @@
-.table-row{
-    &:hover{
-background-color: whitesmoke;
+.table-row {
+    &:hover {
+        background-color: whitesmoke;
         cursor: pointer;
     }
+}
+
+.row {
+    width: 90%;
+    margin: 10px auto;
+    border-radius: 10px;
+    overflow: hidden;
 }
