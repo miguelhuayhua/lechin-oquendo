@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterEvent } from '@angular/router';
 import { RouterInfoService } from 'src/app/services/router-info.service';
+import { Usuario } from 'src/app/services/usuario.service';
 @Component({
   selector: 'app-dash-navbar',
   templateUrl: './dash-navbar.component.html',
@@ -11,6 +12,13 @@ export class DashNavbarComponent implements OnInit {
   //data info
   dashInfo: string = '';
   rutas: { route: string, fullPath: string }[] = [];
+
+  usuario: Usuario = {
+    num_u: '',
+    password: '',
+    token_cea: '',
+    usuario: ''
+  }
   constructor(private router: Router, private routerInfo: RouterInfoService) {
     router.events.subscribe(data => {
       let url: string = (data as RouterEvent).url

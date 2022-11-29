@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UsuarioService {
 
-  constructor(private api: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   addADE(ade: ADE, url: string): Observable<{ id: string }> {
     let data = new FormData();
@@ -20,7 +20,7 @@ export class UsuarioService {
     data.append('genero', ade.genero);
     data.append('direccion', ade.direccion);
     data.append('departamento', ade.departamento);
-    return this.api.post<{ id: string }>(url, data);
+    return this.http.post<{ id: string }>(url, data);
   }
 
   createFirstUser(usuario: Usuario, tipo: number): Observable<{ status: number }> {
@@ -30,23 +30,29 @@ export class UsuarioService {
     data.append('password', usuario.password);
     data.append('token_cea', usuario.token_cea);
     data.append('tipo', tipo.toString());
-    return this.api.post<{ status: number }>('http://localhost:5000/registro_usuario', data);
+    return this.http.post<{ status: number }>('http://localhost:5000/registro_usuario', data);
   }
   getUsuarioById(num_u: string): Observable<Usuario> {
     let formData = new FormData();
     formData.append('num_u', num_u);
-    return this.api.post<Usuario>('http://localhost:5000/usuario', formData)
+    return this.http.post<Usuario>('http://localhost:5000/usuario', formData)
   }
 
   getADEById(num_u: string, url: string): Observable<ADE> {
     let formData = new FormData();
     formData.append('num_u', num_u);
-    return this.api.post<ADE>(url, formData);
+    return this.http.post<ADE>(url, formData);
   }
 
   getAllADEs(url: string): Observable<ADE[]> {
-    return this.api.get<ADE[]>(url);
+    return this.http.get<ADE[]>(url);
 
+  }
+
+  getUsuarioByAccessToken(token: string): Observable<Usuario> {
+    let formData = new FormData();
+    formData.append('token', token);
+    return this.http.post<Usuario>('http://localhost:5000/getUserToken', formData);
   }
 }
 
@@ -71,4 +77,6 @@ export type Usuario = {
   usuario: string,
   password: string,
   token_cea: string,
+  logged?: number,
+  tipo?: string
 }

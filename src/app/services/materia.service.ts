@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'
 import { Materia } from './types/types';
+import { ADE } from './usuario.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -43,7 +44,6 @@ export class MateriaService {
   }
 
   updateMateria(materia: Materia): Observable<{ status: number }> {
-    console.log(materia)
     let formData = new FormData();
     formData.append('id_m', materia.id_m?.toString()!);
     formData.append('nombre', materia.nombre);
@@ -56,5 +56,12 @@ export class MateriaService {
     formData.append('hora_inicio', materia.hora_inicio);
     formData.append('hora_salida', materia.hora_salida);
     return this.http.post<{ status: number }>('http://localhost:5000/updateMateria', formData);
+  }
+
+
+  getEstudiantesMateria(id_m: number): Observable<ADE[]> {
+    let formData = new FormData();
+    formData.append('id_m', id_m.toString());
+    return this.http.post<ADE[]>('http://localhost:5000/getEstudiantesMateria', formData);
   }
 }

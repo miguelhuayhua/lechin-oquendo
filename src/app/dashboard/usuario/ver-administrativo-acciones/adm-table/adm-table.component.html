@@ -40,12 +40,11 @@
         <ng-container matColumnDef="ver">
             <th mat-header-cell *matHeaderCellDef> Ver </th>
             <td mat-cell *matCellDef="let ade">
-                <a routerLink="{{this.ade.num_u}}">
+                <button class="btn" (click)="moveTo(ade)">
                     <mat-icon>remove_red_eye</mat-icon>
-                </a>
+                </button>
             </td>
         </ng-container>
-
         <tr mat-header-row *matHeaderRowDef="['ade','estado','telefono','ver']; sticky: true"></tr>
         <tr mat-row class="table-row" (click)="setADE(row)"
             *matRowDef="let row; columns: ['ade','estado','telefono','ver'];"></tr>
