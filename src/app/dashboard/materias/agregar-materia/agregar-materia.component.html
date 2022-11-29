@@ -32,19 +32,14 @@
             <div class="col-6">
                 <span>Fecha de Inicio:</span>
                 <app-date (selectedDay)="handleDayChange($event)" (selectedMonth)="handleMonthChange($event)"
-                    (selectedYear)="handleYearChange($event)"
-                    [day]="this.f_inicio.getDate()+1"
-                    [month]="this.f_inicio.getMonth()"
-                    [year]="this.f_inicio.getFullYear()"></app-date>
+                    (selectedYear)="handleYearChange($event)" [day]="this.f_inicio.getDate()+1"
+                    [month]="this.f_inicio.getMonth()" [year]="this.f_inicio.getFullYear()"></app-date>
             </div>
             <div class="col-6">
                 <span>Fecha de Conclusión:</span>
                 <app-date (selectedDay)="handleDayChange2($event)" (selectedMonth)="handleMonthChange2($event)"
-                    (selectedYear)="handleYearChange2($event)"
-                    [day]="f_conclusion.getDate()+1"
-                    [month]="f_conclusion.getMonth()"
-                    [year]="f_conclusion.getFullYear()"
-                    ></app-date>
+                    (selectedYear)="handleYearChange2($event)" [day]="f_conclusion.getDate()+1"
+                    [month]="f_conclusion.getMonth()" [year]="f_conclusion.getFullYear()"></app-date>
             </div>
             <div class="col-6">
                 <span>
@@ -112,49 +107,17 @@
         </form>
     </div>
     <div class="col-4">
-        <div class="row mx-auto bg-light rounded-3" style="width: 95%; position: relative;">
-            <div class="costo">
-                {{+this.costo+0}} Bs.
-            </div>
-            <div class="col-10 offset-1">
-                <img class="img-fluid my-3" src="{{this.url}}" alt="">
-            </div>
-            <hr>
-            <div class="col-12">
-                <p class="text-center w-100 fs-3">
-                    {{this.nombre}}
-                </p>
-            </div>
-            <div class="col-6">
-                <p>
-                    <span>Fecha de Inicio:</span>
-                    {{this.f_inicio.getDate()+"/"+this.months[this.f_inicio.getMonth()]+"/"+this.f_inicio.getFullYear()}}
-                </p>
-            </div>
-            <div class="col-6">
-                <p>
-                    <span>Fecha de Conclusión</span>
-                    {{this.f_conclusion.getDate()+"/"+this.months[this.f_conclusion.getMonth()]+"/"+this.f_conclusion.getFullYear()}}
-                </p>
-            </div>
-            <div class="col-12">
-                <p>
-                    <span>Duración del Curso:</span>
-                    {{+this.duracion+0}} Días
-                </p>
-            </div>
-            <div class="col-6">
-                <p>
-                    <span>Hora de Entrada:</span>
-                    {{this.hora_entrada + ":"+this.minuto_inicio}}
-                </p>
-            </div>
-            <div class="col-6">
-                <p>
-                    <span>Hora de Salida:</span>
-                    {{this.hora_salida + ":"+this.minuto_salida}}
-                </p>
-            </div>
-        </div>
+        <app-materia-info [materia]="{
+        costo: +this.costo,
+        descripcion: this.descripcion,
+        duracion: +this.duracion,
+        f_final: this.f_conclusion,
+        f_inicio: this.f_inicio,
+        hora_inicio: this.hora_entrada + ':' + this.minuto_inicio,
+        hora_salida: this.hora_salida + ':' + this.minuto_salida,
+        nombre: this.nombre,
+        url: this.url,
+        id_m: this.id_m
+      }" [f_inicio]="this.f_ini" [f_final]="this.f_fin"></app-materia-info>
     </div>
 </div>

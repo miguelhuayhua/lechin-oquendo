@@ -22,15 +22,16 @@ export class SubjectInfoComponent implements OnInit, OnChanges {
     nombre: '',
     url: ''
   }
-  f_inicio: string = '';
-  f_final: string = '';
+  f_inicio: Date = new Date(this.materia.f_inicio);
+  f_final: Date = new Date(this.materia.f_final);
   constructor() { }
 
   ngOnInit(): void {
 
   }
   ngOnChanges(changes: SimpleChanges): void {
-    this.f_inicio= new Date(this.materia.f_final).getDate().toString();
+    console.log(this.f_inicio, this.materia.f_inicio);
+    this.f_inicio = new Date(this.materia.f_inicio)
   }
 
 }

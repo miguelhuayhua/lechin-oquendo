@@ -1,0 +1,45 @@
+<div class="row mx-auto bg-light rounded-3" style="width: 95%; position: relative;">
+    <div class="costo">
+        {{+this.materia.costo + 0}} Bs.
+    </div>
+    <div class="col-10 offset-1">
+        <img class="img-fluid my-3" src="{{this.materia.url}}" alt="">
+    </div>
+    <hr>
+    <div class="col-12">
+        <p class="text-center w-100 fs-3">
+            {{this.materia.nombre}}
+        </p>
+    </div>
+    <div class="col-6">
+        <p>
+            <span>Fecha de Inicio:</span>
+            {{this.f_inicio.dia+'/'+this.f_inicio.mes+'/'+this.f_inicio.year}}
+
+        </p>
+    </div>
+    <div class="col-6">
+        <p>
+            <span>Fecha de Conclusión</span>
+            {{this.f_final.dia+'/'+this.f_final.mes+'/'+this.f_final.year}}
+        </p>
+    </div>
+    <div class="col-12">
+        <p>
+            <span>Duración del Curso:</span>
+            {{+this.materia.duracion+0}} Días
+        </p>
+    </div>
+    <div class="col-6">
+        <p>
+            <span>Hora de Entrada:</span>
+            {{this.materia.hora_inicio}}
+        </p>
+    </div>
+    <div class="col-6">
+        <p>
+            <span>Hora de Salida:</span>
+            {{this.materia.hora_salida}}
+        </p>
+    </div>
+</div>

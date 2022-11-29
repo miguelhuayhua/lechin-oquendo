@@ -1,11 +1,9 @@
-
-
-<div class="row bg-light rounded-4">
+<div class="row">
     <div class="col-12 col-lg-9">
-        <app-student-table></app-student-table>
+        <app-adm-table [url]="'http://localhost:5000/estudiantes'" [tipo]="'Estudiante'"></app-adm-table>
     </div>
     <div class="col-12 col-lg-3">
         <app-student-actions></app-student-actions>
     </div>
-    
+
 </div>

@@ -30,6 +30,7 @@ import { MeStudentComponent } from './me-student/me-student.component';
 import { OverviewComponent } from './me-student/overview/overview.component';
 import { AsignarDocenteComponent } from './dashboard/materias/asignar-docente/asignar-docente.component';
 import { ContactComponent } from './contact/contact.component';
+import { VerAdministrativoAccionesComponent } from './dashboard/usuario/ver-administrativo-acciones/ver-administrativo-acciones.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,23 @@ const routes: Routes = [
           {
             path: '',
             redirectTo: 'detalles',
+            pathMatch: 'full'
+          }
+        ]
+      },
+      {
+        path: 'administrativo',
+        component: UsuarioComponent,
+        children: [
+          {
+            path: 'agregar',
+            component: AgregarComponent,
+            data: { tipo: 'administrativo', id: 1 }
+          }
+          ,
+          {
+            path: '',
+            component: VerAdministrativoAccionesComponent,
             pathMatch: 'full'
           }
         ]

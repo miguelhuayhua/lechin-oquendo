@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 
 @Component({
@@ -6,7 +6,7 @@ import { MatSelectChange } from '@angular/material/select';
   templateUrl: './date.component.html',
   styleUrls: ['./date.component.scss']
 })
-export class DateComponent implements OnInit {
+export class DateComponent implements OnInit, OnChanges {
 
   //date
   date: { year: number, months: { index: number, month: string, days: number[] }[] }[] = []
@@ -40,7 +40,11 @@ export class DateComponent implements OnInit {
   //constructor
   constructor() {
   }
-
+  ngOnChanges(changes: SimpleChanges): void {
+    this.days = this.date.find((date => {
+      return date.year == this.year && date.months[this.month].index == this.month;
+    }))?.months[this.month].days;
+  }
   ngOnInit(): void {
     let veintenueve = Array.from(Array(29).keys()).map(val => val + 1);
     let years = Array.from(Array(this.yearRange).keys()).map(val => val + this.start);
@@ -56,6 +60,7 @@ export class DateComponent implements OnInit {
 
           })
         }
+
       }
       else {
         return {

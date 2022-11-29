@@ -1,0 +1,53 @@
+<section class="row shadow rounded overflow-hidden">
+    <table class="col-12" mat-table [dataSource]="this.ADEList">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="ade">
+            <th mat-header-cell *matHeaderCellDef> {{this.tipo}} </th>
+            <td mat-cell *matCellDef="let ade; let i = index">
+                <div class="ade">
+                    <mat-icon> person_pin</mat-icon>
+                    <div>
+                        <h3>{{this.ade.nombres+" "+this.ade.apellidos}}</h3>
+                        <h4>{{this.ade.email}}</h4>
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let ade">
+                <p *ngIf="this.ade.disponible==1; else noDispo" [ngClass]="{estado:true, estadoactivo:true}">
+                    En servicio
+                </p>
+                <ng-template #noDispo>
+                    <p [ngClass]="{estado:true,estadoInactivo:true}">
+                        Sin servicio
+                    </p>
+                </ng-template>
+            </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="telefono">
+            <th mat-header-cell *matHeaderCellDef>Teléfono </th>
+            <td mat-cell *matCellDef="let ade"> +591 {{this.ade.telf}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="ver">
+            <th mat-header-cell *matHeaderCellDef> Ver </th>
+            <td mat-cell *matCellDef="let ade">
+                <a routerLink="{{this.ade.num_u}}">
+                    <mat-icon>remove_red_eye</mat-icon>
+                </a>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['ade','estado','telefono','ver']; sticky: true"></tr>
+        <tr mat-row class="table-row" (click)="setADE(row)"
+            *matRowDef="let row; columns: ['ade','estado','telefono','ver'];"></tr>
+    </table>
+</section>

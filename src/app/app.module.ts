@@ -43,9 +43,7 @@ import { AgregarComponent } from './dashboard/usuario/agregar/agregar.component'
 import { MainDashboardComponent } from './dashboard/main-dashboard/main-dashboard.component';
 import { VerDocentesAccionesComponent } from './dashboard/usuario/ver-docentes-acciones/ver-docentes-acciones.component';
 import { StudentActionsComponent } from './dashboard/usuario/ver-estudiantes-acciones/student-actions/student-actions.component';
-import { StudentTableComponent } from './dashboard/usuario/ver-estudiantes-acciones/student-table/student-table.component';
 import { TeacherActionsComponent } from './dashboard/usuario/ver-docentes-acciones/teacher-actions/teacher-actions.component';
-import { TeacherTableComponent } from './dashboard/usuario/ver-docentes-acciones/teacher-table/teacher-table.component';
 import { FooterComponent } from './dashboard/footer/footer.component';
 import { MateriasComponent } from './dashboard/materias/materias.component';
 import { InscripcionComponent } from './dashboard/inscripcion/inscripcion.component';
@@ -81,6 +79,9 @@ import { AsignarDocenteComponent } from './dashboard/materias/asignar-docente/as
 import { ListadoDocentesComponent } from './dashboard/materias/asignar-docente/listado-docentes/listado-docentes.component';
 import { ContactComponent } from './contact/contact.component';
 import { BarInfoComponent } from './me-student/charts/bar-info/bar-info.component';
+import { VerAdministrativoAccionesComponent } from './dashboard/usuario/ver-administrativo-acciones/ver-administrativo-acciones.component';
+import { AdmTableComponent } from './dashboard/usuario/ver-administrativo-acciones/adm-table/adm-table.component';
+import { MateriaInfoComponent } from './dashboard/materias/materia-info/materia-info.component';
 
 
 @NgModule({
@@ -105,9 +106,7 @@ import { BarInfoComponent } from './me-student/charts/bar-info/bar-info.componen
     MainDashboardComponent,
     VerDocentesAccionesComponent,
     StudentActionsComponent,
-    StudentTableComponent,
     TeacherActionsComponent,
-    TeacherTableComponent,
     FooterComponent,
     MateriasComponent,
     InscripcionComponent,
@@ -140,6 +139,9 @@ import { BarInfoComponent } from './me-student/charts/bar-info/bar-info.componen
     ListadoDocentesComponent,
     ContactComponent,
     BarInfoComponent,
+    VerAdministrativoAccionesComponent,
+    AdmTableComponent,
+    MateriaInfoComponent,
   ],
   imports: [
     BrowserModule,

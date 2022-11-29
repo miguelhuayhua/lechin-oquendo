@@ -1,0 +1,58 @@
+.ade {
+    display: flex;
+
+    mat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 4em;
+        color: rgb(61, 61, 107);
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        width: 60%;
+
+        h3 {
+            font-size: .9em;
+            font-weight: 500;
+        }
+
+        h4 {
+            font-size: .85em;
+            color: rgb(122, 122, 122);
+            font-weight: 500;
+        }
+
+    }
+}
+
+
+//student status at his institute
+
+.estado {
+    width: 90px;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.estadoactivo {
+    background-color: rgb(101, 155, 19);
+    color: white;
+    text-align: center;
+}
+
+.estadoInactivo {
+    background-color: rgb(172, 75, 75);
+    color: white;
+}
+
+.show {
+    display: none !important;
+}
+
+mat-icon {
+    color: black;
+}
