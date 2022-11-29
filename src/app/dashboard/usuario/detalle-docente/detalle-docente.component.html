@@ -1,58 +1,6 @@
 <div class="row">
     <div class="col-6">
-        <div class="user-card rounded-3 row bg-white">
-            <div class="user-info col-4">
-                <mat-icon>account_circle</mat-icon>
-                <h2 class="text-center">{{this.docente.nombres + " "+this.docente.apellidos}}</h2>
-                <p>
-                    {{this.docente.email}}
-                </p>
-                <p>
-                    {{this.nombreDepartamento[+this.docente.departamento]}}
-                </p>
-            </div>
-            <div class="col-8">
-                <div class="row">
-                    <div class="col-11 user-detail rounded-1 shadow my-lg-4 ">
-                        <h3>DATOS PERSONALES DEL DOCENTE:</h3>
-                        <hr>
-                        <div class="row">
-                            <div class="col-6">
-                                <p>
-                                    <span>Celular de contacto:</span>{{docente.telf}}
-                                </p>
-                            </div>
-                            <div class="col-6">
-                                <p>
-                                    <span>Género:</span>{{docente.genero}}
-                                </p>
-                            </div>
-                            <div class="col-12">
-                                <p>
-                                    <span>Direccion:</span>{{docente.direccion}}
-                                </p>
-                            </div>
-                            <div class="col-6">
-                                <p>
-                                    <span>Celular de contacto:</span>{{docente.telf}}
-                                </p>
-                            </div>
-                            <div class="col-6">
-                                <p>
-                                    <span>Fecha de nacimiento:</span>{{this.fecha}}
-                                </p>
-                            </div>
-                            <div class="col-6">
-                                <p>
-                                    <span>Edad:</span>{{docente.edad}}
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <app-docente-info [docente]="this.docente" [f_nac]="this.fecha" [departamento]="this.nombreDepartamento[+this.docente.departamento]"></app-docente-info>
     </div>
 
     <div class="col-6">

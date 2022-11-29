@@ -42,8 +42,8 @@ export class AgregarMateriaComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     this.activedRouter.data.subscribe(data => {
       this.action = (data as { action: string }).action;
-      this.f_ini = { dia: (this.f_inicio.getDate() + 1) + "", mes: (this.f_inicio.getMonth() + 1) + "", year: this.f_inicio.getFullYear() + "" }
-      this.f_fin = { dia: (this.f_conclusion.getDate() + 1) + "", mes: (this.f_conclusion.getMonth() + 1) + "", year: this.f_conclusion.getFullYear() + "" }
+      this.f_ini = { dia: (this.f_inicio.getDate() + 1) + "", mes: (this.f_inicio.getMonth() ) + "", year: this.f_inicio.getFullYear() + "" }
+      this.f_fin = { dia: (this.f_conclusion.getDate() + 1) + "", mes: (this.f_conclusion.getMonth() ) + "", year: this.f_conclusion.getFullYear() + "" }
 
     })
   }
