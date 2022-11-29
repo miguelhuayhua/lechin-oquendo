@@ -31,6 +31,7 @@ import { OverviewComponent } from './me-student/overview/overview.component';
 import { AsignarDocenteComponent } from './dashboard/materias/asignar-docente/asignar-docente.component';
 import { ContactComponent } from './contact/contact.component';
 import { VerAdministrativoAccionesComponent } from './dashboard/usuario/ver-administrativo-acciones/ver-administrativo-acciones.component';
+import { VerAdministrativoComponent } from './dashboard/usuario/ver-administrativo/ver-administrativo.component';
 
 const routes: Routes = [
   {
@@ -88,7 +89,12 @@ const routes: Routes = [
           {
             path: '',
             component: VerAdministrativoAccionesComponent,
-            pathMatch: 'full'
+            pathMatch: 'full',
+            data: { urlTipo: 'administrativo' }
+          },
+          {
+            path: ':id',
+            component: VerAdministrativoComponent
           }
         ]
       }, {
@@ -116,14 +122,17 @@ const routes: Routes = [
           {
             path: '',
             component: VerEstudiantesAccionesComponent,
-            pathMatch: 'full'
+            pathMatch: 'full',
           },
           {
             path: ':id',
             component: VerEstudianteComponent,
             data: { tipo: 'Estudiante', id: 3 }
           },
-        ]
+        ],
+        data: { urlTipo: 'estudiante' }
+
+        ,
       },
       {
         path: 'docente',
@@ -148,7 +157,8 @@ const routes: Routes = [
           {
             path: '',
             component: VerDocentesAccionesComponent,
-            pathMatch: 'full'
+            pathMatch: 'full',
+            data: { urlTipo: 'docente' }
           },
           {
             path: ':id',
@@ -175,7 +185,7 @@ const routes: Routes = [
           {
             path: ':id',
             component: VerMateriaComponent,
-            data: { action: 'ACTUALIZAR' }
+            data: { action: 'ACTUALIZAR', urlTipo: 'estudiante' }
           },
           {
             path: '',
@@ -191,6 +201,7 @@ const routes: Routes = [
       {
         path: 'overview',
         component: MainDashboardComponent,
+
       }
       , {
         path: '',

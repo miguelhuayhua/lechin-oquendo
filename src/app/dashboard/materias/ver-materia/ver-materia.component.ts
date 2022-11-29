@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { ThisReceiver } from '@angular/compiler';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MateriaService } from 'src/app/services/materia.service';
 import { Materia } from 'src/app/services/types/types';
+import { ADE, UsuarioService } from 'src/app/services/usuario.service';
 @Component({
   selector: 'app-ver-materia',
   templateUrl: './ver-materia.component.html',
@@ -21,14 +23,37 @@ export class VerMateriaComponent implements OnInit {
     hora_inicio: '',
     hora_salida: '',
   };
+
+  //docente
+  docente: ADE = {
+    apellidos: '',
+    carnet: '',
+    departamento: '',
+    direccion: '',
+    email: '',
+    fecha_nac: '',
+    genero: '',
+    nombres: '',
+    telf: '',
+  }
+
+  //lista de estudiantes 
+  ADEList: ADE[] = [];
+
+  //datos para las fechas
   hora_ent: string = '';
   min_ent: string = '';
   hora_sal: string = '';
   min_sal: string = '';
   f_ent: Date = new Date();
   f_sal: Date = new Date();
+
+  f_ini: { dia: string, mes: string, year: string } = { dia: '', mes: '', year: '' };
+  f_fin: { dia: string, mes: string, year: string } = { dia: '', mes: '', year: '' };
   constructor(private currentRoute: ActivatedRoute,
-    private apiMateria: MateriaService) { }
+    private apiMateria: MateriaService,
+    private apiUsuario: UsuarioService) {
+  }
 
   ngOnInit(): void {
     this.currentRoute.params.subscribe(data => {
@@ -41,10 +66,17 @@ export class VerMateriaComponent implements OnInit {
         this.min_sal = this.materia.hora_salida.split(":")[1];
         this.f_ent = new Date(this.materia.f_inicio)
         this.f_sal = new Date(this.materia.f_final);
-        console.log(materia)
+        this.f_fin = { dia: this.f_sal.getDate().toString(), mes: this.f_sal.getMonth().toString(), year: this.f_sal.getFullYear().toString() }
+        this.f_ini = { dia: this.f_ent.getDate().toString(), mes: this.f_ent.getMonth().toString(), year: this.f_ent.getFullYear().toString() }
+        this.apiUsuario.getADEById(this.materia.num_do!, 'http://localhost:5000/docente').subscribe(res => {
+          this.docente = res;
+        })
+        this.apiMateria.getEstudiantesMateria(this.materia.id_m!).subscribe(res => {
+          console.log(res)
+          this.ADEList = res;
+        })
       })
     })
   }
-
 }
 

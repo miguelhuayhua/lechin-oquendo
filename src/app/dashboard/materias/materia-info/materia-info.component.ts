@@ -22,7 +22,7 @@ export class MateriaInfoComponent implements OnInit, OnChanges {
   @Input() f_inicio: { dia: string, mes: string, year: string } = { dia: '', mes: '', year: '' };
   @Input() f_final: { dia: string, mes: string, year: string } = { dia: '', mes: '', year: '' };
   constructor() { }
-
+  months: string[] = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
   ngOnInit(): void {
   }
   ngOnChanges(changes: SimpleChanges): void {

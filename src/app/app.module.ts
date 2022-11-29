@@ -82,6 +82,8 @@ import { BarInfoComponent } from './me-student/charts/bar-info/bar-info.componen
 import { VerAdministrativoAccionesComponent } from './dashboard/usuario/ver-administrativo-acciones/ver-administrativo-acciones.component';
 import { AdmTableComponent } from './dashboard/usuario/ver-administrativo-acciones/adm-table/adm-table.component';
 import { MateriaInfoComponent } from './dashboard/materias/materia-info/materia-info.component';
+import { DocenteInfoComponent } from './dashboard/usuario/docente-info/docente-info.component';
+import { VerAdministrativoComponent } from './dashboard/usuario/ver-administrativo/ver-administrativo.component';
 
 
 @NgModule({
@@ -142,6 +144,8 @@ import { MateriaInfoComponent } from './dashboard/materias/materia-info/materia-
     VerAdministrativoAccionesComponent,
     AdmTableComponent,
     MateriaInfoComponent,
+    DocenteInfoComponent,
+    VerAdministrativoComponent,
   ],
   imports: [
     BrowserModule,
