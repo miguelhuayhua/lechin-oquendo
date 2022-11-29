@@ -58,7 +58,6 @@ export class VerComponent implements OnInit {
   //constructor
   constructor(private activeRoute: ActivatedRoute,
     public dialog: MatDialog,
-    private router: Router,
     private apiADE: UsuarioService,
     private apiAde: EstudianteService,
     private snackBar: MatSnackBar) { }
