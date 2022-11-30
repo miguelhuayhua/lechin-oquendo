@@ -1,9 +1,9 @@
 <div class="user-card rounded-3 row bg-white">
     <div class="user-info col-12 col-xxl-4">
         <mat-icon>account_circle</mat-icon>
-        <h2 class="text-center">{{this.docente.nombres + " "+this.docente.apellidos}}</h2>
+        <h2 class="text-center">{{this.ade.nombres + " "+this.ade.apellidos}}</h2>
         <p>
-            {{this.docente.email}}
+            {{this.ade.email}}
         </p>
         <p>
             {{this.departamento}}
@@ -13,27 +13,27 @@
 
         <div class="row">
             <div class="col-11 user-detail rounded-1 shadow my-lg-4 ">
-                <h3>DATOS PERSONALES DEL DOCENTE:</h3>
+                <h3>DATOS PERSONALES DEL {{this.tipo}}:</h3>
                 <hr>
                 <div class="row">
                     <div class="col-12 col-xxl-6">
                         <p>
-                            <span>Celular de contacto:</span>{{docente.telf}}
+                            <span>Celular de contacto:</span>{{ade.telf}}
                         </p>
                     </div>
                     <div class="col-12 col-xxl-6">
                         <p>
-                            <span>Género:</span>{{docente.genero}}
+                            <span>Género:</span>{{ade.genero}}
                         </p>
                     </div>
                     <div class="col-12">
                         <p>
-                            <span>Direccion:</span>{{docente.direccion}}
+                            <span>Direccion:</span>{{ade.direccion}}
                         </p>
                     </div>
                     <div class="col-12 col-xxl-6">
                         <p>
-                            <span>Celular de contacto:</span>{{docente.telf}}
+                            <span>Celular de contacto:</span>{{ade.telf}}
                         </p>
                     </div>
                     <div class="col-12 col-xxl-6">
@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-12 col-xxl-6">
                         <p>
-                            <span>Edad:</span>{{docente.edad}}
+                            <span>Edad:</span>{{ade.edad}}
                         </p>
                     </div>
 

@@ -1,1 +1,20 @@
-<app-ver></app-ver>
+<div class="row">
+    <div class="col-6">
+        <app-docente-info [ade]="this.estudiante" [tipo]="'ESTUDIANTE'" [f_nac]="this.f_nacimiento"></app-docente-info>
+        <a class="btn btn-dark" [routerLink]="'../editar/'+this.num_es">Editar</a>
+
+    </div>
+    <div class="col-6">
+        <app-pie-chart></app-pie-chart>
+    </div>
+    <div class="col-6">
+        <app-subject-table (materia)="clickMateria($event)" [withDataSource]="true" [materias]="this.materias">
+        </app-subject-table>
+    </div>
+    <div class="col-6">
+        <h2>
+            Seleccione una materia para ver las notas...
+        </h2>
+        <app-subject-grade [calificacion]="this.calificacion!"></app-subject-grade>
+    </div>
+</div>

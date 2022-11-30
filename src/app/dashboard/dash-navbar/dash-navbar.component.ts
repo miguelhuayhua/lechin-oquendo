@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterEvent } from '@angular/router';
+import { CookieService } from 'ngx-cookie';
 import { RouterInfoService } from 'src/app/services/router-info.service';
-import { Usuario } from 'src/app/services/usuario.service';
+import { Usuario, UsuarioService } from 'src/app/services/usuario.service';
 @Component({
   selector: 'app-dash-navbar',
   templateUrl: './dash-navbar.component.html',
@@ -19,7 +20,10 @@ export class DashNavbarComponent implements OnInit {
     token_cea: '',
     usuario: ''
   }
-  constructor(private router: Router, private routerInfo: RouterInfoService) {
+  constructor(private router: Router, private routerInfo: RouterInfoService,
+    private userApi: UsuarioService,
+    private cookies: CookieService,
+    private activatedRouter: ActivatedRoute) {
     router.events.subscribe(data => {
       let url: string = (data as RouterEvent).url
       if (url != undefined) {
@@ -39,7 +43,14 @@ export class DashNavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    if (this.cookies.get('key')! == undefined) {
+      this.router.navigate(['/'], { relativeTo: this.activatedRouter.root })
+    }
+    else {
+      this.userApi.getUsuarioByAccessToken(this.cookies.get('key')!).subscribe(usuario => {
+        this.usuario = usuario;
+      })
+    }
   }
   handleMouseEnter(event: MouseEvent): void {
     this.showUserOptions = true;

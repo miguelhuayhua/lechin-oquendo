@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { MateriaService } from 'src/app/services/materia.service';
 import { Materia } from 'src/app/services/types/types';
 @Component({
@@ -8,13 +8,16 @@ import { Materia } from 'src/app/services/types/types';
 })
 export class SubjectTableComponent implements OnInit {
 
-  materias: Materia[] = []
+  @Input() materias: Materia[] = [];
+  @Input() withDataSource: boolean = false;
   constructor(private materiaApi: MateriaService) { }
   @Output() materia = new EventEmitter<Materia>();
   ngOnInit(): void {
-    this.materiaApi.getAllMaterias().subscribe(materias => {
-      this.materias = materias;
-    })
+    if (!this.withDataSource) {
+      this.materiaApi.getAllMaterias().subscribe(materias => {
+        this.materias = materias;
+      })
+    }
   }
 
   setMateria(materia: Materia) {

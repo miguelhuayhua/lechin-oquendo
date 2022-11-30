@@ -84,6 +84,7 @@ import { AdmTableComponent } from './dashboard/usuario/ver-administrativo-accion
 import { MateriaInfoComponent } from './dashboard/materias/materia-info/materia-info.component';
 import { DocenteInfoComponent } from './dashboard/usuario/docente-info/docente-info.component';
 import { VerAdministrativoComponent } from './dashboard/usuario/ver-administrativo/ver-administrativo.component';
+import { SubjectGradeComponent } from './me-student/subject-grade/subject-grade.component';
 
 
 @NgModule({
@@ -146,6 +147,7 @@ import { VerAdministrativoComponent } from './dashboard/usuario/ver-administrati
     MateriaInfoComponent,
     DocenteInfoComponent,
     VerAdministrativoComponent,
+    SubjectGradeComponent,
   ],
   imports: [
     BrowserModule,

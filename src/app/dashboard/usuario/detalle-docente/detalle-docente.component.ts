@@ -19,7 +19,7 @@ export class DetalleDocenteComponent implements OnInit {
     private adeApi: EstudianteService,
     private router: Router,
     private snackBar: MatSnackBar) { }
-  docente: ADE = {
+  ade: ADE = {
     apellidos: '',
     carnet: '',
     departamento: '',
@@ -37,19 +37,29 @@ export class DetalleDocenteComponent implements OnInit {
   carreras: Carrera[] = []
   fecha: string = '';
   num_u: string = '';
+  url: string = '';
+  id: number = 0;
   nombreDepartamento: string[] = ['LA PAZ', 'COCHABAMBA', 'SANTA CRUZ', 'ORURO', 'POTOSI', 'CHUQUISACA', 'TARIJA', 'PANDO', 'BENI'];
 
   ngOnInit(): void {
     this.activeRoute.data.subscribe(data => {
       this.tipo = (data as { tipo: string }).tipo;
+      this.id = (data as { id: number }).id;
+      if (this.id == 2) {
+        this.url = 'http://localhost:5000/docente';
+      }
+      else if (this.id == 1) {
+
+        this.url = 'http://localhost:5000/administrativo';
+      }
     })
     this.carreraApi.getAllCarreras().subscribe(carreras => {
       this.carreras = carreras;
       this.activeRoute.queryParams.subscribe(data => {
         this.num_u = (data as { id: string }).id;
-        this.apiAde.getADEById(this.num_u, 'http://localhost:5000/docente').subscribe(docente => {
-          this.docente = docente;
-          let fecha = new Date(this.docente.fecha_nac);
+        this.apiAde.getADEById(this.num_u, this.url).subscribe(ade => {
+          this.ade = ade;
+          let fecha = new Date(this.ade.fecha_nac);
           this.fecha = fecha.getDate() + '/' + (fecha.getMonth() + 1) + "/" + fecha.getFullYear();
         })
       })
@@ -60,7 +70,7 @@ export class DetalleDocenteComponent implements OnInit {
   //handle submit
   handleSubmit(event: Event): void {
     event.preventDefault();
-    this.adeApi.updateDocente(this.num_u, this.antiguedad, this.id_carrera).subscribe(res => {
+    this.adeApi.updateADEDetalle(this.num_u, this.antiguedad, this.id_carrera, this.id).subscribe(res => {
       if (res.status == 1) {
         this.router.navigate(['../'], { relativeTo: this.activeRoute, replaceUrl: true })
 

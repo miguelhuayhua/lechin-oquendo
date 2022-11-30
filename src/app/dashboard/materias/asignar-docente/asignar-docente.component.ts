@@ -64,9 +64,7 @@ export class AsignarDocenteComponent implements OnInit {
   }
 
   handleLanzarCurso(): void {
-    console.log('click')
     this.materiaApi.lauchMateria(this.docente.num_u!, this.tipo, this.turno, this.materia.id_m!).subscribe(res => {
-      console.log(res)
     })
   }
 }

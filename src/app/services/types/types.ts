@@ -39,3 +39,15 @@ export type Carrera = {
     nombre: string,
     universidad: string
 }
+
+export type Calificacion = {
+    id_ca?: number,
+    num_ca?: string,
+    id_inscripcion?: number,
+    fecha_calificacion: string,
+    e1parcial: number,
+    e2parcial: number,
+    e3parcial: number,
+    nota_total: number,
+    finalizado: number
+}

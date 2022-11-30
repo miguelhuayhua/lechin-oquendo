@@ -73,7 +73,7 @@ export class CrearUsuarioComponent implements OnInit {
             this.router.navigate(['dashboard', 'docente', 'detalles'], { relativeTo: this.activatedRouter.root, queryParams: { id: this.id } });
           }
           else {
-            this.router.navigate(['dashboard', 'administrativo', 'asignar'], { relativeTo: this.activatedRouter.root, queryParams: { id: this.id } });
+            this.router.navigate(['dashboard', 'administrativo', 'detalles'], { relativeTo: this.activatedRouter.root, queryParams: { id: this.id } });
           }
         }
         else {

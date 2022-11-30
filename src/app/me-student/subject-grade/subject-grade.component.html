@@ -1,0 +1,38 @@
+<h3 *ngIf="this.calificacion.e1parcial==undefined; else elseBlock">
+    Esta materia aún no presenta nostas para el estudiante
+</h3>
+<ng-template #elseBlock>
+    <div class="row bg-white rounded shadow">
+        <div class="col-12">
+            <p>
+                <span>Fecha de Calificación:</span>
+                {{this.calificacion.fecha_calificacion}}
+            </p>
+        </div>
+        <div class="col-4">
+            <p>
+                <span>Primer Parcial:</span>
+                {{this.calificacion.e1parcial}}
+            </p>
+        </div>
+        <div class="col-4">
+            <p>
+                <span>Segundo Parcial:</span>
+                {{this.calificacion.e2parcial}}
+            </p>
+        </div>
+        <div class="col-4">
+            <p>
+                <span>Tercer Parcial:</span>
+                {{this.calificacion.e3parcial}}
+            </p>
+        </div>
+        <div class="col-12">
+            <p>
+                <span>Nota Total:</span>
+                {{this.calificacion.nota_total}}
+            </p>
+        </div>
+
+    </div>
+</ng-template>

@@ -17,12 +17,14 @@ export class EstudianteService {
   }
 
 
-  updateDocente(num_u: string, antiguedad: string, id_carrera: string): Observable<{ status: number }> {
+  updateADEDetalle(num_u: string, antiguedad: string, id_carrera: string, id_tipo: number): Observable<{ status: number }> {
     let formData = new FormData();
-    formData.append('num_dd', num_u);
+    formData.append('num_u', num_u);
     formData.append('antiguedad', antiguedad);
     formData.append('id_carrera', id_carrera);
-    return this.http.post<{ status: number }>('http://localhost:5000/updateDocente', formData);
+    let url = '';
+    id_tipo == 1 ? url = 'http://localhost:5000/updateAdministrativo' : url = 'http://localhost:5000/updateDocente';
+    return this.http.post<{ status: number }>(url, formData);
   }
 
 

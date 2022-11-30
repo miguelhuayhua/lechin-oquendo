@@ -32,6 +32,7 @@ import { AsignarDocenteComponent } from './dashboard/materias/asignar-docente/as
 import { ContactComponent } from './contact/contact.component';
 import { VerAdministrativoAccionesComponent } from './dashboard/usuario/ver-administrativo-acciones/ver-administrativo-acciones.component';
 import { VerAdministrativoComponent } from './dashboard/usuario/ver-administrativo/ver-administrativo.component';
+import { VerComponent } from './dashboard/usuario/ver/ver.component';
 
 const routes: Routes = [
   {
@@ -86,6 +87,20 @@ const routes: Routes = [
             data: { tipo: 'administrativo', id: 1 }
           }
           ,
+
+          {
+            path: 'detalles',
+            component: DetalleDocenteComponent,
+            data: {
+              tipo: 'Administrativo',
+              id: 3
+            }
+          },
+          {
+            path: 'usuario',
+            component: CrearUsuarioComponent,
+            data: { tipo: 1 }
+          },
           {
             path: '',
             component: VerAdministrativoAccionesComponent,
@@ -104,7 +119,6 @@ const routes: Routes = [
           {
             path: 'agregar',
             component: AgregarComponent,
-            data: { tipo: 'estudiante', id: 3 }
           },
           {
             path: 'usuario',
@@ -119,6 +133,12 @@ const routes: Routes = [
             path: 'confirmar',
             component: ConfirmarEstudianteComponent
           },
+          {
+            path: 'editar/:id',
+            component: VerComponent,
+            data: { tipo: 'Estudiante', id: 3 }
+          }
+          ,
           {
             path: '',
             component: VerEstudiantesAccionesComponent,
@@ -151,7 +171,10 @@ const routes: Routes = [
           {
             path: 'detalles',
             component: DetalleDocenteComponent,
-            data: { tipo: 'Docente' }
+            data: {
+              tipo: 'Docente',
+              id: 2
+            }
           },
 
           {

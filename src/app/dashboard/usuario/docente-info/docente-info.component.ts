@@ -11,7 +11,8 @@ export class DocenteInfoComponent implements OnInit {
   constructor() { }
   @Input() f_nac: string = '';
   @Input() departamento: string = '';
-  @Input() docente: ADE = {
+  @Input() tipo: string = '';
+  @Input() ade: ADE = {
     apellidos: '',
     carnet: '',
     departamento: '',
@@ -20,7 +21,7 @@ export class DocenteInfoComponent implements OnInit {
     fecha_nac: '',
     genero: '',
     nombres: '',
-    telf: '',
+    telf: ''
   }
   ngOnInit(): void {
   }

@@ -64,4 +64,15 @@ export class MateriaService {
     formData.append('id_m', id_m.toString());
     return this.http.post<ADE[]>('http://localhost:5000/getEstudiantesMateria', formData);
   }
+  getMateriasADE(num_u: string): Observable<Materia[]> {
+    let formData = new FormData();
+    formData.append('num_u', num_u);
+    return this.http.post<Materia[]>('http://localhost:5000/getMateriasADE', formData);
+  }
+
+  getDocenteMateria(id_m: string): Observable<ADE> {
+    let formData = new FormData();
+    formData.append('id_m', id_m);
+    return this.http.post<ADE>('http://localhost:5000/getDocenteMateria', formData);
+  }
 }

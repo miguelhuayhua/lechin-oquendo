@@ -24,4 +24,5 @@ export class InscripcionService {
      {id_i,materias})
 
   }
+  
 }

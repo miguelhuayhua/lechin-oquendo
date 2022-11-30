@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col-6">
-        <app-docente-info [docente]="this.docente" [f_nac]="this.fecha" [departamento]="this.nombreDepartamento[+this.docente.departamento]"></app-docente-info>
+        <app-docente-info [tipo]="this.tipo.toUpperCase()" [ade]="this.ade" [f_nac]="this.fecha"
+            [departamento]="this.nombreDepartamento[+this.ade.departamento]"></app-docente-info>
     </div>
 
     <div class="col-6">

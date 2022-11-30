@@ -76,23 +76,25 @@ export class VerComponent implements OnInit {
         this.url = 'http://localhost:5000/docente';
       else
         this.url = 'http://localhost:5000/administrativo';
-    })
-    this.activeRoute.paramMap.subscribe(data => {
-      this.num_u = data.get('id')!;
-      this.apiADE.getADEById(this.num_u, this.url).subscribe(data => {
-        this.nombres = data.nombres;
-        this.apellidos = data.apellidos;
-        this.celular = +data.telf;
-        this.ci_nit = data.carnet;
-        this.genero = data.genero;
-        this.correo = data.email;
-        this.ciudad = +data.departamento;
-        this.direccion = data.direccion;
-        this.year = new Date(data.fecha_nac).getFullYear();
-        this.month = new Date(data.fecha_nac).getMonth();
-        this.day = new Date(data.fecha_nac).getDate() + 1;
+
+      this.activeRoute.paramMap.subscribe(data => {
+        this.num_u = data.get('id')!;
+        this.apiADE.getADEById(this.num_u, this.url).subscribe(data => {
+          this.nombres = data.nombres;
+          this.apellidos = data.apellidos;
+          this.celular = +data.telf;
+          this.ci_nit = data.carnet;
+          this.genero = data.genero;
+          this.correo = data.email;
+          this.ciudad = +data.departamento;
+          this.direccion = data.direccion;
+          this.year = new Date(data.fecha_nac).getFullYear();
+          this.month = new Date(data.fecha_nac).getMonth();
+          this.day = new Date(data.fecha_nac).getDate() + 1;
+        })
       })
     })
+
   }
 
   handleSubmit(event: SubmitEvent): void {
