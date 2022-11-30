@@ -45,6 +45,7 @@ export class CrearUsuarioComponent implements OnInit {
       this.tipo = tipo;
       this.activatedRouter.queryParams.subscribe(data => {
         this.id = (data as { id: string }).id;
+        console.log(this.id)
         this.api.getADEById(this.id, this.url).subscribe(data => {
           this.usuario = data.nombres + "_" + data.carnet;
         })

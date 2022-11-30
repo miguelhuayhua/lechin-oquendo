@@ -1,13 +1,13 @@
 <main class="container-fluid position-relative">
     <div class="row mt-3">
         <div class="col-xl-2 d-none d-xl-block">
-            <app-left-navbar></app-left-navbar>
+            <app-left-navbar [usuario]="this.usuario"></app-left-navbar>
         </div>
         <div class="col-12 col-xl-10">
             <div class="row mx-1">
                 <div class="col-12 mb-4 position-sticky" style="z-index: 10;
                 top: 30px;">
-                    <app-dash-navbar></app-dash-navbar>
+                    <app-dash-navbar [usuario]="this.usuario"></app-dash-navbar>
                 </div>
                 <div class="col-12">
                     <router-outlet></router-outlet>
@@ -21,6 +21,5 @@
 
     </div>
     <div class="background-top">
-
     </div>
 </main>

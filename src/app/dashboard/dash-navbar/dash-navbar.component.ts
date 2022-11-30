@@ -1,29 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterEvent } from '@angular/router';
-import { CookieService } from 'ngx-cookie';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Router, RouterEvent } from '@angular/router';
 import { RouterInfoService } from 'src/app/services/router-info.service';
-import { Usuario, UsuarioService } from 'src/app/services/usuario.service';
+import { Usuario } from 'src/app/services/usuario.service';
 @Component({
   selector: 'app-dash-navbar',
   templateUrl: './dash-navbar.component.html',
   styleUrls: ['./dash-navbar.component.scss']
 })
-export class DashNavbarComponent implements OnInit {
+export class DashNavbarComponent implements OnInit, OnChanges {
   showUserOptions: boolean = false;
   //data info
   dashInfo: string = '';
   rutas: { route: string, fullPath: string }[] = [];
 
-  usuario: Usuario = {
+  @Input() usuario: Usuario = {
     num_u: '',
     password: '',
     token_cea: '',
     usuario: ''
   }
   constructor(private router: Router, private routerInfo: RouterInfoService,
-    private userApi: UsuarioService,
-    private cookies: CookieService,
-    private activatedRouter: ActivatedRoute) {
+  ) {
     router.events.subscribe(data => {
       let url: string = (data as RouterEvent).url
       if (url != undefined) {
@@ -41,17 +38,13 @@ export class DashNavbarComponent implements OnInit {
       }
     })
   }
+  ngOnChanges(changes: SimpleChanges): void {
 
-  ngOnInit(): void {
-    if (this.cookies.get('key')! == undefined) {
-      this.router.navigate(['/'], { relativeTo: this.activatedRouter.root })
-    }
-    else {
-      this.userApi.getUsuarioByAccessToken(this.cookies.get('key')!).subscribe(usuario => {
-        this.usuario = usuario;
-      })
-    }
   }
+  ngOnInit(): void {
+
+  }
+
   handleMouseEnter(event: MouseEvent): void {
     this.showUserOptions = true;
   }

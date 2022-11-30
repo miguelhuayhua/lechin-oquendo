@@ -13,7 +13,6 @@ export class CalificacionService {
     let formData = new FormData();
     formData.append('num_u', num_es);
     formData.append('id_m', id_m);
-    console.log(formData)
     return this.http.post<Calificacion | { status: number }>('http://localhost:5000/getNotasEstudiante', formData);
   }
 }

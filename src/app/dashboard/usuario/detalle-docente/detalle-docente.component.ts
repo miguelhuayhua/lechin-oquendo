@@ -45,6 +45,7 @@ export class DetalleDocenteComponent implements OnInit {
     this.activeRoute.data.subscribe(data => {
       this.tipo = (data as { tipo: string }).tipo;
       this.id = (data as { id: number }).id;
+      console.log(this.id)
       if (this.id == 2) {
         this.url = 'http://localhost:5000/docente';
       }
@@ -52,15 +53,15 @@ export class DetalleDocenteComponent implements OnInit {
 
         this.url = 'http://localhost:5000/administrativo';
       }
-    })
-    this.carreraApi.getAllCarreras().subscribe(carreras => {
-      this.carreras = carreras;
-      this.activeRoute.queryParams.subscribe(data => {
-        this.num_u = (data as { id: string }).id;
-        this.apiAde.getADEById(this.num_u, this.url).subscribe(ade => {
-          this.ade = ade;
-          let fecha = new Date(this.ade.fecha_nac);
-          this.fecha = fecha.getDate() + '/' + (fecha.getMonth() + 1) + "/" + fecha.getFullYear();
+      this.carreraApi.getAllCarreras().subscribe(carreras => {
+        this.carreras = carreras;
+        this.activeRoute.queryParams.subscribe(data => {
+          this.num_u = (data as { id: string }).id;
+          this.apiAde.getADEById(this.num_u, this.url).subscribe(ade => {
+            this.ade = ade;
+            let fecha = new Date(this.ade.fecha_nac);
+            this.fecha = fecha.getDate() + '/' + (fecha.getMonth() + 1) + "/" + fecha.getFullYear();
+          })
         })
       })
     })

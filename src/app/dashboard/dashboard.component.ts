@@ -1,8 +1,9 @@
 import { Component, OnInit, } from '@angular/core';
-import { Event, RouterEvent, Router } from '@angular/router';
+import { Event, RouterEvent, Router, ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
 import { RouterInfoService } from '../services/router-info.service';
-import { UsuarioService } from '../services/usuario.service';
+import { StoreService } from '../services/store.service';
+import { Usuario, UsuarioService } from '../services/usuario.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -10,16 +11,27 @@ import { UsuarioService } from '../services/usuario.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private cookie: CookieService,
-    private usuarioApi: UsuarioService) {
-
+  constructor(private userApi: UsuarioService,
+    private cookies: CookieService,
+    private activatedRouter: ActivatedRoute,
+    private store: StoreService,
+    private router: Router) {
   }
-
+  usuario: Usuario = {
+    num_u: '',
+    password: '',
+    token_cea: '',
+    usuario: ''
+  };
   ngOnInit(): void {
-    console.log(this.cookie.getAll())
-    this.usuarioApi.getUsuarioByAccessToken(this.cookie.get('key')!).subscribe(data => {
-      console.log(data)
-    })
+    if (this.cookies.get('key')! == undefined) {
+      this.router.navigate(['/'], { relativeTo: this.activatedRouter.root })
+    }
+    else {
+      this.userApi.getUsuarioByAccessToken(this.cookies.get('key')!).subscribe(usuario => {
+        this.usuario = usuario;
+      })
+    }
   }
 
 }

@@ -93,7 +93,7 @@ const routes: Routes = [
             component: DetalleDocenteComponent,
             data: {
               tipo: 'Administrativo',
-              id: 3
+              id: 1
             }
           },
           {
@@ -119,6 +119,7 @@ const routes: Routes = [
           {
             path: 'agregar',
             component: AgregarComponent,
+            data: { tipo: 'estudiante', id: 3 }
           },
           {
             path: 'usuario',
@@ -220,16 +221,10 @@ const routes: Routes = [
         path: 'inscripcion',
         component: InscripcionComponent
       }
-      ,
-      {
-        path: 'overview',
-        component: MainDashboardComponent,
 
-      }
       , {
         path: '',
-        redirectTo: 'overview',
-        pathMatch: 'full'
+        component: MainDashboardComponent,
       }
     ]
   },

@@ -26,9 +26,12 @@ export class LoginComponent implements OnInit {
   //events
   handleSubmit(e: SubmitEvent) {
     e.preventDefault();
+    console.log('infos')
     this.loginApi.loginPost(this.usuario, this.password).subscribe(res => {
+      console.log(res)
       if ((res as ({ error: number })).error != 1) {
         let dataRes = (res as ({ num_u: string, login_token: string, tipo: number }))
+        console.log(dataRes)
         let expireDate = new Date();
         expireDate.setHours(new Date().getHours() + 2);
         this.cookieService.put('key', dataRes.login_token, { expires: expireDate, sameSite: 'strict', path: '/' })

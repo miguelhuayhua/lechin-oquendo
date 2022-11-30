@@ -5,30 +5,36 @@
                 <h3 class="card-title">Configuraciones básicas</h3>
                 <h5 class="card-subtitle mb-2 text-muted">Si desea cambios importantes, contáctese con un encargado
                     profesional</h5>
-                <form>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                            else.</small>
+                <form class="form col-12">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <mat-form-field class="w-100" appearance="fill">
+                                <mat-label>Celular</mat-label>
+                                <input size="8" [(ngModel)]="this.ade.telf" [ngModelOptions]="{standalone:true}"
+                                    matInput #postalCode maxlength="8" (input)="handleInputPhone($event)"
+                                    placeholder="Coloque su número de celular">
+                                <mat-hint [align]="'start'" class="error" *ngIf="this.showPhoneError1">
+                                    Introduzca un celular válido
+                                </mat-hint>
+                                <mat-hint align="end">{{postalCode.value.length}} / 8</mat-hint>
+                            </mat-form-field>
+
+                        </div>
+                        <div class="col-12">
+                            <mat-form-field class="w-100" appearance="fill">
+                                <mat-label>Correo Electrónico</mat-label>
+                                <input (input)="handleInputEmail($event)" [(ngModel)]="this.ade.email"
+                                    [ngModelOptions]="{standalone:true}" matInput type="email">
+                                <mat-hint [align]="'start'" class="error" *ngIf="this.showEmailError">
+                                    Introduzca el correo con el formato correcto
+                                </mat-hint>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-12">
+                            <input class="btn btn-outline-dark" type="submit" value="ACTUALIZAR DATOS">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Celular</label>
-                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                            else.</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Vuelva a introducir su contraseña">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
@@ -39,7 +45,7 @@
                 <h3 class="card-title">Información personal</h3>
                 <p>
                     <span>Nombre:</span>
-                    Miguel 
+                    Miguel
                 </p>
                 <p>
                     <span>Apellidos:</span>

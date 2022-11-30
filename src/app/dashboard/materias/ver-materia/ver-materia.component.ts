@@ -72,7 +72,6 @@ export class VerMateriaComponent implements OnInit {
           this.docente = res;
         })
         this.apiMateria.getEstudiantesMateria(this.materia.id_m!).subscribe(res => {
-          console.log(res)
           this.ADEList = res;
         })
       })
